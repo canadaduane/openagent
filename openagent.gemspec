@@ -1,35 +1,31 @@
-require 'rubygems'
+# -*- encoding: utf-8 -*-
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'openagent/version'
 
-spec = Gem::Specification.new do |gem|
-  gem.authors = 'Christopher Whiteley'
-  gem.email = 'hello@openzis.org'
-  gem.homepage = %q{http://github.com/cwhiteley/openagent}
-  gem.name = 'OpenAgent'
-  gem.version = '0.5.3'
-  gem.date = %q{2010-08-16}
-  gem.summary = 'OpenAgent is a SIF Agent Development Kit'
-  gem.description = %q{OpenAgent - SIF ADK.(SIF Agent Development Kit)}
+Gem::Specification.new do |gem|
+  gem.name          = "openagent"
+  gem.summary      = "OpenAgent is a SIF Agent Development Kit"
+  gem.description  = "OpenAgent - SIF ADK (SIF Agent Development Kit)"
+  gem.homepage     = "http://github.com/cwhiteley/openagent"
+  gem.authors      = ['Christopher Whiteley', 'Duane Johnson', 'Eric Adams']
+  gem.email        = ['hello@openzis.org', 'duane@instructure.com', 'eadams@instructure.com']
+
+  gem.files = %w[openagent.gemspec README.md]
+  gem.files += Dir.glob("lib/**/*.rb")
+  gem.files += Dir.glob("spec/**/*")
+
+  gem.test_files    = Dir.glob("spec/**/*")
+  gem.require_paths = ["lib"]
+  gem.version       = OpenAgent::VERSION
   gem.required_ruby_version = '>= 1.9.0'
-  gem.files = %w[
-    README
-    openagent.gemspec
-    lib
-    lib/openagent.rb
-    lib/openagent/messages
-    lib/openagent/messages.rb
-    lib/openagent/sif.rb
-    lib/openagent/agent.rb
-    lib/openagent/zone.rb
-    lib/openagent/activity.rb
-    lib/openagent/messages/sif_controlmessage.rb
-    lib/openagent/messages/sif_header.rb
-    lib/openagent/messages/sif_register.rb
-    lib/openagent/messages/sif_unregister.rb
-    lib/openagent/messages/sif_event.rb
-    lib/openagent/messages/sif_provision.rb
-    lib/openagent/messages/sif_request.rb
-    lib/openagent/messages/sif_message.rb
-    lib/openagent/messages/sif_ack.rb
-    ]
-  
+
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "bundler", ">= 1.0.0"
+  gem.add_development_dependency "rspec", "~> 2.6"
+  gem.add_development_dependency "debugger"
+  gem.add_development_dependency "pry"
+
+  gem.add_dependency "uuid"
+  gem.add_dependency "roxml"
 end

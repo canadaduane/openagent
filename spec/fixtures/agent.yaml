@@ -1,0 +1,21 @@
+---
+sourceid : TEST_SOURCEID
+name : TEST_SIF_NAME
+version : 2.0r1
+maxbuffersize : 64000
+mode : Pull
+msg_version : 2.0r1
+msg_xmlns : http://www.sifinfo.org/infrastructure/2.x
+provideobjects:
+subscribeobjects:
+- LEAInfo
+- SchoolInfo
+- StudentPersonal
+publishaddobjects:
+publishchangeobjects:
+publishdeleteobjects:
+requestobjects:
+- LEAInfo
+- SchoolInfo
+- StudentPersonal
+respondobjects:
