@@ -1,5 +1,7 @@
-OpenAgent - Billboard.Net SIF Implementation
+OpenAgent
 =========
+
+Billboard.Net SIF Implementation
 
 Welcome to OpenAgent
 --------------------
