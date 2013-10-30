@@ -1,0 +1,20 @@
+<SIF_Register>
+  <SIF_Header>
+    <SIF_MsgId>14BA09653261545A31905937B265CE01</SIF_MsgId>
+    <SIF_Timestamp>2006-02-18T20:39:12-06:00</SIF_Timestamp>
+    <SIF_SourceId>AcmeAgent</SIF_SourceId>
+  </SIF_Header>
+  <SIF_Name>Acme Agent for WAP 2.x</SIF_Name>
+  <SIF_Version>2.0r1</SIF_Version>
+  <SIF_MaxBufferSize>524288</SIF_MaxBufferSize>
+  <SIF_Mode>Push</SIF_Mode>
+  <SIF_Protocol Type="HTTPS" Secure="Yes">
+    <SIF_URL>https://AcmeHost:8030/StudentAdmin</SIF_URL>
+  </SIF_Protocol>
+  <SIF_NodeVersion>2.0.1.20</SIF_NodeVersion>
+  <SIF_Application>
+    <SIF_Vendor>Acme Consulting</SIF_Vendor>
+    <SIF_Product>Web Administration Portal 5.x</SIF_Product>
+    <SIF_Version>5.1.2</SIF_Version>
+  </SIF_Application>
+</SIF_Register>

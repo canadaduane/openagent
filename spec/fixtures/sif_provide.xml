@@ -1,0 +1,9 @@
+  <SIF_Provide>
+    <SIF_Header>
+      <SIF_MsgId>34DC87FE3261545A31905937B265CE01</SIF_MsgId>
+      <SIF_Timestamp>2006-02-18T20:39:12-08:00</SIF_Timestamp>
+      <SIF_SourceId>RamseySIS</SIF_SourceId>
+    </SIF_Header>
+    <SIF_Object ObjectName="StudentPersonal" />
+    <SIF_Object ObjectName="StudentSchoolEnrollment" />
+  </SIF_Provide>

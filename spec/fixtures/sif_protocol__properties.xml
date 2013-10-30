@@ -1,0 +1,10 @@
+<SIF_Protocol Type="Custom" Secure="No">
+  <SIF_Property>
+    <SIF_Name>CN1</SIF_Name>
+    <SIF_Value>CV1</SIF_Value>
+  </SIF_Property>
+  <SIF_Property>
+    <SIF_Name>CN2</SIF_Name>
+    <SIF_Value>CV2</SIF_Value>
+  </SIF_Property>
+</SIF_Protocol>

@@ -1,0 +1,33 @@
+<SIF_Provision>
+  <SIF_Header>
+    <SIF_MsgId>A10F92EB649F4A648B5BFC44C7FD965C</SIF_MsgId>
+    <SIF_Timestamp>2006-08-18T11:23:11-08:00</SIF_Timestamp>
+    <SIF_SourceId>RamseySIS</SIF_SourceId>
+  </SIF_Header>
+  <SIF_ProvideObjects>
+    <SIF_Object ObjectName="StudentPersonal" />
+    <SIF_Object ObjectName="StudentSchoolEnrollment" />
+  </SIF_ProvideObjects>
+  <SIF_SubscribeObjects>
+    <SIF_Object ObjectName="StudentPicture" />
+  </SIF_SubscribeObjects>
+  <SIF_PublishAddObjects>
+    <SIF_Object ObjectName="StudentPersonal" />
+    <SIF_Object ObjectName="StudentSchoolEnrollment" />
+  </SIF_PublishAddObjects>
+  <SIF_PublishChangeObjects>
+    <SIF_Object ObjectName="StudentPersonal" />
+    <SIF_Object ObjectName="StudentSchoolEnrollment" />
+  </SIF_PublishChangeObjects>
+  <SIF_PublishDeleteObjects>
+    <SIF_Object ObjectName="StudentPersonal" />
+    <SIF_Object ObjectName="StudentSchoolEnrollment" />
+  </SIF_PublishDeleteObjects>
+  <SIF_RequestObjects>
+    <SIF_Object ObjectName="StudentPicture" />
+  </SIF_RequestObjects>
+  <SIF_RespondObjects>
+    <SIF_Object ObjectName="StudentPersonal" />
+    <SIF_Object ObjectName="StudentSchoolEnrollment" />
+  </SIF_RespondObjects>
+</SIF_Provision>

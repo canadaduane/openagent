@@ -1,0 +1,3 @@
+<SIF_Protocol Type="HTTPS" Secure="Yes">
+  <SIF_URL>https://AcmeHost:8030/StudentAdmin</SIF_URL>
+</SIF_Protocol>
