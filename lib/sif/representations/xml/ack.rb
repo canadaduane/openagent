@@ -10,11 +10,11 @@ module SIF
         property :original_msg_id,    :as => 'SIF_OriginalMsgId'
 
         property :header, :as => 'SIF_Header',
-                 :class => SIF::Model::Header, :decorator => XML::Header
+                 :class => SIF::Message::Header, :decorator => XML::Header
         property :status, :as => 'SIF_Status',
-                 :class => SIF::Model::Status, :decorator => XML::Status
+                 :class => SIF::Message::Status, :decorator => XML::Status
         property :error,  :as => 'SIF_Error',
-                 :class => SIF::Model::Error,  :decorator => XML::Error
+                 :class => SIF::Message::Error,  :decorator => XML::Error
       end
     end
   end

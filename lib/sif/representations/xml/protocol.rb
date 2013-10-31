@@ -13,7 +13,7 @@ module SIF
         property :secure, :as => 'Secure', :attribute => true
         property :url,    :as => 'SIF_URL'
         collection :properties, :as => 'SIF_Property',
-                   :class => SIF::Model::Property, :decorator => XML::Property
+                   :class => SIF::Message::Property, :decorator => XML::Property
       end
     end
   end

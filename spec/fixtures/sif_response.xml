@@ -1,107 +1,19 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
-<SIF_Message xmlns="http://www.sifinfo.org/infrastructure/2.x" Version="2.0r1">
-   <SIF_Ack>
-      <SIF_Header>
-         <SIF_MsgId>D72C57D4EE0D4E0AB68BD2393B12E51D</SIF_MsgId>
-         <SIF_Timestamp>2013-10-09T10:42:16-06:00</SIF_Timestamp>
-         <SIF_SourceId>canvas</SIF_SourceId>
-      </SIF_Header>
-      <SIF_OriginalSourceId>canvas</SIF_OriginalSourceId>
-      <SIF_OriginalMsgId>088E6810133001313D9314109FD501C1</SIF_OriginalMsgId>
-      <SIF_Status>
-         <SIF_Code>0</SIF_Code>
-         <SIF_Data>
-            <SIF_Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0r1">
-               <SIF_Response>
-                  <SIF_Header>
-                     <SIF_MsgId>026340A188BA4EAF97C0D42E37F1302C</SIF_MsgId>
-                     <SIF_Timestamp>2013-10-09T10:19:20-06:00</SIF_Timestamp>
-                     <SIF_Security>
-                        <SIF_SecureChannel>
-                           <SIF_AuthenticationLevel>0</SIF_AuthenticationLevel>
-                           <SIF_EncryptionLevel>0</SIF_EncryptionLevel>
-                        </SIF_SecureChannel>
-                     </SIF_Security>
-                     <SIF_SourceId>PowerSchool</SIF_SourceId>
-                     <SIF_DestinationId>canvas</SIF_DestinationId>
-                  </SIF_Header>
-                  <SIF_RequestMsgId>6B05EF70132C01319D9348E0EB1826A1</SIF_RequestMsgId>
-                  <SIF_PacketNumber>209</SIF_PacketNumber>
-                  <SIF_MorePackets>Yes</SIF_MorePackets>
-                  <SIF_ObjectData>
-                     <StudentPersonal RefId="140A051A0D2B360A1E1F0E251FBA175A">
-                        <LocalId>24939</LocalId>
-                        <StateProvinceId>1877331</StateProvinceId>
-                        <OtherIdList>
-                           <OtherId Type="9999">SCHOOL:304</OtherId>
-                        </OtherIdList>
-                        <Name Type="04">
-                           <LastName>Ellis</LastName>
-                           <FirstName>Karl</FirstName>
-                           <MiddleName>E</MiddleName>
-                           <FullName>Ellis, Karl E</FullName>
-                        </Name>
-                        <Demographics>
-                           <RaceList>
-                              <Race>
-                                 <Code>1002</Code>
-                                 <OtherCodeList>
-                                    <OtherCode Codeset="Local">C</OtherCode>
-                                 </OtherCodeList>
-                              </Race>
-                           </RaceList>
-                           <HispanicLatino>No</HispanicLatino>
-                           <Gender>M</Gender>
-                           <BirthDate>1997-08-02</BirthDate>
-                        </Demographics>
-                        <AddressList>
-                           <Address Type="0765">
-                              <Street>
-                                 <Line1>123 Love Ln</Line1>
-                              </Street>
-                              <City>Ruraltown</City>
-                              <StateProvince>UT</StateProvince>
-                              <Country>US</Country>
-                              <PostalCode>84612</PostalCode>
-                           </Address>
-                           <Address Type="0123">
-                              <Street>
-                                 <Line1>123 Love Ln</Line1>
-                              </Street>
-                              <City>Ruraltown</City>
-                              <StateProvince>UT</StateProvince>
-                              <Country>US</Country>
-                              <PostalCode>84612</PostalCode>
-                           </Address>
-                        </AddressList>
-                        <PhoneNumberList>
-                           <PhoneNumber Type="0096">
-                              <Number>801-123-1234</Number>
-                           </PhoneNumber>
-                           <PhoneNumber Type="0350">
-                              <Number>858-123-5678</Number>
-                           </PhoneNumber>
-                        </PhoneNumberList>
-                        <EmailList>
-                           <Email Type="Primary">karl@gmail.com,karlsdad@gmail.com</Email>
-                        </EmailList>
-                        <ProjectedGraduationYear>2017</ProjectedGraduationYear>
-                        <OnTimeGraduationYear>2017</OnTimeGraduationYear>
-                        <MostRecent>
-                           <SchoolLocalId>304</SchoolLocalId>
-                           <GradeLevel>
-                              <Code>09</Code>
-                           </GradeLevel>
-                        </MostRecent>
-                        <SIF_ExtendedElements>
-                           <SIF_ExtendedElement Name="StudentEthnicity">1002</SIF_ExtendedElement>
-                        </SIF_ExtendedElements>
-                     </StudentPersonal>
-                  </SIF_ObjectData>
-               </SIF_Response>
-            </SIF_Message>
-         </SIF_Data>
-      </SIF_Status>
-   </SIF_Ack>
-</SIF_Message>
+<SIF_Response>
+  <SIF_Header>
+    <SIF_MsgId>1BCD10580EF250789012AC0554321EA2</SIF_MsgId>
+    <SIF_Timestamp>2006-02-18T08:39:40-08:00</SIF_Timestamp>
+    <SIF_SourceId>SISAgent</SIF_SourceId>
+    <SIF_DestinationId>NetworkAgent</SIF_DestinationId>
+  </SIF_Header>
+  <SIF_RequestMsgId>FE1078BA3261545A319059376B3A4898</SIF_RequestMsgId>
+  <SIF_PacketNumber>1</SIF_PacketNumber>
+  <SIF_MorePackets>No</SIF_MorePackets>
+  <SIF_ObjectData>
+    <StudentPersonal RefId="E3E34B359D75101A8C3D00AA00184753">
+      <Name Type="04">
+        <LastName>Johnson</LastName>
+        <FirstName>Alicia</FirstName>
+      </Name>
+    </StudentPersonal>
+  </SIF_ObjectData>
+</SIF_Response>

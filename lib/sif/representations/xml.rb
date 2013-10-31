@@ -37,15 +37,17 @@ module SIF
       class Unsubscribe < Representable::Decorator; end
       class Vendor < Representable::Decorator; end
       class ZoneStatus < Representable::Decorator; end
+
+      class StudentPersonal < Representable::Decorator; end
     end
   end
 end
 
 require 'sif/representations/xml/ack'
 # require 'sif/representations/xml/agent_acl'
-# require 'sif/representations/xml/application'
-# require 'sif/representations/xml/condition'
-# require 'sif/representations/xml/condition_group'
+require 'sif/representations/xml/application'
+require 'sif/representations/xml/condition'
+require 'sif/representations/xml/condition_group'
 require 'sif/representations/xml/data'
 require 'sif/representations/xml/error'
 require 'sif/representations/xml/event'
@@ -55,15 +57,16 @@ require 'sif/representations/xml/event'
 require 'sif/representations/xml/header'
 require 'sif/representations/xml/message'
 require 'sif/representations/xml/object'
-# require 'sif/representations/xml/object_data'
+require 'sif/representations/xml/object_data'
 require 'sif/representations/xml/property'
 require 'sif/representations/xml/protocol'
 require 'sif/representations/xml/provide'
 require 'sif/representations/xml/provision'
-# require 'sif/representations/xml/query'
-# require 'sif/representations/xml/query_object'
+require 'sif/representations/xml/query'
+require 'sif/representations/xml/query_object'
 require 'sif/representations/xml/register'
-# require 'sif/representations/xml/response'
+require 'sif/representations/xml/request'
+require 'sif/representations/xml/response'
 require 'sif/representations/xml/secure_channel'
 require 'sif/representations/xml/security'
 require 'sif/representations/xml/status'
@@ -76,3 +79,4 @@ require 'sif/representations/xml/status'
 # require 'sif/representations/xml/vendor'
 # require 'sif/representations/xml/zone_status'
 
+require 'sif/representations/xml/student_personal'

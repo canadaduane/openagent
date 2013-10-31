@@ -1,9 +1,7 @@
 require_relative 'spec_helper'
-require 'sif/representations/xml/protocol'
-require 'sif/models/protocol'
 
 describe SIF::Representation::XML::Protocol do
-  let(:protocol) { SIF::Model::Protocol.new }
+  let(:protocol) { SIF::Message::Protocol.new }
 
   before do
     SIF::Representation::XML::Protocol.new(protocol).from_xml(xml)

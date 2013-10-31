@@ -7,7 +7,7 @@ module SIF
         self.representation_wrap = 'SIF_Data'
 
         property :message, :as => 'SIF_Message',
-                 :class => SIF::Model::Message, :decorator => XML::Message
+                 :class => SIF::Message::Message, :decorator => XML::Message
       end
     end
   end

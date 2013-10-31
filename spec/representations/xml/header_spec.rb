@@ -1,10 +1,8 @@
 require_relative 'spec_helper'
-require 'sif/representations/xml/header'
-require 'sif/models/header'
 
 describe SIF::Representation::XML::Header do
   let(:xml) { File.read(fixture("sif_header.xml")) }
-  let(:header) { SIF::Model::Header.new }
+  let(:header) { SIF::Message::Header.new }
 
   before do
     SIF::Representation::XML::Header.new(header).from_xml(xml)

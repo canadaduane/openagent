@@ -1,10 +1,8 @@
 require_relative 'spec_helper'
-require 'sif/representations/xml/provision'
-require 'sif/models/provision'
 
 describe SIF::Representation::XML::Provision do
   let(:xml) { File.read(fixture("sif_provision.xml")) }
-  let(:provision) { SIF::Model::Provision.new }
+  let(:provision) { SIF::Message::Provision.new }
 
   before do
     SIF::Representation::XML::Provision.new(provision).from_xml(xml)

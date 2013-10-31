@@ -7,7 +7,7 @@ module SIF
         self.representation_wrap = 'SIF_Security'
 
         property :secure_channel, :as => :SIF_SecureChannel,
-                 :class => SIF::Model::SecureChannel, :decorator => XML::SecureChannel
+                 :class => SIF::Message::SecureChannel, :decorator => XML::SecureChannel
       end
     end
   end
