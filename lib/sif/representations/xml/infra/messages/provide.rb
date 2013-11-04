@@ -1,15 +1,21 @@
 module SIF
   module Representation
     module XML
-      class Provide < Representable::Decorator
-        include Representable::XML
+      module Infra
+        module Message
+          class Provide < Representable::Decorator
+            include Representable::XML
 
-        self.representation_wrap = 'SIF_Provide'
+            self.representation_wrap = 'SIF_Provide'
 
-        property :header, :as => :SIF_Header,
-                 :class => SIF::Message::Header, :decorator => XML::Header
-        collection :objects, :as => :SIF_Object,
-                   :class => SIF::Message::Object, :decorator => XML::Object
+            property :header, :as => :SIF_Header,
+                     :class => SIF::Infra::Message::Header,
+                     :decorator => Header
+            collection :objects, :as => :SIF_Object,
+                       :class => SIF::Infra::Message::Object,
+                       :decorator => Object
+          end
+        end
       end
     end
   end
