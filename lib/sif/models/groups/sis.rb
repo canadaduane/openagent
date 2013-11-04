@@ -1,0 +1,1 @@
+require "sif/models/groups/sis/student_personal"

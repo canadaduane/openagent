@@ -1,0 +1,22 @@
+<CalendarDate Date="2007-08-31" CalendarSummaryRefId="B5739375800AC4CC63850BB2754114AA" SchoolInfoRefId="B7A34E561C97345C0A4E11BB112B2753" SchoolYear="2007">
+  <CalendarDateType>
+    <Code>0845</Code>
+    <OtherCodeList>
+      <OtherCode Codeset="StateProvince">20</OtherCode>
+      <OtherCode Codeset="Local">10</OtherCode>
+    </OtherCodeList>
+  </CalendarDateType>
+  <CalendarDateNumber>1</CalendarDateNumber>
+  <StudentAttendance>
+    <CountsTowardAttendance>No</CountsTowardAttendance>
+    <AttendanceValue>0.0</AttendanceValue>
+  </StudentAttendance>
+  <TeacherAttendance>
+    <CountsTowardAttendance>Yes</CountsTowardAttendance>
+    <AttendanceValue>1.0</AttendanceValue>
+  </TeacherAttendance>
+  <AdministratorAttendance>
+    <CountsTowardAttendance>Yes</CountsTowardAttendance>
+    <AttendanceValue>1.0</AttendanceValue>
+  </AdministratorAttendance>
+</CalendarDate>

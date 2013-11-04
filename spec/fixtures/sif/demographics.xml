@@ -1,0 +1,33 @@
+<Demographics>
+  <RaceList>
+    <Race>
+      <Code>1002</Code>
+    </Race>
+  </RaceList>
+  <Gender>M</Gender>
+  <BirthDate>1990-09-26</BirthDate>
+  <BirthDateVerification>1004</BirthDateVerification>
+  <PlaceOfBirth>Miami</PlaceOfBirth>
+  <CountyOfBirth>Dade</CountyOfBirth>
+  <StateOfBirth>FL</StateOfBirth>
+  <CountryOfBirth>US</CountryOfBirth>
+  <CountriesOfCitizenship>
+    <CountryOfCitizenship>US</CountryOfCitizenship>
+  </CountriesOfCitizenship>
+  <CountriesOfResidency>
+    <CountryOfResidency>US</CountryOfResidency>
+  </CountriesOfResidency>
+  <CitizenshipStatus>1017</CitizenshipStatus>
+  <EnglishProficiency>
+    <Code>1633</Code>
+  </EnglishProficiency>
+  <LanguageList>
+    <Language>
+      <Code>eng</Code>
+    </Language>
+  </LanguageList>
+  <DwellingArrangement>
+    <Code>1674</Code>
+  </DwellingArrangement>
+  <MaritalStatus>1042</MaritalStatus>
+</Demographics>

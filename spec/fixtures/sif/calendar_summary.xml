@@ -1,0 +1,21 @@
+<CalendarSummary RefId="B5739375800AC4CC63850BB2754114AA" SchoolInfoRefId="B7A34E561C97345C0A4E11BB112B2753" SchoolYear="2005">
+  <LocalId>123321A</LocalId>
+  <Description>Elementary School Calendar</Description>
+  <DaysInSession>180</DaysInSession>
+  <FirstInstructionDate>2006-09-05</FirstInstructionDate>
+  <LastInstructionDate>2007-06-10</LastInstructionDate>
+  <GraduationDate>2007-06-11</GraduationDate>
+  <InstructionalMinutes>64800</InstructionalMinutes>
+  <MinutesPerDay>360</MinutesPerDay>
+  <GradeLevels>
+    <GradeLevel>
+      <Code>03</Code>
+    </GradeLevel>
+    <GradeLevel>
+      <Code>04</Code>
+    </GradeLevel>
+    <GradeLevel>
+      <Code>05</Code>
+    </GradeLevel>
+  </GradeLevels>
+</CalendarSummary>

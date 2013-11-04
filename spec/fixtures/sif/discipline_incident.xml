@@ -1,0 +1,70 @@
+<DisciplineIncident RefId="A1544ED564995254A4568EFFC5100BD1" SchoolYear="2007">
+  <AgencyReporting SIF_RefObject="SchoolInfo">0847987235489729AAA73011BB365EC3</AgencyReporting>
+  <IncidentNumber>56501</IncidentNumber>
+  <IncidentDate>2007-04-14</IncidentDate>
+  <IncidentTime Type="100">13:20:30</IncidentTime>
+  <IncidentLocation Type="3014">232</IncidentLocation>
+  <IncidentLocationRefId SIF_RefObject="SchoolInfo">0847987235489729AAA73011BB365EC3</IncidentLocationRefId>
+  <IncidentCost>500.00</IncidentCost>
+  <IncidentReporter Type="3422">
+    <Name Type="04">
+      <LastName>Jones</LastName>
+      <FirstName>Sam</FirstName>
+    </Name>
+    <SIF_RefId SIF_RefObject="StaffPersonal">AC47B8703DD89729A55730177B300574</SIF_RefId>
+  </IncidentReporter>
+  <RelatedToList>
+    <RelatedTo>3066</RelatedTo>
+    <RelatedTo>3068</RelatedTo>
+  </RelatedToList>
+  <WeaponTypeList>
+    <WeaponType>0099</WeaponType>
+  </WeaponTypeList>
+  <IncidentCategory>
+    <Code>1500</Code>
+    <OtherCodeList>
+      <OtherCode Codeset="StateProvince">DSRD</OtherCode>
+    </OtherCodeList>
+  </IncidentCategory>
+  <OffenderList>
+    <Offender Type="0126">
+      <Name Type="04">
+        <LastName>Fernall</LastName>
+        <FirstName>William</FirstName>
+      </Name>
+      <SIF_RefId SIF_RefObject="StudentPersonal">0847987235489729AAA73011BB365EC3</SIF_RefId>
+      <Injury>3065</Injury>
+      <ManifestationDetermination>
+        <MeetingHeld>Yes</MeetingHeld>
+        <MeetingDate>2007-04-16</MeetingDate>
+        <DueToDisability>No</DueToDisability>
+      </ManifestationDetermination>
+      <ActionList>
+        <Action>
+          <Code>3080</Code>
+          <OtherCodeList>
+            <OtherCode Codeset="StateProvince">ANMG</OtherCode>
+          </OtherCodeList>
+          <StartDate>2004-04-15</StartDate>
+          <EndDate>2004-04-15</EndDate>
+          <Duration>1</Duration>
+          <ZeroTolerance>No</ZeroTolerance>
+          <FullYearExpulsion>No</FullYearExpulsion>
+          <ShortenedExpulsion>No</ShortenedExpulsion>
+          <PoliceNotification>No</PoliceNotification>
+          <Arrest>No</Arrest>
+          <AlternativeEducation>No</AlternativeEducation>
+        </Action>
+      </ActionList>
+    </Offender>
+  </OffenderList>
+  <VictimList>
+    <Victim Type="3061">
+      <Name Type="04">
+        <LastName>Woolman</LastName>
+        <FirstName>John</FirstName>
+      </Name>
+      <Injury>3065</Injury>
+    </Victim>
+  </VictimList>
+</DisciplineIncident>
