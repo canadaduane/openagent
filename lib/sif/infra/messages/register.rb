@@ -4,9 +4,9 @@ module SIF
       class Register
         include Virtus.model
 
-        attribute :header,          Header
-        attribute :protocol,        Protocol
-        attribute :application,     Application
+        attribute :header,          Common::Header
+        attribute :protocol,        Common::Protocol
+        attribute :application,     Common::Application
         
         attribute :name,            String
         attribute :version,         String

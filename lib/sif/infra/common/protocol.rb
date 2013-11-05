@@ -1,6 +1,8 @@
+require_relative 'property'
+
 module SIF
   module Infra
-    module Message
+    module Common
       class Protocol
         include Virtus.model
 

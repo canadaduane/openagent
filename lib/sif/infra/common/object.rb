@@ -1,11 +1,10 @@
 module SIF
   module Infra
-    module Message
-      class EventObject
+    module Common
+      class Object
         include Virtus.model
 
         attribute :object_name, String
-        attribute :action,      String
       end
     end
   end

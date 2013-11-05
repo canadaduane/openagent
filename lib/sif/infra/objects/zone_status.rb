@@ -1,10 +1,10 @@
 module SIF
   module Infra
-    module Message
+    module Object
       class ZoneStatus
         include Virtus.model
 
-        attribute :vendor,  Vendor
+        attribute :vendor,  Common::Vendor
 
         attribute :zone_id, String
         attribute :name,    String

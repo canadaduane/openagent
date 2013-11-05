@@ -4,9 +4,9 @@ module SIF
       class Request
         include Virtus.model
 
-        attribute :header,          Header
-        attribute :query,           Query
-        attribute :extended_query,  ExtendedQuery
+        attribute :header,          Common::Header
+        attribute :query,           Common::Query
+        attribute :extended_query,  Common::ExtendedQuery
 
         attribute :version,         String
         attribute :max_buffer_size, Integer

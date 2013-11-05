@@ -1,6 +1,9 @@
+require_relative 'query_object'
+require_relative 'condition_group'
+
 module SIF
   module Infra
-    module Message
+    module Common
       class Query
         include Virtus.model
 

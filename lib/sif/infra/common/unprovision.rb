@@ -1,10 +1,8 @@
 module SIF
   module Infra
-    module Message
-      class Data
+    module Common
+      class Unprovision
         include Virtus.model
-
-        attribute :message, Message
       end
     end
   end

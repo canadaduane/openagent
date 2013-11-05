@@ -1,6 +1,8 @@
+require_relative 'condition'
+
 module SIF
   module Infra
-    module Message
+    module Common
       class ConditionGroup
         include Virtus.model
         

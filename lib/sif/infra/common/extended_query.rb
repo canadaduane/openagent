@@ -1,6 +1,6 @@
 module SIF
   module Infra
-    module Message
+    module Common
       class ExtendedQuery
         include Virtus.model
 

@@ -7,9 +7,9 @@ module SIF
         attribute :original_source_id, String
         attribute :original_msg_id,    String
 
-        attribute :header, Header
-        attribute :status, Status
-        attribute :error,  Error
+        attribute :header, Common::Header
+        attribute :status, Common::Status
+        attribute :error,  Common::Error
       end
     end
   end

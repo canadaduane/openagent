@@ -1,6 +1,8 @@
+require_relative 'secure_channel'
+
 module SIF
   module Infra
-    module Message
+    module Common
       class Security
         include Virtus.model
 

@@ -1,11 +1,11 @@
 module SIF
   module Infra
-    module Message
-      class QueryObject
+    module Common
+      class EventObject
         include Virtus.model
 
         attribute :object_name, String
-        attribute :element,     String
+        attribute :action,      String
       end
     end
   end
