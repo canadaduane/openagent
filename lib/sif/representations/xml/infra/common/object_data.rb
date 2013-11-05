@@ -2,14 +2,14 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class ObjectData < Representable::Decorator
             include Representable::XML
 
             self.representation_wrap = 'SIF_ObjectData'
 
             property :event_object, :as => 'SIF_EventObject',
-                     :class => SIF::Infra::Message::EventObject,
+                     :class => SIF::Infra::Common::EventObject,
                      :decorator => EventObject
 
             collection :objects, :as => 'StudentPersonal',

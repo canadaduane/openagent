@@ -2,7 +2,7 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class Protocol < Representable::Decorator
             include Representable::XML
 
@@ -15,7 +15,7 @@ module SIF
             property :secure, :as => 'Secure', :attribute => true
             property :url,    :as => 'SIF_URL'
             collection :properties, :as => 'SIF_Property',
-                       :class => SIF::Infra::Message::Property,
+                       :class => SIF::Infra::Common::Property,
                        :decorator => Property
           end
         end

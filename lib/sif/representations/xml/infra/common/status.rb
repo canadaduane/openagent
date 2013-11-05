@@ -2,7 +2,7 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class Status < Representable::Decorator
             include Representable::XML
 
@@ -11,7 +11,7 @@ module SIF
             property :code, :as => 'SIF_Code'
             property :desc, :as => 'SIF_Desc'
             property :data, :as => 'SIF_Data',
-                     :class => SIF::Infra::Message::Data,
+                     :class => SIF::Infra::Common::Data,
                      :decorator => Data
           end
         end

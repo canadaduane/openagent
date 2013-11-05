@@ -2,7 +2,7 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class SecureChannel < Representable::Decorator
             include Representable::XML
 

@@ -2,7 +2,7 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class Object < Representable::Decorator
             include Representable::XML
 

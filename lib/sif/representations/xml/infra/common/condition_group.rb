@@ -2,7 +2,7 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class ConditionGroup < Representable::Decorator
             include Representable::XML
 
@@ -11,7 +11,7 @@ module SIF
             property :type, :as => 'Type', :attribute => true
 
             collection :conditions, :as => 'SIF_Conditions',
-                       :class => SIF::Infra::Message::Condition,
+                       :class => SIF::Infra::Common::Condition,
                        :decorator => Condition
           end
         end

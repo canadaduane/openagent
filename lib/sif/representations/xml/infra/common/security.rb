@@ -2,14 +2,14 @@ module SIF
   module Representation
     module XML
       module Infra
-        module Message
+        module Common
           class Security < Representable::Decorator
             include Representable::XML
 
             self.representation_wrap = 'SIF_Security'
 
             property :secure_channel, :as => :SIF_SecureChannel,
-                     :class => SIF::Infra::Message::SecureChannel,
+                     :class => SIF::Infra::Common::SecureChannel,
                      :decorator => SecureChannel
           end
         end
