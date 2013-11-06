@@ -4,7 +4,7 @@ module SIF
       class SystemControl
         include Virtus.model
 
-        attribute :header,              Header
+        attribute :header,              Common::Header
         attribute :system_control_data, Array[String]
 
       end

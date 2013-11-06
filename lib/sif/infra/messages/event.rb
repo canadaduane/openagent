@@ -4,8 +4,8 @@ module SIF
       class Event
         include Virtus.model
 
-        attribute :header,      Header
-        attribute :object_data, ObjectData
+        attribute :header,      Common::Header
+        attribute :object_data, Common::ObjectData
       end
     end
   end

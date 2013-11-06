@@ -4,8 +4,8 @@ module SIF
       class Provide
         include Virtus.model
 
-        attribute :header,  Header
-        attribute :objects, Array[Object]
+        attribute :header,  Common::Header
+        attribute :objects, Array[Common::Object]
 
         def object_names
           objects.map{ |o| o.object_name }

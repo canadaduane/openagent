@@ -4,7 +4,7 @@ module SIF
       class Unregister
         include Virtus.model
 
-        attribute :header, Header
+        attribute :header, Common::Header
       end
     end
   end

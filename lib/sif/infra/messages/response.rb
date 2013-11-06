@@ -4,10 +4,10 @@ module SIF
       class Response
         include Virtus.model
 
-        attribute :header, Header
-        attribute :error, Error
-        attribute :object_data, ObjectData
-        attribute :extended_query_results, ExtendedQueryResults
+        attribute :header,      Common::Header
+        attribute :error,       Common::Error
+        attribute :object_data, Common::ObjectData
+        attribute :extended_query_results, Common::ExtendedQueryResults
 
         attribute :request_msg_id, String
         attribute :packet_number,  Integer

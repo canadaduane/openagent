@@ -4,8 +4,8 @@ module SIF
       class Subscribe
         include Virtus.model
 
-        attribute :header, Header
-        attribute :object, Object
+        attribute :header, Common::Header
+        attribute :object, Common::Object
       end
     end
   end

@@ -4,14 +4,14 @@ module SIF
       class Provision
         include Virtus.model
 
-        attribute :header,                 Header
-        attribute :provide_objects,        Array[Object]
-        attribute :subscribe_objects,      Array[Object]
-        attribute :publish_add_objects,    Array[Object]
-        attribute :publish_change_objects, Array[Object]
-        attribute :publish_delete_objects, Array[Object]
-        attribute :request_objects,        Array[Object]
-        attribute :respond_objects,        Array[Object]
+        attribute :header,                 Common::Header
+        attribute :provide_objects,        Array[Common::Object]
+        attribute :subscribe_objects,      Array[Common::Object]
+        attribute :publish_add_objects,    Array[Common::Object]
+        attribute :publish_change_objects, Array[Common::Object]
+        attribute :publish_delete_objects, Array[Common::Object]
+        attribute :request_objects,        Array[Common::Object]
+        attribute :respond_objects,        Array[Common::Object]
       end
     end
   end
