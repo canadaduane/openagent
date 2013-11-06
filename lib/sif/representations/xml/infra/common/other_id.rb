@@ -9,7 +9,7 @@ module SIF
             self.representation_wrap = 'SIF_OtherId'
 
             property :type, :attribute => true, :as => 'Type'
-            property :value
+            property :value, :as => 'SIF_OtherId'
           end
         end
       end

@@ -1,11 +1,11 @@
 module SIF
   module Infra
     module Common
-      class ExtendedQueryResults
+      class OtherId
         include Virtus.model
-        
-        attribute :column_headers
-        attribute :rows
+
+        attribute :type, String
+        attribute :value, String
       end
     end
   end
