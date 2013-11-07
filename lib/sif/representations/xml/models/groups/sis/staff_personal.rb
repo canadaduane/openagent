@@ -4,28 +4,15 @@ module SIF
       module Model
         module Group
           module SIS
-            class StaffPersonal < Representable::Decorator
+            class StaffPersonal <  Representable::Decorator
               include Representable::XML
+              include SISRepresenter
+              include PersonalRepresenter
 
               self.representation_wrap = 'StaffPersonal'
+              property :title, :as => "Title"
+              property :employee_personal_ref_id, :as => "EmployeePersonalRefId"
 
-              property :ref_id, :attribute => true, :as => "RefId"
-              property :local_id, :as => "LocalId"
-              property :state_province_id, :as => "StateProvinceId"
-              "ElectronicList"
-              "OtherIdList"
-              "Name"
-              "OtherNames"
-              "Demographics"
-              "Title"
-              "AddressList"
-              "PhoneNumberList"
-              "EmailList"
-              "EmployeePersonalRefId"
-              "SIF_Metadata"
-              "SIF_ExtendedElements"
-              property :metadata => "SIF_Metadata"
-              property :extended_elements => "SIF_ExtendedElements"
             end
           end
         end
