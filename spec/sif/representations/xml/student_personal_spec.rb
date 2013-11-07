@@ -9,6 +9,6 @@ describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
   end
 
   it "parses" do
-    student.version.should == "2.*"
+    student.ref_id.should == "D3E34B359D75101A8C3D00AA001A1652"
   end
 end
