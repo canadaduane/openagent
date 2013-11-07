@@ -8,7 +8,7 @@ describe SIF::Representation::XML::Infra::Common::Protocol do
   end
 
   context "url" do
-    let(:xml) { File.read(fixture("sif_protocol.xml")) }
+    let(:xml) { File.read(fixture("sif/sif_protocol.xml")) }
 
     it "parses" do
       protocol.type.should == "HTTPS"
@@ -20,7 +20,7 @@ describe SIF::Representation::XML::Infra::Common::Protocol do
   end
 
   context "properties" do
-    let(:xml) { File.read(fixture("sif_protocol__properties.xml")) }
+    let(:xml) { File.read(fixture("sif/sif_protocol__properties.xml")) }
 
     it "parses" do
       protocol.type.should == "Custom"

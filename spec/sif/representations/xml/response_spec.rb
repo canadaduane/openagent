@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe SIF::Representation::XML::Infra::Message::Response do
-  let(:xml) { File.read(fixture("sif_response.xml")) }
+  let(:xml) { File.read(fixture("sif/sif_response.xml")) }
   let(:response) { SIF::Infra::Message::Response.new }
 
   before do
