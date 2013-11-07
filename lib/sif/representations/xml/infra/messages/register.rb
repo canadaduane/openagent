@@ -9,14 +9,14 @@ module SIF
             self.representation_wrap = 'SIF_Register'
 
             property :header, :as => 'SIF_Header',
-                     :class => SIF::Infra::Message::Header,
-                     :decorator => Header
+                     :class => SIF::Infra::Common::Header,
+                     :decorator => XML::Infra::Common::Header
             property :protocol, :as => 'SIF_Protocol',
-                     :class => SIF::Infra::Message::Protocol,
-                     :decorator => Protocol
+                     :class => SIF::Infra::Common::Protocol,
+                     :decorator => XML::Infra::Common::Protocol
             property :application, :as => 'SIF_Application',
-                     :class => SIF::Infra::Message::Application,
-                     :decorator => Application
+                     :class => SIF::Infra::Common::Application,
+                     :decorator => XML::Infra::Common::Application
             
             property :name, :as => 'SIF_Name'
             property :version, :as => 'SIF_Version'

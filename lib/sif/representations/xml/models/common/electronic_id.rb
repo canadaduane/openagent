@@ -1,8 +1,8 @@
 module SIF
   module Representation
     module XML
-      module Infra
-        module Message
+      module Model
+        module Common
           class ElectronicId < Representable::Decorator
             include Representable::XML
 

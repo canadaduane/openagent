@@ -1,3 +1,5 @@
+require_relative 'secure_channel'
+
 module SIF
   module Representation
     module XML

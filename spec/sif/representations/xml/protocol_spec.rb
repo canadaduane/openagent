@@ -1,10 +1,10 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Protocol do
-  let(:protocol) { SIF::Message::Protocol.new }
+describe SIF::Representation::XML::Infra::Common::Protocol do
+  let(:protocol) { SIF::Infra::Common::Protocol.new }
 
   before do
-    SIF::Representation::XML::Protocol.new(protocol).from_xml(xml)
+    SIF::Representation::XML::Infra::Common::Protocol.new(protocol).from_xml(xml)
   end
 
   context "url" do

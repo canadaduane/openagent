@@ -1,3 +1,5 @@
+require_relative 'message'
+
 module SIF
   module Representation
     module XML

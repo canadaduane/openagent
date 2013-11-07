@@ -1,3 +1,6 @@
+require_relative 'query_object'
+require_relative 'condition_group'
+
 module SIF
   module Representation
     module XML

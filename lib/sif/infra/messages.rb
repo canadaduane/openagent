@@ -1,20 +1,23 @@
 require 'virtus'
 
-require 'sif/infra/common'
+require_relative 'common'
 
-require 'sif/infra/messages/ack'
-require 'sif/infra/messages/event'
-require 'sif/infra/messages/ping'
-require 'sif/infra/messages/provide'
-require 'sif/infra/messages/provision'
-require 'sif/infra/messages/register'
-require 'sif/infra/messages/request'
-require 'sif/infra/messages/response'
-require 'sif/infra/messages/sleep'
-require 'sif/infra/messages/subscribe'
-require 'sif/infra/messages/system_control'
-require 'sif/infra/messages/unprovide'
-require 'sif/infra/messages/unregister'
-require 'sif/infra/messages/unsubscribe'
-require 'sif/infra/messages/wakeup'
-
+%w(
+  ack
+  event
+  ping
+  provide
+  provision
+  register
+  request
+  response
+  sleep
+  subscribe
+  system_control
+  unprovide
+  unregister
+  unsubscribe
+  wakeup
+).each do |c|
+  require "sif/infra/messages/#{c}"
+end

@@ -1,3 +1,5 @@
+require_relative 'security'
+
 module SIF
   module Representation
     module XML

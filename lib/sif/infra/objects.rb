@@ -2,5 +2,9 @@ require 'virtus'
 
 require 'sif/infra/common'
 
-require 'sif/infra/objects/agent_acl'
-require 'sif/infra/objects/zone_status'
+%w(
+  agent_acl
+  zone_status
+).each do |c|
+  require "sif/infra/objects/#{c}"
+end

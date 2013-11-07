@@ -1,24 +1,28 @@
 require 'virtus'
 
-require 'sif/infra/common/application'
-require 'sif/infra/common/condition'
-require 'sif/infra/common/condition_group'
-require 'sif/infra/common/data'
-require 'sif/infra/common/error'
-require 'sif/infra/common/event_object'
-require 'sif/infra/common/extended_query'
-require 'sif/infra/common/extended_query_results'
-require 'sif/infra/common/header'
-require 'sif/infra/common/message'
-require 'sif/infra/common/object'
-require 'sif/infra/common/object_data'
-require 'sif/infra/common/property'
-require 'sif/infra/common/protocol'
-require 'sif/infra/common/query'
-require 'sif/infra/common/query_object'
-require 'sif/infra/common/secure_channel'
-require 'sif/infra/common/security'
-require 'sif/infra/common/status'
-require 'sif/infra/common/unprovision'
-require 'sif/infra/common/vendor'
-#TODO
+%w(
+  application
+  condition
+  condition_group
+  data
+  error
+  event_object
+  extended_query
+  extended_query_results
+  header
+  message
+  object
+  object_data
+  property
+  protocol
+  query
+  query_object
+  secure_channel
+  security
+  status
+  unprovision
+  vendor
+).each do |c|
+  require "sif/infra/common/#{c}"
+end
+
