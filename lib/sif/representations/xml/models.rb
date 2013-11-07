@@ -1,3 +1,3 @@
-require 'sif/representations/xml/infra/common'
-require 'sif/representations/xml/infra/messages'
-require 'sif/representations/xml/infra/objects'
+require 'sif/representations/xml/models/common'
+require 'sif/representations/xml/models/groups'
+require 'sif/representations/xml/models/objects'

@@ -9,10 +9,10 @@ module SIF
             self.representation_wrap = 'SIF_Provide'
 
             property :header, :as => :SIF_Header,
-                     :class => SIF::Infra::Message::Header,
+                     :class => SIF::Infra::Common::Header,
                      :decorator => Header
             collection :objects, :as => :SIF_Object,
-                       :class => SIF::Infra::Message::Object,
+                       :class => SIF::Infra::Common::Object,
                        :decorator => Object
           end
         end

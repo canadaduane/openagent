@@ -9,13 +9,13 @@ module SIF
             self.representation_wrap = 'SIF_Error'
 
             property :header, :as => 'SIF_Header',
-                     :class => SIF::Infra::Message::Header,
+                     :class => SIF::Infra::Common::Header,
                      :decorator => Header
             property :query, :as => 'SIF_Query',
-                     :class => SIF::Infra::Message::Query,
+                     :class => SIF::Infra::Common::Query,
                      :decorator => Query
             property :extended_query,  :as => 'SIF_ExtendedQuery',
-                     :class => SIF::Infra::Message::ExtendedQuery,
+                     :class => SIF::Infra::Common::ExtendedQuery,
                      :decorator => ExtendedQuery
 
             property :version, :as => 'SIF_Version'

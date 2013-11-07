@@ -1,0 +1,1 @@
+require 'sif/representations/xml/models/groups/sis'

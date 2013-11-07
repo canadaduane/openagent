@@ -3,20 +3,24 @@ require 'representable/xml'
 
 require 'sif/infra/common'
 
-require 'sif/representations/xml/infra/common/application'
-require 'sif/representations/xml/infra/common/condition'
-require 'sif/representations/xml/infra/common/condition_group'
-require 'sif/representations/xml/infra/common/data'
-require 'sif/representations/xml/infra/common/error'
-require 'sif/representations/xml/infra/common/header'
-require 'sif/representations/xml/infra/common/message'
-require 'sif/representations/xml/infra/common/object'
-require 'sif/representations/xml/infra/common/object_data'
-require 'sif/representations/xml/infra/common/other_id'
-require 'sif/representations/xml/infra/common/property'
-require 'sif/representations/xml/infra/common/protocol'
-require 'sif/representations/xml/infra/common/query'
-require 'sif/representations/xml/infra/common/query_object'
-require 'sif/representations/xml/infra/common/secure_channel'
-require 'sif/representations/xml/infra/common/security'
-require 'sif/representations/xml/infra/common/status'
+%w(
+  application
+  condition
+  condition_group
+  data
+  error
+  header
+  message
+  object
+  object_data
+  other_id
+  property
+  protocol
+  query
+  query_object
+  secure_channel
+  security
+  status
+).each do |c|
+  require "sif/representations/xml/infra/common/#{c}"
+end

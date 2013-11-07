@@ -2,19 +2,24 @@ require 'representable'
 require 'representable/xml'
 
 require 'sif/infra/messages'
+require 'sif/representations/xml/infra/common'
 
-require 'sif/representations/xml/infra/messages/ack'
-require 'sif/representations/xml/infra/messages/event'
-require 'sif/representations/xml/infra/messages/ping'
-require 'sif/representations/xml/infra/messages/provide'
-require 'sif/representations/xml/infra/messages/provision'
-require 'sif/representations/xml/infra/messages/register'
-require 'sif/representations/xml/infra/messages/request'
-require 'sif/representations/xml/infra/messages/response'
-require 'sif/representations/xml/infra/messages/subscribe'
-require 'sif/representations/xml/infra/messages/sleep'
-#require 'sif/representations/xml/infra/messages/system_control'
-#require 'sif/representations/xml/infra/messages/unprovide'
-#require 'sif/representations/xml/infra/messages/unregister'
-#require 'sif/representations/xml/infra/messages/unsubscribe'
-require 'sif/representations/xml/infra/messages/wakeup'
+#system_control
+#unprovide
+#unregister
+#unsubscribe
+%w(
+  ack
+  event
+  ping
+  provide
+  provision
+  register
+  request
+  response
+  subscribe
+  sleep
+  wakeup
+).each do |c|
+  require "sif/representations/xml/infra/common/#{c}"
+end

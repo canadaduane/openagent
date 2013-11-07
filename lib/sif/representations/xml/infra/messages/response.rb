@@ -9,16 +9,16 @@ module SIF
             self.representation_wrap = 'SIF_Response'
 
             property :header, :as => 'SIF_Header',
-                     :class => SIF::Infra::Message::Header,
+                     :class => SIF::Infra::Common::Header,
                      :decorator => Header
             property :error,  :as => 'SIF_Error',
-                     :class => SIF::Infra::Message::Error,
+                     :class => SIF::Infra::Common::Error,
                      :decorator => Error
             property :object_data, :as => 'SIF_ObjectData',
-                     :class => SIF::Infra::Message::ObjectData,
+                     :class => SIF::Infra::Common::ObjectData,
                      :decorator => ObjectData
             property :extended_query_results, :as => 'SIF_ExtendedQueryResults',
-                     :class => SIF::Infra::Message::ExtendedQueryResults,
+                     :class => SIF::Infra::Common::ExtendedQueryResults,
                      :decorator => ExtendedQueryResults
 
             property :request_msg_id, :as => 'SIF_RequestMsgId'
