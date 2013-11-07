@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::StudentPersonal do
+describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
   let(:xml) { File.read(fixture("student_personal.xml")) }
-  let(:student) { SIF::Model::StudentPersonal.new }
+  let(:student) { SIF::Model::Group::SIS::StudentPersonal.new }
 
   before do
-    SIF::Representation::XML::StudentPersonal.new(student).from_xml(xml)
+    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml)
   end
 
   it "parses" do

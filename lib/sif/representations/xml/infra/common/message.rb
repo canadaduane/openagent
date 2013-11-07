@@ -4,18 +4,18 @@ module SIF
       module Infra
         # pre-define Infra::Message:* classes so we don't create cyclic requires
         module Message
-          class Ack; end
-          class Event; end
-          class Provide; end
-          class Provision; end
-          class Register; end
-          class Request; end
-          class Response; end
-          class Subscribe; end
-          class SystemControl; end
-          class Unprovide; end
-          class Unregister; end
-          class Unsubscribe; end
+          class Ack < Representable::Decorator; end
+          class Event < Representable::Decorator; end
+          class Provide < Representable::Decorator; end
+          class Provision < Representable::Decorator; end
+          class Register < Representable::Decorator; end
+          class Request < Representable::Decorator; end
+          class Response < Representable::Decorator; end
+          class Subscribe < Representable::Decorator; end
+          class SystemControl < Representable::Decorator; end
+          class Unprovide < Representable::Decorator; end
+          class Unregister < Representable::Decorator; end
+          class Unsubscribe < Representable::Decorator; end
         end
 
         module Common

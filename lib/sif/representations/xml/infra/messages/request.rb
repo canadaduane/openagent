@@ -10,13 +10,13 @@ module SIF
 
             property :header, :as => 'SIF_Header',
                      :class => SIF::Infra::Common::Header,
-                     :decorator => Header
+                     :decorator => XML::Infra::Common::Header
             property :query, :as => 'SIF_Query',
                      :class => SIF::Infra::Common::Query,
-                     :decorator => Query
+                     :decorator => XML::Infra::Common::Query
             property :extended_query,  :as => 'SIF_ExtendedQuery',
                      :class => SIF::Infra::Common::ExtendedQuery,
-                     :decorator => ExtendedQuery
+                     :decorator => XML::Infra::Common::ExtendedQuery
 
             property :version, :as => 'SIF_Version'
             property :max_buffer_size, :as => 'SIF_MaxBufferSize'

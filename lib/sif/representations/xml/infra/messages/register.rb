@@ -10,13 +10,13 @@ module SIF
 
             property :header, :as => 'SIF_Header',
                      :class => SIF::Infra::Common::Header,
-                     :decorator => Header
+                     :decorator => XML::Infra::Common::Header
             property :protocol, :as => 'SIF_Protocol',
                      :class => SIF::Infra::Common::Protocol,
-                     :decorator => Protocol
+                     :decorator => XML::Infra::Common::Protocol
             property :application, :as => 'SIF_Application',
                      :class => SIF::Infra::Common::Application,
-                     :decorator => Application
+                     :decorator => XML::Infra::Common::Application
             
             property :name, :as => 'SIF_Name'
             property :version, :as => 'SIF_Version'

@@ -10,10 +10,10 @@ module SIF
 
             property :header, :as => :SIF_Header,
                      :class => SIF::Infra::Common::Header,
-                     :decorator => Header
+                     :decorator => XML::Infra::Common::Header
             collection :objects, :as => :SIF_Object,
                        :class => SIF::Infra::Common::Object,
-                       :decorator => Object
+                       :decorator => XML::Infra::Common::Object
           end
         end
       end

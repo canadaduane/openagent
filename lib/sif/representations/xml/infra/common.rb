@@ -9,6 +9,9 @@ require 'sif/infra/common'
   condition_group
   data
   error
+  event_object
+  extended_query
+  extended_query_results
   header
   message
   object

@@ -21,5 +21,5 @@ require 'sif/representations/xml/infra/common'
   sleep
   wakeup
 ).each do |c|
-  require "sif/representations/xml/infra/common/#{c}"
+  require "sif/representations/xml/infra/messages/#{c}"
 end

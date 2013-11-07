@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Register do
+describe SIF::Representation::XML::Infra::Message::Register do
   let(:xml) { File.read(fixture("sif_register.xml")) }
-  let(:register) { SIF::Message::Register.new }
+  let(:register) { SIF::Infra::Message::Register.new }
 
   before do
-    SIF::Representation::XML::Register.new(register).from_xml(xml)
+    SIF::Representation::XML::Infra::Message::Register.new(register).from_xml(xml)
   end
 
   it "parses" do

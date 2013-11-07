@@ -1,3 +1,6 @@
+require 'sif/models'
+require 'sif/representations/xml/models'
+
 module SIF
   module Representation
     module XML
@@ -33,29 +36,29 @@ module SIF
               property :extended_elements, :as => "SIF_ExtendedElements"
 
               collection :alert_messages, :as => "AlertMessages",
-                         :class => SIF::Model::AlertMessage,
-                         :decorator => SIF::Representation::XML::AlertMessage
+                         :class => SIF::Model::Common::AlertMessage,
+                         :decorator => SIF::Representation::XML::Model::Common::AlertMessage
               collection :medical_alert_messages, :as => "MedicalAlertMessages",
-                         :class => SIF::Model::MedicalAlertMessage,
-                         :decorator => SIF::Representation::XML::MedicalAlertMessage
-              collection :electronic_ids, :as => "ElectronicIdList",
-                         :class => SIF::Model::ElectronicId,
-                         :decorator => SIF::Representation::XML::ElectronicId
-              collection :other_ids, :as => "OtherIdList",
-                         :class => SIF::Model::OtherId,
-                         :decorator => SIF::Representation::XML::OtherId
-              collection :addresses, :as => "AddressList",
-                         :class => SIF::Model::Address,
-                         :decorator => SIF::Representation::XML::Address
-              collection :phone_numbers, :as => "PhoneNumberList",
-                         :class => SIF::Model::PhoneNumber,
-                         :decorator => SIF::Representation::XML::PhoneNumber
-              collection :emails, :as => "EmailList",
-                         :class => SIF::Model::Email,
-                         :decorator => SIF::Representation::XML::Email
-              property  :demographics, :as => "Demographics",
-                        :class => SIF::Model::Demographics,
-                        :decorator => SIF::Representation::XML::Demographics
+                         :class => SIF::Model::Common::MedicalAlertMessage,
+                         :decorator => SIF::Representation::XML::Model::Common::MedicalAlertMessage
+              # collection :electronic_ids, :as => "ElectronicIdList",
+              #            :class => SIF::Model::Common::ElectronicId,
+              #            :decorator => SIF::Representation::XML::Model::Common::ElectronicId
+              # collection :other_ids, :as => "OtherIdList",
+              #            :class => SIF::Model::Common::OtherId,
+              #            :decorator => SIF::Representation::XML::Model::Common::OtherId
+              # collection :addresses, :as => "AddressList",
+              #            :class => SIF::Model::Common::Address,
+              #            :decorator => SIF::Representation::XML::Model::Common::Address
+              # collection :phone_numbers, :as => "PhoneNumberList",
+              #            :class => SIF::Model::Common::PhoneNumber,
+              #            :decorator => SIF::Representation::XML::Model::Common::PhoneNumber
+              # collection :emails, :as => "EmailList",
+              #            :class => SIF::Model::Common::Email,
+              #            :decorator => SIF::Representation::XML::Model::Common::Email
+              # property  :demographics, :as => "Demographics",
+              #           :class => SIF::Model::Common::Demographics,
+              #           :decorator => SIF::Representation::XML::Model::Common::Demographics
             end
           end
         end
