@@ -19,6 +19,16 @@ module SIF
         attribute :unprovide
         attribute :unregister
         attribute :unsubscribe
+
+        def message
+          ack || event || provide || provision ||
+          register || request || response || subscribe ||
+          system_control || unprovide || unregister || unsubscribe
+        end
+
+        def msg_id
+          message && message.header.msg_id
+        end
       end
     end
   end

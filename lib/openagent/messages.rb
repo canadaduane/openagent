@@ -10,7 +10,7 @@ require 'openagent/messages/sif_response'
 
 require 'openagent/messages/sif_message'
 
-require 'openagent/sif'
+require 'openagent/messaging'
 
 module OpenAgent
   def self.Message(xml)
