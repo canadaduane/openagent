@@ -6,22 +6,29 @@ module SIF
           module SIS
             class SectionInfo < Representable::Decorator
               include Representable::XML
-
+              include SISRepresenter
               self.representation_wrap = 'SectionInfo'
 
-              property :ref_id, :attribute => true, :as => "RefId"
-              "SchoolCourseInfoRefId"
-              "SchoolYear"
-              "LocalId"
-              "Description"
-              "ScheduleInfoList"
-              "MediumOfInstruction"
-              "LanguageOfInstruction"
-              "LocationOfInstruction"
-              "SummerSchool"
-              "SchoolCourseInfoOverride"
-              property :metadata => "SIF_Metadata"
-              property :extended_elements => "SIF_ExtendedElements"
+              property :school_course_info, :attribute => true, :as => 'SchoolCourseInfoRefId'
+              property :school_year, :attribute => true, :as => 'SchoolYear'
+              property :local_id, :as => 'LocalId'
+              property :description, :as => 'Description'
+              collection :schedule_infos, :as => 'ScheduleInfoList',
+                         :class => SIF_MODEL::ScheduleInfoList,
+                         :decorator => SIF_XML::ScheduleInfoList
+              property :medium_of_instruction, :as => 'MediumOfInstruction',
+                       :class => SIF_MODEL::MediumOfInstruction,
+                       :decorator => SIF_XML::MediumOfInstruction
+              property :language_of_instruction, :as => 'LanguageOfInstruction',
+                       :class => SIF_MODEL::LanguageOfInstruction,
+                       :decorator => SIF_XML::LanguageOfInstruction
+              property :location_of_instruction, :as => 'LocationOfInstruction',
+                       :class => SIF_MODEL::LocationOfInstruction,
+                       :decorator => SIF_XML::LocationOfInstruction
+              property :summer_school, :as => 'SummerSchool'
+              property :school_course_info_override, :as => 'SchoolCourseInfoOverride',
+                       :class => SIF_MODEL::SchoolCourseInfoOverride,
+                       :decorator => SIF_XML::SchoolCourseInfoOverride
             end
           end
         end
