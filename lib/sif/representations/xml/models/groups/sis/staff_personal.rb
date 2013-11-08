@@ -8,11 +8,10 @@ module SIF
               include Representable::XML
               include SISRepresenter
               include PersonalRepresenter
-
               self.representation_wrap = 'StaffPersonal'
-              property :title, :as => "Title"
-              property :employee_personal_ref_id, :as => "EmployeePersonalRefId"
 
+              property :employee_personal_ref_id, :as => 'EmployeePersonalRefId'
+              property :title, :as => 'Title'
             end
           end
         end
