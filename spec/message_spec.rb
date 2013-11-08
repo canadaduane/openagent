@@ -2,8 +2,8 @@ require_relative 'spec_helper'
 
 describe OpenAgent::Message do
 
-  let(:sif_event_xml) { File.read(fixture("sif_event.xml")) }
-  let(:sif_response_xml) { File.read(fixture("sif_response.xml")) }
+  let(:sif_event_xml) { File.read(fixture("messages/sif_event.xml")) }
+  let(:sif_response_xml) { File.read(fixture("messages/sif_response.xml")) }
 
   context "event" do
     let(:wrap_msg) { OpenAgent::Message::SIF_Ack::SIF_Message.from_xml(sif_event_xml) }
