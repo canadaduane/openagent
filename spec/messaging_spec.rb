@@ -1,5 +1,7 @@
 require_relative 'spec_helper'
 
+require 'sif/sif'
+
 require 'openagent/messaging'
 require 'openagent/agent'
 require 'openagent/zone'
@@ -46,4 +48,11 @@ describe OpenAgent::Messaging do
     msg.ack.status.code.should == "01"
   end
 
+  it "converts to xml" do
+    msg = messaging.ack("SRCID", "MSGID", "01")
+    msg.ack.header.msg_id = "STATIC"
+    msg.ack.header.timestamp = "STATIC"
+    xml = SIF::Representation::XML::Infra::Common::Message.new(msg)
+    xml.to_xml.should == "<SIF_Message>\n  <SIF_Ack>\n    <SIF_OriginalSourceId>SRCID</SIF_OriginalSourceId>\n    <SIF_OriginalMsgId>MSGID</SIF_OriginalMsgId>\n    <SIF_Header>\n      <SIF_MsgId>STATIC</SIF_MsgId>\n      <SIF_Timestamp>STATIC</SIF_Timestamp>\n      <SIF_SourceId>SOURCEID</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Status>\n      <SIF_Code>01</SIF_Code>\n    </SIF_Status>\n  </SIF_Ack>\n</SIF_Message>"
+  end
 end
