@@ -73,7 +73,7 @@ module OpenAgent
       )
     end
 
-    def system_control(system_control_data)
+    def system_control(message_instance)
       SIF::Infra::Common::Message.new(
         :version => @agent_obj.msg_version,
         :xmlns => @agent_obj.msg_xmlns,
@@ -83,7 +83,9 @@ module OpenAgent
             :source_id => @agent_obj.sourceid,
             :timestamp => timestamp()
           ),
-          :system_control_data => system_control_data
+          :system_control_data => SIF::Infra::Message::SystemControlData.new(
+            :data => message_instance
+          )
         )
       )
     end
@@ -99,6 +101,7 @@ module OpenAgent
     def wakeup
       system_control(SIF::Infra::Message::Wakeup.new)
     end
+
     def get_message
       system_control(SIF::Infra::Message::GetMessage.new)
     end
