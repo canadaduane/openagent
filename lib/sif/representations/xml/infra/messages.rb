@@ -17,6 +17,7 @@ require 'sif/representations/xml/infra/common'
   register
   request
   response
+  system_control
   subscribe
   sleep
   wakeup

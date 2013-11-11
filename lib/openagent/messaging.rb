@@ -83,7 +83,7 @@ module OpenAgent
             :source_id => @agent_obj.sourceid,
             :timestamp => timestamp()
           ),
-          :system_control_data => [system_control_data]
+          :system_control_data => system_control_data
         )
       )
     end
@@ -99,21 +99,10 @@ module OpenAgent
     def wakeup
       system_control(SIF::Infra::Message::Wakeup.new)
     end
-
-    def getmessage(agent_obj = nil, zone_obj = nil)
-      msg = OpenAgent::Message::SIF_SystemControl::SIF_Message.new
-      msg.version = agent_obj.msg_version
-      msg.xmlns = agent_obj.msg_xmlns
-      msg.systemcontrol = OpenAgent::Message::SIF_SystemControl::SIF_SystemControl.new
-      msg.systemcontrol.header = OpenAgent::Message::SIF_Header.new
-      msg.systemcontrol.systemcontroldata = OpenAgent::Message::SIF_SystemControl::SIF_SystemControlData.new
-      msg.systemcontrol.systemcontroldata.getmessage = OpenAgent::Message::SIF_SystemControl::SIF_GetMessage.new
-      msg.systemcontrol.header.msgid = guuid()
-      msg.systemcontrol.header.sourceid = agent_obj.sourceid
-      msg.systemcontrol.header.timestamp = timestamp()
-      
-      return msg, msg.systemcontrol.header.msgid
+    def get_message
+      system_control(SIF::Infra::Message::GetMessage.new)
     end
+
 
     def getzonestatus(agent_obj = nil, zone_obj = nil)
       msg = OpenAgent::Message::SIF_SystemControl::SIF_Message.new

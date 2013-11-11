@@ -1,8 +1,9 @@
 module SIF
   module Infra
     module Message
-      class Ping
+      class GetMessage
         include Virtus.model
+
 
       end
     end

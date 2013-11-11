@@ -3,11 +3,10 @@ module SIF
     module XML
       module Infra
         module Message
-          class Ping < Representable::Decorator
+          class GetMessage < Representable::Decorator
             include Representable::XML
 
-            self.representation_wrap = 'SIF_Ping'
-
+            self.representation_wrap = 'SIF_GetMessage'
           end
         end
       end

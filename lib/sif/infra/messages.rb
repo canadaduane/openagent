@@ -14,6 +14,7 @@ require_relative 'common'
   sleep
   subscribe
   system_control
+  system_control_data
   unprovide
   unregister
   unsubscribe
