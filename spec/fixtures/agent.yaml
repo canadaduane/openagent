@@ -1,6 +1,6 @@
 ---
-sourceid : TEST_SOURCEID
-name : TEST_SIF_NAME
+sourceid : Canvas
+name : Canvas by Instructure
 version : 2.0r1
 maxbuffersize : 64000
 mode : Pull
@@ -10,12 +10,22 @@ provideobjects:
 subscribeobjects:
 - LEAInfo
 - SchoolInfo
+- TermInfo
+- SchoolCourseInfo
+- SectionInfo
 - StudentPersonal
+- StaffPersonal
+- StudentSectionInfo
 publishaddobjects:
 publishchangeobjects:
 publishdeleteobjects:
 requestobjects:
 - LEAInfo
 - SchoolInfo
+- TermInfo
+- SchoolCourseInfo
+- SectionInfo
 - StudentPersonal
+- StaffPersonal
+- StudentSectionInfo
 respondobjects:

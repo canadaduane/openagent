@@ -6,6 +6,7 @@ require 'virtus'
   condition_group
   data
   error
+  event
   event_object
   extended_query
   extended_query_results
@@ -15,6 +16,7 @@ require 'virtus'
   object_data
   property
   protocol
+  provision
   query
   query_object
   secure_channel

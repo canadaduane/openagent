@@ -19,6 +19,7 @@ require 'sif/infra/common'
   other_id
   property
   protocol
+  provision
   query
   query_object
   secure_channel
