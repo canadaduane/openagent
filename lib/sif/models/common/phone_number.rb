@@ -4,8 +4,11 @@ module SIF
       class PhoneNumber
         include Virtus.model
 
+        attribute :type, String
         attribute :action, String
-        attribute :phone_number, String
+        attribute :number, String
+        attribute :extension, String
+        attribute :listed_status, String
       end
     end
   end

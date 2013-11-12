@@ -1,6 +1,3 @@
-require 'sif/models'
-require 'sif/representations/xml/models'
-
 module SIF
   module Representation
     module XML
@@ -9,16 +6,16 @@ module SIF
           module SIS
             class StudentPersonal < Representable::Decorator
               include Representable::XML
-              # include SISRepresenter
-              # include PersonalRepresenter
+              include SISRepresenter
+              include PersonalRepresenter
               self.representation_wrap = 'StudentPersonal'
 
-              # collection :alert_messages, :as => 'AlertMessages',
-              #            :class => SIF_MODEL::AlertMessage,
-              #            :decorator => SIF_XML::AlertMessage
-              # collection :medical_alert_messages, :as => 'MedicalAlertMessages',
-              #            :class => SIF_MODEL::MedicalAlertMessage,
-              #            :decorator => SIF_XML::MedicalAlertMessage
+              collection :alert_messages, :as => 'AlertMessages',
+                         :class => MODEL_COMMON::AlertMessage,
+                         :decorator => XML_COMMON::AlertMessage
+              collection :medical_alert_messages, :as => 'MedicalAlertMessages',
+                         :class => MODEL_COMMON::MedicalAlertMessage,
+                         :decorator => XML_COMMON::MedicalAlertMessage
               property :projected_graduation_year, :as => 'ProjectedGraduationYear'
               property :on_time_graduation_year, :as => 'OnTimeGraduationYear'
               property :graduation_date, :as => 'GraduationDate'

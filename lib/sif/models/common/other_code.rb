@@ -1,12 +1,11 @@
 module SIF
   module Model
     module Common
-      class Email
+      class OtherCode
         include Virtus.model
 
-        attribute :action, String
         attribute :value, String
-        attribute :type, String
+        attribute :code_set, String
       end
     end
   end

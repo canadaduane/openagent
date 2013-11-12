@@ -3,13 +3,13 @@ module SIF
     module XML
       module Model
         module Common
-          class AlertMessage < Representable::Decorator
+          class IdentificationInfo < Representable::Decorator
             include Representable::XML
 
-            self.representation_wrap = 'SIF_AlertMessage'
+            self.representation_wrap = 'IdentificationInfo'
 
-            property :type, :attribute => true, :as => 'Type'
             property :value
+            property :code , :as => 'Code', :attribute => true
 
           end
         end

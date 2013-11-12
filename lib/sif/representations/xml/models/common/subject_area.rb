@@ -3,15 +3,15 @@ module SIF
     module XML
       module Model
         module Common
-          class Language < Representable::Decorator
+          class SubjectArea < Representable::Decorator
+            require_relative 'other_code'
+
             include Representable::XML
 
-            self.representation_wrap = 'SIF_Error'
+            self.representation_wrap = 'SubjectArea'
 
             property :code, :as => 'Code'
-            property :language_type, :as => 'LanguageType'
-            property :dialect, :as => 'Dialect'
-            collection :other_codes, :wrap => 'OtherCodeList',
+            collection :other_codes, :as => 'OtherCode', :wrap => 'OtherCodeList',
                        :class => MODEL_COMMON::OtherCode,
                        :decorator => XML_COMMON::OtherCode
           end

@@ -5,6 +5,8 @@ module SIF
         module Group
           module SIS
             class SchoolCourseInfo < Representable::Decorator
+              require_relative 'sis_representer'
+
               include Representable::XML
               include SISRepresenter
               self.representation_wrap = 'SchoolCourseInfo'
@@ -14,9 +16,9 @@ module SIF
               property :course_code, :as => 'CourseCode'
               property :state_course_code, :as => 'StateCourseCode'
               property :district_course_code, :as => 'DistrictCourseCode'
-              collection :subject_areas, :as =>'SubjectAreaList',
-                         :class => SIF_MODEL::SubectArea,
-                         :decorator => SIF_XML::SubjectArea
+              collection :subject_areas, :as =>'SubjectArea', :wrap => 'SubjectAreaList',
+                         :class => MODEL_COMMON::SubjectArea,
+                         :decorator => XML_COMMON::SubjectArea
               property :course_title, :as => 'CourseTitle'
               property :description, :as => 'Description'
               property :instruction_level, :as => 'InstructionLevel'
@@ -25,8 +27,8 @@ module SIF
               property :graduation_requirement, :as => 'GraduationRequirement'
               property :department, :as => 'Department'
               property :sced_code, :as => 'SCEDCode',
-                       :class => SIF_MODEL::SCEDCode,
-                       :decorator => SIF_XML::SCEDCode
+                       :class => MODEL_COMMON::SCEDCode,
+                       :decorator => XML_COMMON::SCEDCode
             end
           end
         end

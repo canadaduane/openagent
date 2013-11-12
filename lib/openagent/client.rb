@@ -1,6 +1,7 @@
-require 'openagent/xml_helpers'
-require 'openagent/errors'
-require 'logger'
+require "openagent/xml_helpers"
+require "openagent/errors"
+require "openagent/messaging"
+require "logger"
 
 module OpenAgent
   class Client
@@ -20,47 +21,19 @@ module OpenAgent
     end
 
     def initialize(opts={})
-      @prettyprint = opts[:prettyprint]
-      @log         = Logger.new(opts["log"] || STDOUT, 'daily')
-      @agent       = OpenAgent::Agent.new(opts['agent'])
-      @zone        = OpenAgent::Zone.new(opts['zone'])
-      @activity    = OpenAgent::Activity.new( @agent, @zone )
+      @name         = opts.delete[:name]
+      @url          = opts.delete[:url]
+      @pretty_print = opts.delete[:pretty_print]
+
+      @log          = Logger.new(opts["log"] || STDOUT, 'daily')
+      @agent        = OpenAgent::Agent.new((opts['agent'] || {}).merge(:name => @name))
+      @zone         = OpenAgent::Zone.new((opts['zone'] || {}).merge(:uri => @url))
+
+      @msg          = OpenAgent::Messaging.new(@agent, @zone)
     end
 
     def log(name, body)
       @log.info "#{name}\n" + body + "\n"
-    end
-
-    def check_for_errors(doc)
-      # First check for a SIF_Error tag
-      error_state = (doc / "SIF_Message/SIF_Ack/SIF_Error")
-      if error_state and not error_state.empty?
-        raise SIFError, error_state
-      end
-
-      # Next check for a SIF_Code != 0
-      begin
-        status_text = (doc / "SIF_Message/SIF_Ack/SIF_Status/SIF_Code").text
-        status_code = Integer(status_text)
-      rescue ArgumentError
-        raise ResponseError("SIF_Code is not an integer: #{status_text.inspect})")
-      end
-
-      raise SIFCodeError, status_code unless [0, 9].include? status_code
-      status_code
-    end
-
-    def request(action, opts={}, &block)
-      xml, guuid = @activity.create_xml(action, opts)
-      req = @zone.create_request(xml)
-      log "Request", req.body
-      @zone.send_request(req).tap do |response|
-        xml, doc = formatted_xml(response.body)
-        log "Response", xml
-        status_code = check_for_errors(doc)
-        doc.remove_namespaces!
-        yield response, doc, status_code if block_given?
-      end
     end
 
     def ack(original_source_id, original_msg_id, code = 1, &block)
@@ -135,5 +108,42 @@ module OpenAgent
         end
       end
     end
+
+  protected
+
+    def check_for_errors(doc)
+      # First check for a SIF_Error tag
+      error_state = (doc / "SIF_Message/SIF_Ack/SIF_Error")
+      if error_state and not error_state.empty?
+        raise SIFError, error_state
+      end
+
+      # Next check for a SIF_Code != 0
+      begin
+        status_text = (doc / "SIF_Message/SIF_Ack/SIF_Status/SIF_Code").text
+        status_code = Integer(status_text)
+      rescue ArgumentError
+        raise ResponseError("SIF_Code is not an integer: #{status_text.inspect})")
+      end
+
+      raise SIFCodeError, status_code unless [0, 9].include? status_code
+      status_code
+    end
+
+    def send_message(message, &block)
+      representer =
+        SIF::Representation::XML::
+        Infra::Common::Message.new(message)
+      req = @zone.create_request(representer.to_xml)
+      log "Request", req.body
+      @zone.send_request(req).tap do |response|
+        xml, doc = formatted_xml(response.body)
+        log "Response", xml
+        status_code = check_for_errors(doc)
+        doc.remove_namespaces!
+        yield response, doc, status_code if block_given?
+      end
+    end
+
   end
 end

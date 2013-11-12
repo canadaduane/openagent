@@ -14,12 +14,12 @@ module SIF
               property :school_year, :attribute => true, :as => 'SchoolYear'
               property :entry_date, :as => 'EntryDate'
               property :exit_date, :as => 'ExitDate'
-              property :schedule_info_overrides, :as => 'ScheduleInfoOverrideList',
-                       :class => SIF_MODEL::ScheduleInfoOverride,
-                       :decorator => SIF_XML::ScheduleInfoOverride
+              property :schedule_info_overrides, :as => 'ScheduleInfoOverride', :wrap => 'ScheduleInfoOverrideList',
+                       :class => MODEL_COMMON::ScheduleInfoOverride,
+                       :decorator => XML_COMMON::ScheduleInfoOverride
               property :credits_attempted, :as => 'CreditsAttempted',
-                       :class => SIF_MODEL::CreditsAttempted,
-                       :class => SIF_XML::CreditsAttempted
+                       :class => MODEL_COMMON::CreditsAttempted,
+                       :class => XML_COMMON::CreditsAttempted
             end
           end
         end

@@ -5,6 +5,7 @@ module SIF
         module Group
           module SIS
             class TermInfo < Representable::Decorator
+              require_relative '../data_model/term_span'
               include Representable::XML
               include SISRepresenter
               self.representation_wrap = 'TermInfo'
@@ -18,8 +19,8 @@ module SIF
               property :term_code, :as => 'TermCode'
               property :track, :as => 'Track'
               property :term_span, :as => 'TermSpan',
-                       :class => SIF_MODEL::TermSpan,
-                       :decorator => SIF_XML::TermSpan
+                       :class => SIF::Model::Group::DataModel::TermSpan,
+                       :decorator => SIF::Representation::XML::Model::Group::DataModel::TermSpan
               property :marking_term, :as => 'MarkingTerm'
               property :scheduling_term, :as => 'SchedulingTerm'
               property :attendance_term, :as => 'AttendanceTerm'
