@@ -1,6 +1,6 @@
 ---
 uri: http://test.zone.url/zone
-use_ssl: false
-verify_ssl: false
-verify_mode: OpenSSL::SSL::VERIFY_NONE
-puts_msg_before_post: true
+ssl:
+  verify_mode: 0
+  client_cert: "cert"
+  client_key: "key"
