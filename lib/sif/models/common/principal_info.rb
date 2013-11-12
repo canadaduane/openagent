@@ -1,3 +1,12 @@
-class PrincipalInfo
-  # To change this template use File | Settings | File Templates.
+module SIF
+  module Model
+    module Common
+      class PrincipalInfo
+        include Virtus.model
+
+        attribute :contact_name
+        attribute :contact_title
+      end
+    end
+  end
 end

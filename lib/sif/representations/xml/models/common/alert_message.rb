@@ -10,6 +10,7 @@ module SIF
 
             property :type, :attribute => true, :as => 'Type'
             property :value
+
           end
         end
       end

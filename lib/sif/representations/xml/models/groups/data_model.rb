@@ -1,3 +1,9 @@
-class DataModel
-  # To change this template use File | Settings | File Templates.
+require 'sif/models'
+require 'sif/representations/xml/models'
+require 'sif/representations/xml/models/common'
+
+%w(
+  term_span
+).each do |c|
+  require "sif/representations/xml/models/groups/data_model/#{c}"
 end

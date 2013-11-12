@@ -1,3 +1,7 @@
-class DataModel
-  # To change this template use File | Settings | File Templates.
+require 'virtus'
+
+%w(
+  term_span
+).each do |c|
+  require "sif/models/groups/data_model/#{c}"
 end

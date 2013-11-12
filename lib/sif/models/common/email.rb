@@ -6,6 +6,7 @@ module SIF
 
         attribute :action, String
         attribute :value, String
+        attribute :type, String
       end
     end
   end
