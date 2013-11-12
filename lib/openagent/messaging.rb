@@ -1,6 +1,6 @@
 require "uuid"
-require "openagent/messages"
-require "sif/sif"
+#require "./lib/openagent/messages"
+require "./lib/sif/sif"
 
 module OpenAgent
   class Messaging
@@ -19,6 +19,14 @@ module OpenAgent
       @guuid || UUID.generate(:compact).upcase
     end
 
+    def header
+      SIF::Infra::Common::Header.new(
+          :msg_id => guuid(),
+          :source_id => @agent_obj.sourceid,
+          :timestamp => timestamp()
+      )
+    end
+
     def register
       SIF::Infra::Common::Message.new(
         :version => @agent_obj.msg_version,
@@ -28,11 +36,7 @@ module OpenAgent
           :version => @agent_obj.version,
           :max_buffer_size => @agent_obj.maxbuffersize,
           :mode => @agent_obj.mode,
-          :header => SIF::Infra::Common::Header.new(
-            :msg_id => guuid(),
-            :source_id => @agent_obj.sourceid,
-            :timestamp => timestamp()
-          )
+          :header => header
         )
       )
     end
@@ -42,27 +46,19 @@ module OpenAgent
         :version => @agent_obj.msg_version,
         :xmlns => @agent_obj.msg_xmlns,
         :unregister => SIF::Infra::Message::Unregister.new(
-          :header => SIF::Infra::Common::Header.new(
-            :msg_id => guuid(),
-            :source_id => @agent_obj.sourceid,
-            :timestamp => timestamp()
-          )
+          :header => header
         )
       )
     end
 
-    def request(object_name, condition_group)
+    def request(object_name, condition_group=nil)
       SIF::Infra::Common::Message.new(
         :version => @agent_obj.msg_version,
         :xmlns => @agent_obj.msg_xmlns,
         :request => SIF::Infra::Message::Request.new(
           :version => @agent_obj.version,
           :max_buffer_size => @agent_obj.maxbuffersize,
-          :header => SIF::Infra::Common::Header.new(
-            :msg_id => guuid(),
-            :source_id => @agent_obj.sourceid,
-            :timestamp => timestamp()
-          ),
+          :header => header,
           :query => SIF::Infra::Common::Query.new(
             :query_object => SIF::Infra::Common::QueryObject.new(
               :object_name => object_name
@@ -78,11 +74,7 @@ module OpenAgent
         :version => @agent_obj.msg_version,
         :xmlns => @agent_obj.msg_xmlns,
         :system_control => SIF::Infra::Message::SystemControl.new(
-          :header => SIF::Infra::Common::Header.new(
-            :msg_id => guuid(),
-            :source_id => @agent_obj.sourceid,
-            :timestamp => timestamp()
-          ),
+          :header => header,
           :system_control_data => SIF::Infra::Message::SystemControlData.new(
             :data => message_instance
           )
@@ -168,86 +160,51 @@ module OpenAgent
       return @o
     end
 
-    def provision(agent_obj = nil, zone_obj = nil)
-      so  = OpenAgent::Message::SIF_Provision::SIF_SubscribeObjects.new
-      if !agent_obj.subscribeobjects.nil? then
-      so.objects = []
-      agent_obj.subscribeobjects.each { |e| so.objects << object(e) }
-      end
-  
-      ros = OpenAgent::Message::SIF_Provision::SIF_RequestObjects.new
-      if !agent_obj.requestobjects.nil? then
-        ros.objects = []
-        agent_obj.requestobjects.each { |e| ros.objects << object(e)}
-      end
-  
-      po  = OpenAgent::Message::SIF_Provision::SIF_ProvideObjects.new
-      if !agent_obj.provideobjects.nil? then
-        po.objects = []
-        agent_obj.provideobjects.each { |e| po.objects << object(e)}
-      end
-  
-      pao = OpenAgent::Message::SIF_Provision::SIF_PublishAddObjects.new
-      if !agent_obj.publishaddobjects.nil? then
-        pao.objects = []
-        agent_obj.publishaddobjects.each { |e| pao.objects << object(e)}
-      end
-  
-      pco = OpenAgent::Message::SIF_Provision::SIF_PublishChangeObjects.new
-      if !agent_obj.publishchangeobjects.nil? then
-      pco.objects = []
-      agent_obj.publishchangeobjects.each { |e| pco.objects << object(e)}
-      end
-  
-      pdo = OpenAgent::Message::SIF_Provision::SIF_PublishDeleteObjects.new
-      if !agent_obj.publishdeleteobjects.nil? then
-        pdo.objects = []
-        agent_obj.publishdeleteobjects.each { |e| pdo.objects << object(e)}
-      end
-  
-      ro  = OpenAgent::Message::SIF_Provision::SIF_RespondObjects.new
-      if !agent_obj.respondobjects.nil? then
-        ro.objects = []
-        agent_obj.respondobjects.each { |e| ro.objects << object(e)}
-      end
-  
-      msg = OpenAgent::Message::SIF_Provision::SIF_Message.new
-      msg.version = agent_obj.msg_version
-      msg.xmlns = agent_obj.msg_xmlns
-      msg.provision = OpenAgent::Message::SIF_Provision::SIF_Provision.new
-      msg.provision.header = OpenAgent::Message::SIF_Header.new
-      msg.provision.header.msgid = guuid
-      msg.provision.header.sourceid = agent_obj.sourceid
-      msg.provision.header.timestamp = timestamp()
-      msg.provision.provideobjects = po
-      msg.provision.subscribeobjects = so
-      msg.provision.publishaddobjects = pao
-      msg.provision.publishchangeobjects = pco
-      msg.provision.publishdeleteobjects = pdo
-      msg.provision.requestobjects = ros
-      msg.provision.respondobjects = ro
-
-      return msg, msg.provision.header.msgid
+    def provision
+      so = []
+      @agent_obj.subscribeobjects.each { |e| so << e } if !@agent_obj.subscribeobjects.nil?
+      rqo = []
+      @agent_obj.requestobjects.each { |e| rqo << e } if !@agent_obj.requestobjects.nil?
+      po = []
+      @agent_obj.provideobjects.each { |e| po << e } if !@agent_obj.provideobjects.nil?
+      rpo = []
+      @agent_obj.respondobjects.each { |e| rpo << e } if !@agent_obj.respondobjects.nil?
+      pao = []
+      @agent_obj.publishaddobjects.each { |e| pao << e } if !@agent_obj.publishaddobjects.nil?
+      pdo = []
+      @agent_obj.publishdeleteobjects.each { |e| pdo << e } if !@agent_obj.publishdeleteobjects.nil?
+      pco = []
+      @agent_obj.publishchangeobjects.each { |e| pco << e } if !@agent_obj.publishchangeobjects.nil?
+      SIF::Infra::Common::Message.new(
+          :version => @agent_obj.msg_version,
+          :xmlns => @agent_obj.msg_xmlns,
+          :provision => SIF::Infra::Common::Provision.new(
+            :header => header,
+            :subscribe_objects => so.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+            :provide_objects =>po.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+            :request_objects => rqo.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+            :respond_objects => rpo.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+            :publish_add_objects => pao.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+            :publish_change_objects => pco.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+            :publish_delete_objects => pdo.map { |o| SIF::Infra::Common::Object.new(:object_name => o)},
+          )
+        )
     end
-
-    def event(agent_obj, zone_obj, objectname, xml, action='Change')
-      msg = OpenAgent::Message::SIF_Event::SIF_Message.new
-      msg.version = agent_obj.msg_version
-      msg.xmlns = agent_obj.msg_xmlns
-      msg.event = OpenAgent::Message::SIF_Event::SIF_Event.new
-      msg.event.header = OpenAgent::Message::SIF_Header.new
-      msg.event.header.msgid = guuid
-      msg.event.header.sourceid = agent_obj.sourceid
-      msg.event.header.timestamp = timestamp()
-      msg.event.objectdata = OpenAgent::Message::SIF_Event::SIF_ObjectData.new
-      msg.event.objectdata.eventobject = OpenAgent::Message::SIF_Event::SIF_EventObject.new
-      msg.event.objectdata.eventobject.objectname = objectname
-      msg.event.objectdata.eventobject.action = action
-      msg.event.objectdata.eventobject.text = 'HOLDER'
-      doc = msg.to_xml.to_s
-      doc = doc.gsub(/HOLDER/, xml)
-     
-      return doc, msg.event.header.msgid
+    def event(object_name, action='Change',object=nil)
+      SIF::Infra::Common::Message.new(
+          :version => @agent_obj.msg_version,
+          :xmlns => @agent_obj.msg_xmlns,
+          :event => SIF::Infra::Common::Event.new(
+              :header => header,
+              :object_data => SIF::Infra::Common::ObjectData.new(
+                  :event_object => SIF::Infra::Common::EventObject.new(
+                      :object_name => object_name,
+                      :action => action,
+                      :objects => object(object_name)
+                  )
+              )
+          )
+      )
     end
 
     def ack(original_source_id=nil, original_msg_id=nil, code=nil)
@@ -255,11 +212,7 @@ module OpenAgent
         :version => @agent_obj.msg_version,
         :xmlns => @agent_obj.msg_xmlns,
         :ack => SIF::Infra::Message::Ack.new(
-          :header => SIF::Infra::Common::Header.new(
-            :msg_id => guuid(),
-            :source_id => @agent_obj.sourceid,
-            :timestamp => timestamp()
-          ),
+          :header => header,
           :original_source_id => original_source_id,
           :original_msg_id => original_msg_id,
           :status => SIF::Infra::Common::Status.new(

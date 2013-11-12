@@ -10,7 +10,7 @@ module SIF
         attribute :publish_change_objects, Array[Common::Object]
         attribute :publish_delete_objects, Array[Common::Object]
         attribute :request_objects,        Array[Common::Object]
-        attribute :respond_objects,       Array[Common::Object]
+        attribute :respond_objects,        Array[Common::Object]
       end
     end
   end
