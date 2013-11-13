@@ -4,7 +4,7 @@ module SIF
       class Code
         include Virtus.model
 
-        attribute :code, String
+        attribute :code, Integer
         attribute :other_codes, Array[String]
       end
     end

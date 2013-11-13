@@ -14,20 +14,32 @@ module OpenAgent
     attribute :open_timeout, Float, :default => 30
     attribute :ssl, SSLConfig
   
-    def url
-      @url ||= URI.parse(uri)
-    end
-
     def connection
-      @connection ||= Net::HTTP.new(url.host, url.port).tap do |conn|
+      @connection ||= Net::HTTP.new(host, port).tap do |conn|
         ssl.configure(conn) if ssl
         conn.read_timeout = timeout if timeout
         conn.open_timeout = open_timeout if open_timeout
       end
     end
 
+    def url
+      @url ||= URI.parse(uri)
+    end
+
+    def host
+      url.host
+    end
+
+    def port
+      url.port
+    end
+
+    def path
+      url.path == "" ? "/" : url.path
+    end
+
     def create_request(msg)
-      Net::HTTP::Post.new(url.path).tap do |post|
+      Net::HTTP::Post.new(path).tap do |post|
         post.body = msg.to_s
         post.content_type = "application/xml"
       end

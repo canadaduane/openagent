@@ -8,7 +8,7 @@ module SIF
 
         attribute :data, Data
 
-        attribute :code, String
+        attribute :code, Integer
         attribute :desc, String
       end
     end

@@ -5,12 +5,8 @@ module OpenAgent
     PP_XSLT = File.read(File.join(File.dirname(__FILE__), 'pretty_print.xslt'))
     PP_XSL = Nokogiri::XSLT(PP_XSLT)
 
-    def xml_and_doc(xml)
-      [xml, Nokogiri::XML(xml)]
-    end
-
-    def formatted_xml(xml, prettyprint=@prettyprint)
-      prettyprint ? parse_well_formed_xml(xml) : xml_and_doc(xml)
+    def formatted_xml(xml, pretty_print=true)
+      pretty_print ? parse_well_formed_xml(xml) : xml
     end
 
     def pretty_xml(doc)
@@ -20,9 +16,9 @@ module OpenAgent
     # If XML is well-formed, reformat it as a pretty XML document.
     def parse_well_formed_xml(xml)
       doc = Nokogiri::XML(xml){ |c| c.strict }
-      [pretty_xml(doc), doc]
+      pretty_xml(doc)
     rescue Nokogiri::XML::SyntaxError
-      xml_and_doc(xml)
+      xml
     end
   end
 end

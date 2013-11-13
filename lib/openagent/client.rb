@@ -1,3 +1,5 @@
+require "openagent/agent"
+require "openagent/zone"
 require "openagent/xml_helpers"
 require "openagent/errors"
 require "openagent/message_builder"
@@ -8,11 +10,13 @@ module OpenAgent
   class Client
     include XMLHelpers
 
+    attr_reader :name, :url
     attr_reader :agent, :zone, :builder
 
     ZIS_SUCCESS = 0
     ZIS_NO_MESSAGES = 9
 
+    Message = SIF::Infra::Common::Message
     MessageRepresenter = ::SIF::Representation::XML::Infra::Common::Message
 
     def self.connect(opts={})
@@ -29,9 +33,9 @@ module OpenAgent
         :each_loop => []
       }
 
-      @name         = opts.delete[:name]
-      @url          = opts.delete[:url]
-      @pretty_print = opts.delete[:pretty_print]
+      @name         = opts.delete(:name)
+      @url          = opts.delete(:url)
+      @pretty_print = opts.has_key?(:pretty_print) ? opts.delete(:pretty_print) : true
 
       @log          = Logger.new(opts["log"] || STDOUT, 'daily')
       @agent        = opts['agent'] ||
@@ -43,13 +47,13 @@ module OpenAgent
     end
 
     def log(name, body)
-      @log.info "#{name}\n" + body + "\n"
+      @log.info "#{name}\n#{body}\n"
     end
 
     # Proxy to OpenAgent::Messaging
     def method_missing(method, *args, &block)
-      if @msg.respond_to?(method)
-        message = @msg.send(method, *args)
+      if @builder.respond_to?(method)
+        message = @builder.send(method, *args)
         send_message(message, &block)
       else
         super
@@ -85,7 +89,7 @@ module OpenAgent
           messages_in_queue = true
           while messages_in_queue
             get_message do |http_response, doc, status_code|
-              wrap_msg = SIF::Infra::Common::Message.new
+              wrap_msg = Message.new
               MessageRepresenter.new(wrap_msg).from_xml(http_response.body)
 
               if message = wrap_msg.inner_message
@@ -127,35 +131,31 @@ module OpenAgent
 
   protected
 
-    def check_for_errors(doc)
+    def check_for_errors(msg)
       # First check for a SIF_Error tag
-      error_state = (doc / "SIF_Message/SIF_Ack/SIF_Error")
-      if error_state and not error_state.empty?
-        raise SIFError, error_state
-      end
+      raise SIFError, msg.ack.error if msg.ack.error
 
       # Next check for a SIF_Code != 0
-      begin
-        status_text = (doc / "SIF_Message/SIF_Ack/SIF_Status/SIF_Code").text
-        status_code = Integer(status_text)
-      rescue ArgumentError
-        raise ResponseError("SIF_Code is not an integer: #{status_text.inspect})")
-      end
-
+      status_code = msg.ack.status.code
       raise SIFCodeError, status_code unless [0, 9].include? status_code
+
       status_code
     end
 
-    def send_message(message, &block)
-      representer = MessageRepresenter.new(message)
+    def send_message(outgoing, &block)
+      representer = MessageRepresenter.new(outgoing)
       req = @zone.create_request(representer.to_xml)
+
       log "Request", req.body
       @zone.send_request(req).tap do |response|
-        xml, doc = formatted_xml(response.body)
-        log "Response", xml
-        status_code = check_for_errors(doc)
-        doc.remove_namespaces!
-        yield response, doc, status_code if block_given?
+        log "Response", formatted_xml(response.body, @pretty_print)
+
+        incoming = Message.new
+        MessageRepresenter.new(incoming).from_xml(response.body)
+
+        check_for_errors(incoming)
+        
+        yield incoming if block_given?
       end
     end
 

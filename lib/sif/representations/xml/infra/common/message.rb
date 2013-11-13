@@ -22,6 +22,7 @@ module SIF
           class Message < Representable::Decorator
             include Representable::XML
 
+            remove_namespaces!
             self.representation_wrap = 'SIF_Message'
 
             property :xmlns,   :attribute => true
