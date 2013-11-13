@@ -18,7 +18,7 @@ describe OpenAgent::MessageBuilder do
 
   def header_checks_out(&block)
     block.call.tap do |msg|
-      msg.message.header.source_id.should == "canvas"
+      msg.content.header.source_id.should == "canvas"
       msg.msg_id.should match(/^[A-Z0-9]+$/)
     end
   end
@@ -64,9 +64,9 @@ describe OpenAgent::MessageBuilder do
   end
 
   it "acks" do
-    msg = header_checks_out{ builder.ack("SRCID", "MSGID", "01") }
-    msg.ack.status.code.should == "01"
-    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Ack>\n    <SIF_OriginalSourceId>SRCID</SIF_OriginalSourceId>\n    <SIF_OriginalMsgId>MSGID</SIF_OriginalMsgId>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Status>\n      <SIF_Code>01</SIF_Code>\n    </SIF_Status>\n  </SIF_Ack>\n</SIF_Message>"
+    msg = header_checks_out{ builder.ack("SRCID", "MSGID", "1") }
+    msg.ack.status.code.should == 1
+    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Ack>\n    <SIF_OriginalSourceId>SRCID</SIF_OriginalSourceId>\n    <SIF_OriginalMsgId>MSGID</SIF_OriginalMsgId>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Status>\n      <SIF_Code>1</SIF_Code>\n    </SIF_Status>\n  </SIF_Ack>\n</SIF_Message>"
   end
 
   it "provisions" do
