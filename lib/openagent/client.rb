@@ -1,16 +1,19 @@
 require "openagent/xml_helpers"
 require "openagent/errors"
-require "openagent/messaging"
+require "openagent/message_builder"
+require "sif/sif"
 require "logger"
 
 module OpenAgent
   class Client
     include XMLHelpers
 
-    attr_reader :agent, :zone
+    attr_reader :agent, :zone, :builder
 
     ZIS_SUCCESS = 0
     ZIS_NO_MESSAGES = 9
+
+    MessageRepresenter = ::SIF::Representation::XML::Infra::Common::Message
 
     def self.connect(opts={})
       Client.new.tap do |client|
@@ -21,41 +24,54 @@ module OpenAgent
     end
 
     def initialize(opts={})
+      @callbacks    = {
+        :receive_message => [],
+        :each_loop => []
+      }
+
       @name         = opts.delete[:name]
       @url          = opts.delete[:url]
       @pretty_print = opts.delete[:pretty_print]
 
       @log          = Logger.new(opts["log"] || STDOUT, 'daily')
-      @agent        = OpenAgent::Agent.new((opts['agent'] || {}).merge(:name => @name))
-      @zone         = OpenAgent::Zone.new((opts['zone'] || {}).merge(:uri => @url))
+      @agent        = opts['agent'] ||
+        OpenAgent::Agent.new((opts['agent_opts'] || {}).merge(:name => @name))
+      @zone         = opts['zone'] ||
+        OpenAgent::Zone.new((opts['zone_opts'] || {}).merge(:uri => @url))
 
-      @msg          = OpenAgent::Messaging.new(@agent, @zone)
+      @builder      = OpenAgent::MessageBuilder.new(@agent, @zone)
     end
 
     def log(name, body)
       @log.info "#{name}\n" + body + "\n"
     end
 
-    def ack(original_source_id, original_msg_id, code = 1, &block)
-      opts = {
-        :originalsourceid => original_source_id,
-        :originalmsgid => original_msg_id,
-        :code => code
-      }
-      request(:ack, opts, &block)
+    # Proxy to OpenAgent::Messaging
+    def method_missing(method, *args, &block)
+      if @msg.respond_to?(method)
+        message = @msg.send(method, *args)
+        send_message(message, &block)
+      else
+        super
+      end
     end
 
-    def register
-      request(:register)
-      request(:provision)
+    def callback(name, &block)
+      if cbs = @callbacks[name.to_sym]
+        cbs << block
+      else
+        raise "Can't register callback #{name}. " +
+              "Available callbacks: #{@callbacks.keys.inspect}"
+      end
     end
 
-    def on_receive_message(&block)
-      @on_receive_message_callback = block
-    end
-
-    def on_each_loop(&block)
-      @on_each_loop_callback = block
+    def trigger(name, *args)
+      if cbs = @callbacks[name.to_sym]
+        cbs.each { |cb| cb.call(*args) }
+      else
+        raise "Can't trigger callback #{name}. " +
+              "Available callbacks: #{@callbacks.keys.inspect}"
+      end
     end
 
     def run
@@ -63,20 +79,20 @@ module OpenAgent
       wait_long = 30
       loop do
         begin
-          @on_each_loop_callback.call if @on_each_loop_callback
+          trigger(:each_loop)
 
           wait_period = wait_long
           messages_in_queue = true
           while messages_in_queue
-            request(:getmessage) do |http_response, doc, status_code|
-              wrap_msg = OpenAgent::Message(http_response.body)
+            get_message do |http_response, doc, status_code|
+              wrap_msg = SIF::Infra::Common::Message.new
+              MessageRepresenter.new(wrap_msg).from_xml(http_response.body)
+
               if message = wrap_msg.inner_message
 
-                if @on_receive_message_callback
-                  @on_receive_message_callback.call(wrap_msg, http_response)
-                end
+                trigger(:receive_message, wrap_msg, http_response)
 
-                if message.response?
+                if message.response
                   case status_code
                   when ZIS_SUCCESS then
                     if message.response.morepackets?
@@ -131,9 +147,7 @@ module OpenAgent
     end
 
     def send_message(message, &block)
-      representer =
-        SIF::Representation::XML::
-        Infra::Common::Message.new(message)
+      representer = MessageRepresenter.new(message)
       req = @zone.create_request(representer.to_xml)
       log "Request", req.body
       @zone.send_request(req).tap do |response|

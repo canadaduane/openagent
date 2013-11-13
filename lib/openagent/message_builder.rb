@@ -2,7 +2,7 @@ require "uuid"
 require "sif/sif"
 
 module OpenAgent
-  class Messaging
+  class MessageBuilder
     attr_writer :timestamp, :guuid
 
     def initialize(agent, zone)
@@ -31,7 +31,7 @@ module OpenAgent
         :xmlns => @agent.msg_xmlns,
         :request => SIF::Infra::Message::Request.new(
           :version => @agent.version,
-          :max_buffer_size => @agent.maxbuffersize,
+          :max_buffer_size => @agent.max_buffer_size,
           :header => create_header,
           :query => SIF::Infra::Common::Query.new(
             :query_object => SIF::Infra::Common::QueryObject.new(

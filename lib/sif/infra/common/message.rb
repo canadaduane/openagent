@@ -20,6 +20,12 @@ module SIF
         attribute :unregister
         attribute :unsubscribe
 
+        def inner_message
+          ack.status.data.message
+        rescue NoMethodError
+          nil
+        end
+
         def message
           ack || event || provide || provision ||
           register || request || response || subscribe ||
