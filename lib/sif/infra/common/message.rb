@@ -26,14 +26,14 @@ module SIF
           nil
         end
 
-        def message
+        def content
           ack || event || provide || provision ||
           register || request || response || subscribe ||
           system_control || unprovide || unregister || unsubscribe
         end
 
         def msg_id
-          message && message.header.msg_id
+          content && content.header.msg_id
         end
       end
     end

@@ -1,5 +1,6 @@
 require 'date'
 require_relative 'language'
+require_relative 'race'
 
 module SIF
   module Model
@@ -7,7 +8,7 @@ module SIF
       class Demographics
         include Virtus.model
 
-        attribute :races, Array[String]
+        attribute :races, Array[Race]
         attribute :hispanic_latino, Boolean
         attribute :gender, String
         attribute :birth_date, Date

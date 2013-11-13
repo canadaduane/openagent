@@ -15,7 +15,7 @@ module SIF
 
             collection :races, :as => 'Race', :wrap => 'RaceList',
                        :class => MODEL_COMMON::Race,
-                       :representation => XML_COMMON::Race
+                       :decorator => XML_COMMON::Race
 
             property :hispanic_latino, :as => 'HispanicLatino'
             property :gender, :as => 'Gender'
@@ -31,13 +31,13 @@ module SIF
             property :citizenship_status, :as => 'CitizenShipStatus'
             property :english_proficiency, :as => 'EnglishProficiency',
                      :class => MODEL_COMMON::EnglishProficiency,
-                     :representation => XML_COMMON::EnglishProficiency
+                     :decorator => XML_COMMON::EnglishProficiency
             collection :languages, :as => 'Languages', :wrap => 'LanguageList',
                      :class => MODEL_COMMON::Language,
-                     :demographics => XML_COMMON::Language
+                     :decorator => XML_COMMON::Language
             property :dwelling_arrangement, :as => 'DwellingArrangement',
                      :class => MODEL_COMMON::DwellingArrangement,
-                     :demographics => XML_COMMON::DwellingArrangement
+                     :decorator => XML_COMMON::DwellingArrangement
             property :marital_status, :as => 'MaritalStatus'
           end
         end
