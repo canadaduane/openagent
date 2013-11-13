@@ -4,7 +4,6 @@ require 'representable/xml'
 require 'sif/infra/messages'
 require 'sif/representations/xml/infra/common'
 
-#system_control
 #unprovide
 #unregister
 #unsubscribe
