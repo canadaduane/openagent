@@ -1,13 +1,13 @@
 ---
-sourceid : Canvas
-name : Canvas by Instructure
-version : 2.0r1
-maxbuffersize : 64000
-mode : Pull
-msg_version : 2.0r1
-msg_xmlns : http://www.sifinfo.org/infrastructure/2.x
-provideobjects:
-subscribeobjects:
+source_id: canvas
+name: Canvas by Instructure
+version: 2.0r1
+max_buffer_size: 64000
+mode: Pull
+msg_version: 2.0r1
+msg_xmlns: http://www.sifinfo.org/infrastructure/2.x
+provide:
+subscribe:
 - LEAInfo
 - SchoolInfo
 - TermInfo
@@ -16,10 +16,10 @@ subscribeobjects:
 - StudentPersonal
 - StaffPersonal
 - StudentSectionInfo
-publishaddobjects:
-publishchangeobjects:
-publishdeleteobjects:
-requestobjects:
+publish_add:
+publish_change:
+publish_delete:
+request:
 - LEAInfo
 - SchoolInfo
 - TermInfo
@@ -28,4 +28,4 @@ requestobjects:
 - StudentPersonal
 - StaffPersonal
 - StudentSectionInfo
-respondobjects:
+respond:

@@ -1,35 +1,24 @@
-require "openagent/utils/assign_variables"
+require 'virtus'
 
 module OpenAgent
   class Agent
-    include AssignVariables
-    attr_accessor :sourceid
-    attr_accessor :name
-    attr_accessor :version
-    attr_accessor :maxbuffersize
-    attr_accessor :mode
-    attr_accessor :msg_version
-    attr_accessor :msg_xmlns
+    include Virtus.model
 
-    attr_accessor :provideobjects
-    attr_accessor :subscribeobjects
-    attr_accessor :publishaddobjects
-    attr_accessor :publishchangeobjects
-    attr_accessor :publishdeleteobjects
-    attr_accessor :requestobjects
-    attr_accessor :respondobjects
+    attribute :name,            String
+    attribute :source_id,       String,  :default => :name
+    attribute :version,         String,  :default => "2.0r1"
+    attribute :max_buffer_size, Integer, :default => 128_000
+    attribute :mode,            String,  :default => "Pull"
+    attribute :msg_version,     String,  :default => :version
+    attribute :msg_xmlns,       String,  :default => "http://www.sifinfo.org/infrastructure/2.x"
 
-    def initialize(opts)
-      assign_variables(%w(sourceid msg_version msg_xmlns
-        name version mode maxbuffersize
-        provideobjects subscribeobjects
-        publishaddobjects publishchangeobjects
-        publishdeleteobjects requestobjects
-        respondobjects), opts)
-    end
+    attribute :provide,         Array[String]
+    attribute :subscribe,       Array[String]
+    attribute :publish_add,     Array[String]
+    attribute :publish_change,  Array[String]
+    attribute :publish_delete,  Array[String]
+    attribute :request,         Array[String]
+    attribute :respond,         Array[String]
 
-    def self.from_yaml(filename)
-      Agent.new(YAML::load(File.open("#{filename}")))
-    end
   end
 end
