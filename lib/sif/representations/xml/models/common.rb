@@ -25,6 +25,7 @@ require 'representable/xml'
   schedule_info_override
   school_contact
   school_course_info_override
+  street
   subject_area
 ).each do |c|
   require "sif/representations/xml/models/common/#{c}"

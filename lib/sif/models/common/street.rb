@@ -11,6 +11,7 @@ module SIF
         attribute :street_number, String
         attribute :street_prefix, String
         attribute :street_name, String
+        attribute :street_type, String
         attribute :street_suffix, String
         attribute :apartment_number_prefix, String
         attribute :apartment_number, String
