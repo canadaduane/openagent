@@ -1,10 +1,10 @@
-require_relative 'street'
-require_relative 'grid_location'
-
 module SIF
   module Model
     module Common
       class Address
+        require_relative 'street'
+        require_relative 'grid_location'
+
         include Virtus.model
 
         attribute :type, String
