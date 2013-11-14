@@ -1,9 +1,9 @@
+require "sif/sif"
 require "openagent/agent"
 require "openagent/zone"
 require "openagent/xml_helpers"
 require "openagent/errors"
 require "openagent/message_builder"
-require "sif/sif"
 require "logger"
 
 module OpenAgent

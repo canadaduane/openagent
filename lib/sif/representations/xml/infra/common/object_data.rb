@@ -1,7 +1,5 @@
 require_relative 'event_object'
 
-require 'sif/representations/xml/models'
-
 module SIF
   module Representation
     module XML
