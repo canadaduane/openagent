@@ -6,7 +6,7 @@ module SIF
           class QueryObject < Representable::Decorator
             include Representable::XML
 
-            self.representation_wrap = 'SIF_Query'
+            self.representation_wrap = 'SIF_QueryObject'
 
             property :object_name, :as => 'ObjectName', :attribute => true
             property :element, :as => 'SIF_Element'

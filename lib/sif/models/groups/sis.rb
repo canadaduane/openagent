@@ -5,13 +5,14 @@ require "sif/models/groups/sis/student_personal"
 # calendar_date
 # discipline_incident
 # school_info
+#term_info
 %w(
   lea_info
   student_personal
   section_info
   school_course_info
   section_info
-  term_info
+
   staff_personal
   student_section_enrollment
 ).each do |c|
