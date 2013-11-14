@@ -4,7 +4,7 @@ module SIF
       module Model
         module Group
           module SIS
-            class StudentPersonal < SIF::Representation
+            class StudentPersonal < SIF::Represent
               include SISRepresenter
               include PersonalRepresenter
               self.representation_wrap = 'StudentPersonal'

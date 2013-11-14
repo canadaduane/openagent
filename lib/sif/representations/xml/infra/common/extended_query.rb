@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class ExtendedQuery < SIF::Representation
+          class ExtendedQuery < SIF::Represent
 
             self.representation_wrap = 'SIF_ExtendedQuery'
 

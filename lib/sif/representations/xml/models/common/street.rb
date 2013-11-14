@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class Street < SIF::Representation
+          class Street < SIF::Represent
 
             self.representation_wrap = 'Street'
 

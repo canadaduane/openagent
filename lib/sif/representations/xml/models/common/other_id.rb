@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class OtherId < SIF::Representation
+          class OtherId < SIF::Represent
 
             self.representation_wrap = 'OtherId'
 

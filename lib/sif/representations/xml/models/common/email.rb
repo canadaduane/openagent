@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class Email < SIF::Representation
+          class Email < SIF::Represent
 
             self.representation_wrap = 'Email'
 

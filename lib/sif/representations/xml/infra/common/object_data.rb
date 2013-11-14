@@ -5,7 +5,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class ObjectData < SIF::Representation
+          class ObjectData < SIF::Represent
 
             self.representation_wrap = 'SIF_ObjectData'
 

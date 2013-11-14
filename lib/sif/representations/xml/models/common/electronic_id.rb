@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class ElectronicId < SIF::Representation
+          class ElectronicId < SIF::Represent
 
             self.representation_wrap = 'ElectronicId'
 

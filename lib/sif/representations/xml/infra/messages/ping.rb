@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Ping < SIF::Representation
+          class Ping < SIF::Represent
 
             self.representation_wrap = 'SIF_Ping'
 

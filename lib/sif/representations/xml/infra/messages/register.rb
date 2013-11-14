@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Register < SIF::Representation
+          class Register < SIF::Represent
 
             self.representation_wrap = 'SIF_Register'
 

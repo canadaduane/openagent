@@ -8,7 +8,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class SystemControlData < SIF::Representation
+          class SystemControlData < SIF::Represent
 
             self.representation_wrap = 'SIF_SystemControlData'
 

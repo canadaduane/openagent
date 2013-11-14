@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Status < SIF::Representation
+          class Status < SIF::Represent
 
             self.representation_wrap = 'SIF_Status'
 

@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Message < SIF::Representation
+          class Message < SIF::Represent
 
             remove_namespaces!
             self.representation_wrap = 'SIF_Message'

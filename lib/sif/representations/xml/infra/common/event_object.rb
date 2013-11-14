@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class EventObject < SIF::Representation
+          class EventObject < SIF::Represent
 
             self.representation_wrap = 'SIF_EventObject'
 

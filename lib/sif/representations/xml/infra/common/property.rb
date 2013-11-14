@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Property < SIF::Representation
+          class Property < SIF::Represent
 
             self.representation_wrap = 'SIF_Property'
 

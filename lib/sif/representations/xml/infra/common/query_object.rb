@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class QueryObject < SIF::Representation
+          class QueryObject < SIF::Represent
 
             self.representation_wrap = 'SIF_QueryObject'
 

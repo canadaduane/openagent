@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class Language < SIF::Representation
+          class Language < SIF::Represent
 
             self.representation_wrap = 'SIF_Error'
 

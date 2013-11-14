@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Ack < SIF::Representation
+          class Ack < SIF::Represent
 
             self.representation_wrap = 'SIF_Ack'
 

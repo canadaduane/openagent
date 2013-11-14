@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class ContactInfo < SIF::Representation
+          class ContactInfo < SIF::Represent
             require_relative 'phone_number'
             require_relative 'address'
             require_relative 'email'

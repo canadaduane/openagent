@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class CreditsAttempted < SIF::Representation
+          class CreditsAttempted < SIF::Represent
 
             self.representation_wrap = 'CreditsAttempted'
 

@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Application < SIF::Representation
+          class Application < SIF::Represent
 
             self.representation_wrap = 'SIF_Application'
 

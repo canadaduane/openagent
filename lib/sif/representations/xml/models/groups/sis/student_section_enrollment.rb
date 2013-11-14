@@ -4,7 +4,7 @@ module SIF
       module Model
         module Group
           module SIS
-            class StudentSectionEnrollment < SIF::Representation
+            class StudentSectionEnrollment < SIF::Represent
               include SISRepresenter
               self.representation_wrap = 'StudentSectionEnrollment'
 

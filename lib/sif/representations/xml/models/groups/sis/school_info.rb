@@ -6,7 +6,7 @@ module SIF
       module Model
         module Group
           module SIS
-            class SchoolInfo < SIF::Representation
+            class SchoolInfo < SIF::Represent
               include SISRepresenter
               
               self.representation_wrap = 'SchoolInfo'

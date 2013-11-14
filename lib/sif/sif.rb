@@ -4,7 +4,8 @@ require 'representable/xml'
 require 'representable/json'
 
 module SIF
-  class Rep < SIF::Representation
+  class Represent < Representable::Decorator
+    include Representable::XML
     include Representable::JSON
   end
 

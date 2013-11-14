@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Response < SIF::Representation
+          class Response < SIF::Represent
 
             self.representation_wrap = 'SIF_Response'
 

@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Subscribe < SIF::Representation
+          class Subscribe < SIF::Represent
 
             self.representation_wrap = 'SIF_Subscribe'
 

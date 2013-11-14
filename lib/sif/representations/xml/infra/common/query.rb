@@ -6,7 +6,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Query < SIF::Representation
+          class Query < SIF::Represent
 
             self.representation_wrap = 'SIF_Query'
 

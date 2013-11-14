@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class SchoolCourseInfoOverride < SIF::Representation
+          class SchoolCourseInfoOverride < SIF::Represent
 
             self.representation_wrap = 'SchoolCourseInfoOverride'
 

@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Sleep < SIF::Representation
+          class Sleep < SIF::Represent
 
             self.representation_wrap = 'SIF_Sleep'
 

@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Condition < SIF::Representation
+          class Condition < SIF::Represent
 
             self.representation_wrap = 'SIF_Condition'
 

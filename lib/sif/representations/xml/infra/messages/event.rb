@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Event < SIF::Representation
+          class Event < SIF::Represent
 
             self.representation_wrap = 'SIF_Event'
 

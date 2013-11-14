@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class SecureChannel < SIF::Representation
+          class SecureChannel < SIF::Represent
 
             self.representation_wrap = 'SIF_SecureChannel'
 

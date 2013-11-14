@@ -4,7 +4,7 @@ module SIF
       module Infra
         module Common
           class Message < Representable::Decorator; end
-          class Data < SIF::Representation
+          class Data < SIF::Represent
 
             self.representation_wrap = 'SIF_Data'
 

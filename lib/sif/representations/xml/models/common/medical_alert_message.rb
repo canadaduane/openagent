@@ -3,7 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class MedicalAlertMessage < SIF::Representation
+          class MedicalAlertMessage < SIF::Represent
 
             self.representation_wrap = 'MedicalAlertMessage'
 

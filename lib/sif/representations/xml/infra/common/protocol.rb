@@ -3,7 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Protocol < SIF::Representation
+          class Protocol < SIF::Represent
 
             self.representation_wrap = 'SIF_Ack'
 
