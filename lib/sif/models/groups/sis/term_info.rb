@@ -1,12 +1,12 @@
 require 'date'
+require_relative 'sis_representer'
+require '../data_model/term_span'
 
 module SIF
   module Model
     module Group
       module SIS
         class TermInfo
-          require_relative '../../../models/groups/sis/sis_representer'
-          require_relative '../data_model/term_span'
 
           include Virtus.model
           include SISRepresenter
