@@ -20,7 +20,7 @@ module OpenAgent
     MessageRepresenter = ::SIF::Representation::XML::Infra::Common::Message
 
     def self.connect(opts={})
-      Client.new.tap do |client|
+      Client.new(opts).tap do |client|
         client.register
         client.provision(opts.slice(:provide, :subscribe, :request, :respond,
           :publish_add, :publish_change, :publish_delete))
