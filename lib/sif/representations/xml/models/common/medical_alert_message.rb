@@ -6,10 +6,10 @@ module SIF
           class MedicalAlertMessage < Representable::Decorator
             include Representable::XML
 
-            self.representation_wrap = 'SIF_MedicalAlertMessage'
+            self.representation_wrap = 'MedicalAlertMessage'
 
             property :type, :attribute => true, :as => 'Type'
-            property :value
+            property :value, :content => true
           end
         end
       end

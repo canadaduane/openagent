@@ -7,7 +7,9 @@ module SIF
             module PersonalRepresenter
               include Representable::XML
 
-              property   :name, :as => 'Name'
+              property   :name, :as => 'Name',
+                         :class => MODEL_COMMON::Name,
+                         :decorator => XML_COMMON::Name
               property   :local_id, :as => 'LocalId'
               property   :state_province_id, :as => 'StateProvinceId'
               collection :electronic_ids, :as => 'ElectronicId', :wrap => 'ElectronicIdList',

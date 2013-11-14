@@ -9,7 +9,7 @@ module SIF
             self.representation_wrap = 'ElectronicId'
 
             property :type, :as => 'Type', :attribute => true
-            property :value
+            property :value, :content => true
 
           end
         end

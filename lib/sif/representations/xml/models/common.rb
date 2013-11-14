@@ -15,6 +15,7 @@ require 'representable/xml'
   language
   medical_alert_message
   meeting_time
+  name
   other_code
   other_id
   phone_number
