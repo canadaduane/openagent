@@ -5,6 +5,7 @@ module SIF
         class SchoolInfo
           include Virtus.model
 
+          attribute :ref_id, String
           attribute :local_id, String
           attribute :state_province_id, String
           attribute :nces_id, String

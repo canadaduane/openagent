@@ -1,3 +1,5 @@
+require_relative 'sis_representer'
+
 module SIF
   module Representation
     module XML
@@ -7,6 +9,7 @@ module SIF
             class SchoolInfo < Representable::Decorator
               include Representable::XML
               include SISRepresenter
+              
               self.representation_wrap = 'SchoolInfo'
 
               property :local_id, :as => 'LocalId'

@@ -1,6 +1,5 @@
 require 'date'
 require_relative 'sis_representer'
-require '../data_model/term_span'
 
 module SIF
   module Model
