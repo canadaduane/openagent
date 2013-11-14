@@ -12,7 +12,7 @@ require "sif/models/groups/sis/student_personal"
   section_info
   school_course_info
   section_info
-
+  term_info
   staff_personal
   student_section_enrollment
 ).each do |c|
