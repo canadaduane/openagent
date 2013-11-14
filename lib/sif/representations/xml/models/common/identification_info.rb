@@ -8,8 +8,8 @@ module SIF
 
             self.representation_wrap = 'IdentificationInfo'
 
-            property :value
-            property :code , :as => 'Code', :attribute => true
+            property :value, :content => true
+            property :code, :as => 'Code', :attribute => true
 
           end
         end

@@ -6,10 +6,10 @@ module SIF
           class AlertMessage < Representable::Decorator
             include Representable::XML
 
-            self.representation_wrap = 'SIF_AlertMessage'
+            self.representation_wrap = 'AlertMessage'
 
-            property :type, :attribute => true, :as => 'Type'
-            property :value
+            property :type, :as => 'Type', :attribute => true
+            property :value, :content => true
 
           end
         end

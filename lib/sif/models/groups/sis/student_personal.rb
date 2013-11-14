@@ -30,14 +30,14 @@ module SIF
           attribute :metadata, String
           attribute :extended_elements, String
 
-          attribute :alert_messages, Array[Common::AlertMessage]
+          attribute :alert_messages,         Array[Common::AlertMessage]
           attribute :medical_alert_messages, Array[Common::MedicalAlertMessage]
-          attribute :electronic_ids, Array[Common::ElectronicId]
-          attribute :other_ids, Array[Common::OtherId]
-          attribute :addresses, Array[Common::Address]
-          attribute :phone_numbers, Array[Common::PhoneNumber]
-          attribute :emails, Array[Common::Email]
-          attribute :demographics, String
+          attribute :electronic_ids,         Array[Common::ElectronicId]
+          attribute :other_ids,              Array[Common::OtherId]
+          attribute :addresses,              Array[Common::Address]
+          attribute :phone_numbers,          Array[Common::PhoneNumber]
+          attribute :emails,                 Array[Common::Email]
+          attribute :demographics,           String
         end
       end
     end

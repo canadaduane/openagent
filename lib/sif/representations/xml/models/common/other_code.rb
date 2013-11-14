@@ -8,8 +8,8 @@ module SIF
 
             self.representation_wrap = 'OtherCode'
 
-            property :value
             property :code_set, :as => 'Codeset', :attribute => true
+            property :value, :content => true
           end
         end
       end

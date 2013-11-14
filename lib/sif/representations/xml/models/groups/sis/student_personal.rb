@@ -10,10 +10,10 @@ module SIF
               include PersonalRepresenter
               self.representation_wrap = 'StudentPersonal'
 
-              collection :alert_messages, :as => 'AlertMessages',
+              collection :alert_messages, :as => 'AlertMessage', :wrap => 'AlertMessages',
                          :class => MODEL_COMMON::AlertMessage,
                          :decorator => XML_COMMON::AlertMessage
-              collection :medical_alert_messages, :as => 'MedicalAlertMessages',
+              collection :medical_alert_messages, :as => 'MedicalAlertMessage', :wrap => 'MedicalAlertMessages',
                          :class => MODEL_COMMON::MedicalAlertMessage,
                          :decorator => XML_COMMON::MedicalAlertMessage
               property :projected_graduation_year, :as => 'ProjectedGraduationYear'
