@@ -25,6 +25,9 @@ module SIF
         rescue NoMethodError
           nil
         end
+        def type
+          if event then :event else :response end
+        end
 
         def content
           ack || event || provide || provision ||
