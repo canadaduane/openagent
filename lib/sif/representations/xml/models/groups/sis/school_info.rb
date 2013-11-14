@@ -30,14 +30,14 @@ module SIF
               collection :phone_numbers, :as => 'PhoneNumber', :wrap => 'PhoneNumberList',
                          :class => MODEL_COMMON::PhoneNumber,
                          :decorator => XML_COMMON::PhoneNumber
-              property :identification_infos => 'IdentificationInfo', :wrap => 'IdentificationInfoList',
+              property :identification_infos, :as => 'IdentificationInfo', :wrap => 'IdentificationInfoList',
                        :class => MODEL_COMMON::IdentificationInfo,
                        :decorator => XML_COMMON::IdentificationInfo
               property :session_type, :as => 'SessionType'
               property :grade_levels, :as => 'GradeLevels'
               property :title_1_status, :as => 'Title1Status'
-              property :operational_status => 'OperationalStatus'
-              property :congressional_district => 'CongressionalDistrict'
+              property :operational_status, :as => 'OperationalStatus'
+              property :congressional_district, :as => 'CongressionalDistrict'
             end
           end
         end
