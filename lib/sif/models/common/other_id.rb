@@ -5,7 +5,7 @@ module SIF
         include Virtus.model
 
         attribute :type, String
-        attribute :value, Street
+        attribute :value, String
       end
     end
   end
