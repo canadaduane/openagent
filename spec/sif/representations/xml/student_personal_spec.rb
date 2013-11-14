@@ -5,12 +5,10 @@ describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
   let(:student) { SIF::Model::Group::SIS::StudentPersonal.new }
 
   before do
-    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).
-      from_xml(xml)
+    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml)
   end
 
-  it "parses" do
-    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml);
+  it 'parses' do
     student.ref_id.should == 'D3E34B359D75101A8C3D00AA001A1652'
     alert = student.alert_messages[0]
     alert.type.should == 'Legal'
@@ -44,5 +42,66 @@ describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
     email.type.should == 'Primary'
     email.value.should == 'Joe.Student@anyschool.com'
     student.on_time_graduation_year.should == 2007
+  end
+
+  it 'writes' do
+    new_student = SIF::Model::Group::SIS::StudentPersonal.new(
+      :ref_id => 'D3E34B359D75101A8C3D00AA001A1652',
+      :alert_messages => [
+          SIF::Model::Common::AlertMessage.new(
+              :type => 'Legal',
+              :value => 'This is the Legal Alert for Joe Student'
+          )
+      ],
+      :local_id => 'P00001',
+      :state_province_id => 'WB0025',
+      :electronic_ids => [
+        SIF::Model::Common::ElectronicId.new(
+          :type => 'Barcode',
+          :value => '206654'
+        )
+      ],
+      :name => SIF::Model::Common::Name.new(
+        :type => '04',
+        :last_name => 'Student',
+        :first_name => 'Joe',
+        :middle_name => '',
+        :preferred_name => 'Joe'
+      ),
+      :demographics => SIF::Model::Common::Demographics.new(
+        :gender => 'M'
+      ),
+      :addresses => [
+        SIF::Model::Common::Address.new(
+          :type => '0123',
+          :street => SIF::Model::Common::Street.new(
+            :line1 => '6799 33rd Ave.',
+            :street_number => '6799',
+            :street_name => '33rd',
+            :street_type => 'Ave.'
+          ),
+          :city => 'Chicago',
+          :state_province => 'IL',
+          :country => 'US',
+          :postal_code => '60660'
+        )
+      ],
+      :phone_numbers => [
+        SIF::Model::Common::PhoneNumber.new(
+          :type => '0096',
+          :number => '(312) 555-1234'
+        )
+      ],
+      :emails => [
+        :type => 'Primary',
+        :value => 'Joe.Student@anyschool.com'
+      ],
+      :on_time_graduation_year => 2007
+    )
+
+    orig_xml = SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).to_xml
+    new_xml = SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(new_student).to_xml
+
+    new_xml.should == orig_xml
   end
 end
