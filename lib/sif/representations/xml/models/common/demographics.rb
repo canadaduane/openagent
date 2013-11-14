@@ -3,13 +3,11 @@ module SIF
     module XML
       module Model
         module Common
-          class Demographics < Representable::Decorator
+          class Demographics < SIF::Represent
             require_relative 'race'
             require_relative 'english_proficiency'
             require_relative 'language'
             require_relative 'dwelling_arrangement'
-
-            include Representable::XML
 
             self.representation_wrap = 'Demographics'
 
