@@ -95,7 +95,7 @@ module SIF
 
     module Group
       module DataModel
-        autoload :TermSpam, 'sif/models/groups/data_model/term_span'
+        autoload :TermSpan, 'sif/models/groups/data_model/term_span'
       end
 
       module SIS
@@ -106,9 +106,12 @@ module SIF
         autoload :PersonalRepresenter, 'sif/models/groups/sis/personal_representer'
         autoload :SchoolCourseInfo, 'sif/models/groups/sis/school_course_info'
         autoload :SchoolInfo, 'sif/models/groups/sis/school_info'
+        autoload :SectionInfo, 'sif/models/groups/sis/section_info'
         autoload :SISRepresenter, 'sif/models/groups/sis/sis_representer'
         autoload :StaffPersonal, 'sif/models/groups/sis/staff_personal'
         autoload :StudentPersonal, 'sif/models/groups/sis/student_personal'
+        autoload :StudentSectionEnrollment, 'sif/models/groups/sis/student_section_enrollment'
+        autoload :TermInfo, 'sif/models/groups/sis/term_info'
       end
     end
 
@@ -159,7 +162,7 @@ module SIF
           autoload :Subscribe, 'sif/representations/xml/infra/messages/subscribe'
           autoload :SystemControl, 'sif/representations/xml/infra/messages/system_control'
           autoload :SystemControlData, 'sif/representations/xml/infra/messages/system_control_data'
-          # autoload :Unprovide, 'sif/representations/xml/infra/messages/unprovide'
+          autoload :Unprovide, 'sif/representations/xml/infra/messages/unprovide'
           autoload :Unregister, 'sif/representations/xml/infra/messages/unregister'
           autoload :Unsubscribe, 'sif/representations/xml/infra/messages/unsubscribe'
           autoload :Wakeup, 'sif/representations/xml/infra/messages/wakeup'
@@ -210,7 +213,7 @@ module SIF
 
         module Group
           module DataModel
-            autoload :TermSpam, 'sif/representations/xml/models/groups/data_model/term_span'
+            autoload :TermSpan, 'sif/representations/xml/models/groups/data_model/term_span'
           end
 
           module SIS
@@ -221,9 +224,12 @@ module SIF
             autoload :PersonalRepresenter, 'sif/representations/xml/models/groups/sis/personal_representer'
             autoload :SchoolCourseInfo, 'sif/representations/xml/models/groups/sis/school_course_info'
             autoload :SchoolInfo, 'sif/representations/xml/models/groups/sis/school_info'
+            autoload :SectionInfo, 'sif/representations/xml/models/groups/sis/section_info'
             autoload :SISRepresenter, 'sif/representations/xml/models/groups/sis/sis_representer'
             autoload :StaffPersonal, 'sif/representations/xml/models/groups/sis/staff_personal'
             autoload :StudentPersonal, 'sif/representations/xml/models/groups/sis/student_personal'
+            autoload :StudentSectionEnrollment, 'sif/representations/xml/models/groups/sis/student_section_enrollment'
+            autoload :TermInfo, 'sif/representations/xml/models/groups/sis/term_info'
           end
         end
 

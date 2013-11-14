@@ -1,4 +1,5 @@
 require_relative 'sis_representer'
+
 module SIF
   module Model
     module Group
