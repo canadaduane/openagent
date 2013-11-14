@@ -76,6 +76,6 @@ describe OpenAgent::MessageBuilder do
 
   it "requests" do
     msg = header_checks_out{builder.request("StudentPersonal")}
-    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Error>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Query>\n      <SIF_Query ObjectName=\"StudentPersonal\"/>\n    </SIF_Query>\n    <SIF_Version>2.0r1</SIF_Version>\n    <SIF_MaxBufferSize>64000</SIF_MaxBufferSize>\n  </SIF_Error>\n</SIF_Message>"
+    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Request>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Version>2.0r1</SIF_Version>\n    <SIF_MaxBufferSize>64000</SIF_MaxBufferSize>\n    <SIF_Query>\n      <SIF_QueryObject ObjectName=\"StudentPersonal\"/>\n    </SIF_Query>\n  </SIF_Request>\n</SIF_Message>"
   end
 end

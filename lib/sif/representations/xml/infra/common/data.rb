@@ -1,10 +1,9 @@
-require_relative 'message'
-
 module SIF
   module Representation
     module XML
       module Infra
         module Common
+          class Message < Representable::Decorator; end
           class Data < Representable::Decorator
             include Representable::XML
 

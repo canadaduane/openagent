@@ -13,9 +13,9 @@ module SIF
           class Response < Representable::Decorator; end
           class Subscribe < Representable::Decorator; end
           class SystemControl < Representable::Decorator; end
-          class Unprovide < Representable::Decorator; end
-          class Unregister < Representable::Decorator; end
-          class Unsubscribe < Representable::Decorator; end
+          # class Unprovide < Representable::Decorator; end
+          # class Unregister < Representable::Decorator; end
+          # class Unsubscribe < Representable::Decorator; end
         end
 
         module Common
@@ -55,15 +55,15 @@ module SIF
             property :system_control, :as => 'SIF_SystemControl', 
                      :class => SIF::Infra::Message::SystemControl,
                      :decorator => Infra::Message::SystemControl
-            property :unprovide,      :as => 'SIF_Unprovide',     
-                     :class => SIF::Infra::Message::Unprovide,
-                     :decorator => Infra::Message::Unprovide
-            property :unregister,     :as => 'SIF_Unregister',    
-                     :class => SIF::Infra::Message::Unregister,
-                     :decorator => Infra::Message::Unregister
-            property :unsubscribe,    :as => 'SIF_Unsubscribe',   
-                     :class => SIF::Infra::Message::Unsubscribe,
-                     :decorator => Infra::Message::Unsubscribe
+            # property :unprovide,      :as => 'SIF_Unprovide',     
+            #          :class => SIF::Infra::Message::Unprovide,
+            #          :decorator => Infra::Message::Unprovide
+            # property :unregister,     :as => 'SIF_Unregister',    
+            #          :class => SIF::Infra::Message::Unregister,
+            #          :decorator => Infra::Message::Unregister
+            # property :unsubscribe,    :as => 'SIF_Unsubscribe',   
+            #          :class => SIF::Infra::Message::Unsubscribe,
+            #          :decorator => Infra::Message::Unsubscribe
           end
         end
       end
