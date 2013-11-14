@@ -1,6 +1,3 @@
-require_relative 'phone_number'
-require_relative 'address'
-
 module SIF
   module Model
     module Common
@@ -15,8 +12,8 @@ module SIF
         attribute :lea_url, String
         attribute :education_agency_type, Integer
         attribute :lea_contacts, Array[String]
-        attribute :phone_numbers, Array[PhoneNumber]
-        attribute :addresses, Array[Address]
+        attribute :phone_numbers, Array[Common::PhoneNumber]
+        attribute :addresses, Array[Common::Address]
         attribute :identification_infos, Array[String]
         attribute :grade_levels
         attribute :operational_status, String

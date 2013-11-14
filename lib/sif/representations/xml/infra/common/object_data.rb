@@ -19,6 +19,9 @@ module SIF
             collection :objects, :as => 'StudentPersonal',
                        :class => SIF::Model::Group::SIS::StudentPersonal,
                        :decorator => XML::Model::Group::SIS::StudentPersonal
+            # collection :objects, :as => 'LEAInfo',
+            #            :class => SIF::Model::Group::SIS::LEAInfo,
+            #            :decorator => XML::Model::Group::SIS::LEAInfo
           end
         end
       end
