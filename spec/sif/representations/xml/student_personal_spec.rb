@@ -53,7 +53,6 @@ describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
 
     user = User.new;
     UserRep.new(user).from_xml(jwxml)
-    require 'debugger'; debugger
     user.addresses.should_not == nil
 
   end
