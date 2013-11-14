@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "pry"
 
   gem.add_dependency "uuid"
-  gem.add_dependency "representable"
+  gem.add_dependency "representable", "~> 1.7.2"
   gem.add_dependency "roxml"
   gem.add_dependency "virtus", "~> 1.0.0"
 end
