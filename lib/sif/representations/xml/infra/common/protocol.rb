@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Protocol < Representable::Decorator
-            include Representable::XML
+          class Protocol < SIF::Representation
 
             self.representation_wrap = 'SIF_Ack'
 

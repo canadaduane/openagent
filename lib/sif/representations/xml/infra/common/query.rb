@@ -6,8 +6,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Query < Representable::Decorator
-            include Representable::XML
+          class Query < SIF::Representation
 
             self.representation_wrap = 'SIF_Query'
 

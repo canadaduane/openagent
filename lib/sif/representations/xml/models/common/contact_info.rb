@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class ContactInfo < Representable::Decorator
-            include Representable::XML
+          class ContactInfo < SIF::Representation
             require_relative 'phone_number'
             require_relative 'address'
             require_relative 'email'

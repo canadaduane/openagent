@@ -21,6 +21,7 @@ describe OpenAgent::Client do
   it "has students" do
     @msg.inner_message.response.object_data.objects.count.should_not be_nil
   end
+
   it "has students ref_ids" do
     ref_ids = []
     @msg.inner_message.response.object_data.objects.each do |student|

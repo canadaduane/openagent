@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class SchoolCourseInfoOverride < Representable::Decorator
-            include Representable::XML
+          class SchoolCourseInfoOverride < SIF::Representation
 
             self.representation_wrap = 'SchoolCourseInfoOverride'
 

@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Status < Representable::Decorator
-            include Representable::XML
+          class Status < SIF::Representation
 
             self.representation_wrap = 'SIF_Status'
 

@@ -5,8 +5,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class ObjectData < Representable::Decorator
-            include Representable::XML
+          class ObjectData < SIF::Representation
 
             self.representation_wrap = 'SIF_ObjectData'
 

@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class Language < Representable::Decorator
-            include Representable::XML
+          class Language < SIF::Representation
 
             self.representation_wrap = 'SIF_Error'
 

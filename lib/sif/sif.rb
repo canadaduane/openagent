@@ -1,8 +1,13 @@
 require 'virtus'
 require 'representable'
 require 'representable/xml'
+require 'representable/json'
 
 module SIF
+  class Rep < SIF::Representation
+    include Representable::JSON
+  end
+
   module Infra
     module Common
       autoload :Application, 'sif/infra/common/application'

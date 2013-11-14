@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Ack < Representable::Decorator
-            include Representable::XML
+          class Ack < SIF::Representation
 
             self.representation_wrap = 'SIF_Ack'
 

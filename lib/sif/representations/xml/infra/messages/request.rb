@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Request < Representable::Decorator
-            include Representable::XML
+          class Request < SIF::Representation
 
             self.representation_wrap = 'SIF_Request'
 

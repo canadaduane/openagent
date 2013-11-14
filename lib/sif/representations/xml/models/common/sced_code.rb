@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class SCEDCode < Representable::Decorator
-            include Representable::XML
+          class SCEDCode < SIF::Representation
 
             self.representation_wrap = 'SCEDCode'
 

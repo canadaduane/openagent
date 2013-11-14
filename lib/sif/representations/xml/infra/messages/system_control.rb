@@ -5,8 +5,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class SystemControl < Representable::Decorator
-            include Representable::XML
+          class SystemControl < SIF::Representation
 
             self.representation_wrap = 'SIF_SystemControl'
 

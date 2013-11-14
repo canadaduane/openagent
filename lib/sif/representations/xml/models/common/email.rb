@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class Email < Representable::Decorator
-            include Representable::XML
+          class Email < SIF::Representation
 
             self.representation_wrap = 'Email'
 

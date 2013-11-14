@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Property < Representable::Decorator
-            include Representable::XML
+          class Property < SIF::Representation
 
             self.representation_wrap = 'SIF_Property'
 

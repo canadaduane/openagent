@@ -4,9 +4,7 @@ module SIF
       module Model
         module Group
           module SIS
-            class SectionInfo < Representable::Decorator
-
-              include Representable::XML
+            class SectionInfo < SIF::Representation
               include SISRepresenter
               self.representation_wrap = 'SectionInfo'
 

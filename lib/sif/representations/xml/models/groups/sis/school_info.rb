@@ -6,8 +6,7 @@ module SIF
       module Model
         module Group
           module SIS
-            class SchoolInfo < Representable::Decorator
-              include Representable::XML
+            class SchoolInfo < SIF::Representation
               include SISRepresenter
               
               self.representation_wrap = 'SchoolInfo'

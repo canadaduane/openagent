@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class MeetingTime < Representable::Decorator
-            include Representable::XML
+          class MeetingTime < SIF::Representation
 
             self.representation_wrap = 'MeetingTime'
 

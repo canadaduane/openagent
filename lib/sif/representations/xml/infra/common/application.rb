@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Application < Representable::Decorator
-            include Representable::XML
+          class Application < SIF::Representation
 
             self.representation_wrap = 'SIF_Application'
 

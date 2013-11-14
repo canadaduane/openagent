@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class MedicalAlertMessage < Representable::Decorator
-            include Representable::XML
+          class MedicalAlertMessage < SIF::Representation
 
             self.representation_wrap = 'MedicalAlertMessage'
 

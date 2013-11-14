@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Wakeup < Representable::Decorator
-            include Representable::XML
+          class Wakeup < SIF::Representation
 
             self.representation_wrap = 'SIF_Wakeup'
 

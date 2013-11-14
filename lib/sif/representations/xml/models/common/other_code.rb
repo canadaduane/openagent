@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class OtherCode < Representable::Decorator
-            include Representable::XML
+          class OtherCode < SIF::Representation
 
             self.representation_wrap = 'OtherCode'
 

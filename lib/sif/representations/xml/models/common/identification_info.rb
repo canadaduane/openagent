@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class IdentificationInfo < Representable::Decorator
-            include Representable::XML
+          class IdentificationInfo < SIF::Representation
 
             self.representation_wrap = 'IdentificationInfo'
 

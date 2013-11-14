@@ -5,8 +5,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Security < Representable::Decorator
-            include Representable::XML
+          class Security < SIF::Representation
 
             self.representation_wrap = 'SIF_Security'
 

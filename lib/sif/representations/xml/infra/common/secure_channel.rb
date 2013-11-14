@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class SecureChannel < Representable::Decorator
-            include Representable::XML
+          class SecureChannel < SIF::Representation
 
             self.representation_wrap = 'SIF_SecureChannel'
 

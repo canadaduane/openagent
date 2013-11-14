@@ -5,8 +5,7 @@ module SIF
     module XML
       module Infra
         module Common
-          class Header < Representable::Decorator
-            include Representable::XML
+          class Header < SIF::Representation
 
             self.representation_wrap = 'SIF_Header'
 

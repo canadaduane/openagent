@@ -3,8 +3,7 @@ module SIF
     module XML
       module Infra
         module Message
-          class Event < Representable::Decorator
-            include Representable::XML
+          class Event < SIF::Representation
 
             self.representation_wrap = 'SIF_Event'
 

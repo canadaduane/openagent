@@ -3,8 +3,7 @@ module SIF
     module XML
       module Model
         module Common
-          class PhoneNumber < Representable::Decorator
-            include Representable::XML
+          class PhoneNumber < SIF::Representation
 
             self.representation_wrap = 'SIF_Address'
 
