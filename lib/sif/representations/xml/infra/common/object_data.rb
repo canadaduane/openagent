@@ -14,9 +14,9 @@ module SIF
                      :class => SIF::Infra::Common::EventObject,
                      :decorator => EventObject
 
-            collection :lea_infos, :as => 'LEAInfo',
-                       :class => SIF::Model::Group::SIS::LEAInfo,
-                       :decorator => XML::Model::Group::SIS::LEAInfo
+            # collection :lea_infos, :as => 'LEAInfo',
+            #            :class => SIF::Model::Group::SIS::LEAInfo,
+            #            :decorator => XML::Model::Group::SIS::LEAInfo
             collection :school_course_infos, :as => 'SchoolCourseInfo',
                        :class => SIF::Model::Group::SIS::SchoolCourseInfo,
                        :decorator => XML::Model::Group::SIS::SchoolCourseInfo

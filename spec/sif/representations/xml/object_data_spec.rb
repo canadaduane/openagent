@@ -5,11 +5,11 @@ describe SIF::Representation::XML::Infra::Common::ObjectData do
   let(:object_data) { SIF::Infra::Common::ObjectData.new }
 
   before do
-    SIF::Representation::XML::Infra::Common::ObjectData.new(object_data).
-      from_xml(xml)
+    SIF::Representation::XML::Infra::Common::ObjectData.new(object_data).from_xml(xml)
   end
 
   it "parses" do
-    object_data.objects.count.should == 3
+    object_data.student_personals.count.should == 1
+    # object_data.objects.count.should == 3
   end
 end
