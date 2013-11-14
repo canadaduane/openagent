@@ -6,6 +6,7 @@ module SIF
       module SIS
         class TermInfo
           require_relative '../../../models/groups/sis/sis_representer'
+          require_relative '../data_model/term_span'
 
           include Virtus.model
           include SISRepresenter
