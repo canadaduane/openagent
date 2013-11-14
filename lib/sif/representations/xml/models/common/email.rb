@@ -10,7 +10,7 @@ module SIF
 
             property :type, :as => 'Type', :attribute => true
             property :action, :as => 'SIF_Action', :attribute => true
-            property :value
+            property :value, :content => true
           end
         end
       end
