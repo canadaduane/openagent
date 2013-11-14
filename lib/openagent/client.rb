@@ -29,19 +29,23 @@ module OpenAgent
 
     def initialize(opts={})
       @callbacks    = {
-        :receive_message => [],
-        :each_loop => []
+          :receive_message => [],
+          :each_loop => []
       }
 
       @name         = opts.delete(:name)
       @url          = opts.delete(:url)
       @pretty_print = opts.has_key?(:pretty_print) ? opts.delete(:pretty_print) : true
 
+      @agent_opts = opts['agent_opts'] || {}
+      @agent_opts[:name] = @name if @name
+
+      @zone_opts = opts['zone_opts'] || {}
+      @zone_opts[:uri] = @url if @url
+
       @log          = Logger.new(opts["log"] || STDOUT, 'daily')
-      @agent        = opts['agent'] ||
-        OpenAgent::Agent.new((opts['agent_opts'] || {}).merge(:name => @name))
-      @zone         = opts['zone'] ||
-        OpenAgent::Zone.new((opts['zone_opts'] || {}).merge(:uri => @url))
+      @agent        = opts['agent'] || OpenAgent::Agent.new(@agent_opts)
+      @zone         = opts['zone'] || OpenAgent::Zone.new(@zone_opts)
 
       @builder      = OpenAgent::MessageBuilder.new(@agent, @zone)
     end
