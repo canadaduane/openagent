@@ -153,12 +153,16 @@ module OpenAgent
       @zone.send_request(req).tap do |response|
         log "Response", formatted_xml(response.body, @pretty_print)
 
-        incoming = Message.new
-        MessageRepresenter.new(incoming).from_xml(response.body)
+        if response.body.empty?
+          raise ResponseError, "Response is empty"
+        else
+          incoming = Message.new
+          MessageRepresenter.new(incoming).from_xml(response.body)
 
-        check_for_errors(incoming)
-        
-        yield incoming if block_given?
+          check_for_errors(incoming)
+
+          yield incoming if block_given?
+        end
       end
     end
 
