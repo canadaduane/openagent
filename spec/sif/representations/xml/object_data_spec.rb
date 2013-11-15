@@ -9,7 +9,11 @@ describe SIF::Representation::Infra::Common::ObjectData do
   end
 
   it "parses" do
-    object_data.student_personals.count.should == 1
-    # object_data.objects.count.should == 3
+    object_data.student_personals.count.should == 3
+    object_data.objects.count.should == 3
+  end
+
+  it "has a datatype" do
+    object_data.datatype.should == :student_personal
   end
 end
