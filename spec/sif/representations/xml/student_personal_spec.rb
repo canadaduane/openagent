@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
+describe SIF::Representation::Model::Group::SIS::StudentPersonal do
 #  let(:xml) { File.read(fixture("sif/student_personal.xml")) }
 #  let(:student) { SIF::Model::Group::SIS::StudentPersonal.new }
 
 #  before do
-#    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).
+#    SIF::Representation::Model::Group::SIS::StudentPersonal.new(student).
 #      from_xml(xml)
 #  end
 
@@ -58,7 +58,7 @@ describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
   end
 
 #  it "parses" do
-#    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml);
+#    SIF::Representation::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml);
 #    student.ref_id.should == "D3E34B359D75101A8C3D00AA001A1652"
 #    messages = student.alert_messages
 #    for message in messages

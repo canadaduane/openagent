@@ -6,7 +6,7 @@ describe OpenAgent::Client do
   let(:xml) {File.read('./spec/fixtures/sif/stu_pers_resp.xml')}
 
   before do
-    representer = SIF::Representation::XML::Infra::Common::Message
+    representer = SIF::Representation::Infra::Common::Message
     @msg = representer.new(response).from_xml(xml)
   end
 

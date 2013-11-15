@@ -24,7 +24,7 @@ describe OpenAgent::MessageBuilder do
   end
 
   def represent(msg)
-    SIF::Representation::XML::Infra::Common::Message.new(msg)
+    SIF::Representation::Infra::Common::Message.new(msg)
   end
 
   it "registers" do

@@ -17,7 +17,7 @@ module OpenAgent
     ZIS_NO_MESSAGES = 9
 
     Message = SIF::Infra::Common::Message
-    MessageRepresenter = ::SIF::Representation::XML::Infra::Common::Message
+    MessageRepresenter = ::SIF::Representation::Infra::Common::Message
 
     def self.connect(opts={})
       Client.new(opts).tap do |client|

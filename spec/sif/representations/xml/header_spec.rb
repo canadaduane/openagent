@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Infra::Common::Header do
+describe SIF::Representation::Infra::Common::Header do
   let(:xml) { File.read(fixture("sif/sif_header.xml")) }
   let(:header) { SIF::Infra::Common::Header.new }
 
   before do
-    SIF::Representation::XML::Infra::Common::Header.new(header).from_xml(xml)
+    SIF::Representation::Infra::Common::Header.new(header).from_xml(xml)
   end
 
   it "parses" do

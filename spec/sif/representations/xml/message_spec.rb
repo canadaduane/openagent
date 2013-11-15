@@ -1,9 +1,9 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Infra::Common::Message do
+describe SIF::Representation::Infra::Common::Message do
   let(:xml) { File.read(fixture("sif/sif_message__response.xml")) }
   let(:message) { SIF::Infra::Common::Message.new }
-  let(:rep) { SIF::Representation::XML::Infra::Common::Message.new(message) }
+  let(:rep) { SIF::Representation::Infra::Common::Message.new(message) }
 
   before do
     rep.from_xml(xml)
