@@ -6,6 +6,7 @@ module SIF
       module SIS
         class SectionInfo
           include Virtus.model
+          include SISRepresenter
 
           attribute :school_course_info, String
           attribute :school_year, String

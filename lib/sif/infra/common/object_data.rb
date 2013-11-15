@@ -19,14 +19,16 @@ module SIF
           Array[SIF::Model::Group::SIS::StudentSectionEnrollment], :default => []
         attribute :term_infos,
           Array[SIF::Model::Group::SIS::TermInfo], :default => []
-
+        attribute :section_infos,
+                  Array[SIF::Model::Group::SIS::SectionInfo], :default => []
         def objects
           school_course_infos +
           school_infos +
           staff_personals +
           student_personals +
           student_section_enrollments +
-          term_infos
+          term_infos +
+          section_infos
         end
       end
     end
