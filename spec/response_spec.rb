@@ -14,12 +14,16 @@ describe OpenAgent::Client do
     @msg.inner_message.response.packet_number.should == 1
   end
 
+  it "is a response" do
+    @msg.type.should == :response
+  end
+
   it "has more packets" do
     @msg.inner_message.response.more_packets?.should be_true
   end
 
   it "has students" do
-    @msg.inner_message.response.object_data.objects.count.should_not be_nil
+    @msg.response_objects.count.should_not be_nil
   end
 
   it "has students ref_ids" do
