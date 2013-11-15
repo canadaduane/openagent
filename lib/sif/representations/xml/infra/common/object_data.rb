@@ -34,6 +34,9 @@ module SIF
             collection :term_infos, :as => 'TermInfo',
                        :class => SIF::Model::Group::SIS::TermInfo,
                        :decorator => XML::Model::Group::SIS::TermInfo
+            collection :section_infos, :as => 'SectionInfo',
+                       :class => SIF::Model::Group::SIS::SectionInfo,
+                       :decorator => XML::Model::Group::SIS::SectionInfo
           end
         end
       end
