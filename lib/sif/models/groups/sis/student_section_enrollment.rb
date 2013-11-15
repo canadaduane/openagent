@@ -4,6 +4,7 @@ module SIF
       module SIS
         class StudentSectionEnrollment
           include Virtus.model
+          include SISRepresenter
 
           attribute :student_personal_ref_id, String
           attribute :section_info_ref_id, String
