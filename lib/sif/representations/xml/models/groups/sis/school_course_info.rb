@@ -11,7 +11,7 @@ module SIF
               include SISRepresenter
               self.representation_wrap = 'SchoolCourseInfo'
 
-              property :school_info_id, :attribute => true, :as => 'SchoolInfoId'
+              property :school_info_ref_id, :attribute => true, :as => 'SchoolInfoRefId'
               property :school_year, :attribute => true, :as => 'SchoolYear'
               property :course_code, :as => 'CourseCode'
               property :state_course_code, :as => 'StateCourseCode'
@@ -21,7 +21,7 @@ module SIF
                          :decorator => XML_COMMON::SubjectArea
               property :course_title, :as => 'CourseTitle'
               property :description, :as => 'Description'
-              property :instruction_level, :as => 'InstructionLevel'
+              property :instructional_level, :as => 'InstructionalLevel'
               property :course_credits, :as => 'CourseCredits'
               property :core_academic_course, :as => 'CoreAcademicCourse'
               property :graduation_requirement, :as => 'GraduationRequirement'

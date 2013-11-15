@@ -1,0 +1,21 @@
+<SchoolCourseInfo RefId="9D75101A8C3D00AA001A0000A2E35B35" SchoolInfoRefId="101A8C3D00AA001A0000A2E35B359D75" SchoolYear="2006">
+  <CourseCode>CS101</CourseCode>
+  <StateCourseCode>08-001</StateCourseCode>
+  <DistrictCourseCode>CS101</DistrictCourseCode>
+  <SubjectAreaList>
+    <SubjectArea>
+      <Code>05</Code>
+      <OtherCodeList>
+        <OtherCode Codeset="Text">Graphic Arts</OtherCode>
+      </OtherCodeList>
+    </SubjectArea>
+  </SubjectAreaList>
+  <CourseTitle>Gif, JPeg, or Png: What's the Difference?</CourseTitle>
+  <Description>Explore the various types of files related to graphic arts.</Description>
+  <InstructionalLevel>
+    <Code>0571</Code>
+  </InstructionalLevel>
+  <CourseCredits Type="0585">2</CourseCredits>
+  <CoreAcademicCourse>No</CoreAcademicCourse>
+  <GraduationRequirement>No</GraduationRequirement>
+</SchoolCourseInfo>
