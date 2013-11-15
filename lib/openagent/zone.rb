@@ -1,4 +1,6 @@
 require "net/http"
+require "net/https"
+require "uuid"
 require "uri"
 
 require_relative "ssl_config"

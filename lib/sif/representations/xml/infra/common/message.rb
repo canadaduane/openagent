@@ -6,6 +6,7 @@ module SIF
           class Message < SIF::Represent
 
             remove_namespaces!
+
             self.representation_wrap = 'SIF_Message'
 
             property :xmlns,   :attribute => true
