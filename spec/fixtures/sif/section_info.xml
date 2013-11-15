@@ -1,0 +1,94 @@
+<SectionInfo RefId="D3E34B359D75101A8C3D00AA001A1652" SchoolCourseInfoRefId="A2E35B359D75101A8C3D00AA001A0000" SchoolYear="2006">
+  <LocalId>287-1</LocalId>
+  <ScheduleInfoList>
+    <ScheduleInfo TermInfoRefId="099BBC3227490063E97403434C5C2207">
+      <TeacherList>
+        <StaffPersonalRefId>A8C3A2E35B359D75101D00AA001A0000</StaffPersonalRefId>
+        <StaffPersonalRefId>A8C45DC6B3359D75101D00A456BE9000</StaffPersonalRefId>
+      </TeacherList>
+      <SectionRoomList>
+        <RoomInfoRefId>94785736AB3671090BDD87593A264086</RoomInfoRefId>
+      </SectionRoomList>
+      <MeetingTimeList>
+        <MeetingTime>
+          <TimetableDay>M</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>T</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>W</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>R</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>F</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+      </MeetingTimeList>
+    </ScheduleInfo>
+    <ScheduleInfo TermInfoRefId="A2334007263E97403434C5C220798765">
+      <TeacherList>
+        <StaffPersonalRefId>CC543E35B359D75101D00AA001A00703</StaffPersonalRefId>
+      </TeacherList>
+      <SectionRoomList>
+        <RoomInfoRefId>94785736AB3671090BDD87593A264086</RoomInfoRefId>
+      </SectionRoomList>
+      <MeetingTimeList>
+        <MeetingTime>
+          <TimetableDay>M</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>T</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>W</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>R</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>F</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+      </MeetingTimeList>
+    </ScheduleInfo>
+  </ScheduleInfoList>
+  <MediumOfInstruction>
+    <Code>0605</Code>
+  </MediumOfInstruction>
+  <LanguageOfInstruction>
+    <Code>eng</Code>
+  </LanguageOfInstruction>
+  <LocationOfInstruction>
+    <Code>0340</Code>
+    <OtherCodeList>
+      <OtherCode Codeset="Text">Pennsylvania College of Technology</OtherCode>
+    </OtherCodeList>
+  </LocationOfInstruction>
+  <SchoolCourseInfoOverride Override="Yes">
+    <CourseCode>CS101A</CourseCode>
+    <StateCourseCode>08-001A</StateCourseCode>
+    <DistrictCourseCode>CS101A</DistrictCourseCode>
+    <SubjectArea>
+      <Code>05</Code>
+      <OtherCodeList>
+        <OtherCode Codeset="Text">Graphic Arts for Beginners</OtherCode>
+      </OtherCodeList>
+    </SubjectArea>
+    <CourseTitle>Graphics Basics</CourseTitle>
+    <InstructionalLevel>
+      <Code>0570</Code>
+    </InstructionalLevel>
+    <CourseCredits Type="0585">0.50</CourseCredits>
+  </SchoolCourseInfoOverride>
+</SectionInfo>

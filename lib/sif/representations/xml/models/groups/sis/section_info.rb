@@ -10,7 +10,7 @@ module SIF
               include SISRepresenter
               self.representation_wrap = 'SectionInfo'
 
-              property :school_course_info, :attribute => true, :as => 'SchoolCourseInfoRefId'
+              property :school_course_info_ref_id, :attribute => true, :as => 'SchoolCourseInfoRefId'
               property :school_year, :attribute => true, :as => 'SchoolYear'
               property :local_id, :as => 'LocalId'
               property :description, :as => 'Description'
