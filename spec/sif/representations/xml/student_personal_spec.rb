@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
+describe SIF::Representation::Model::Group::SIS::StudentPersonal do
   let(:xml) { File.read(fixture('sif/student_personal.xml')) }
   let(:student) { SIF::Model::Group::SIS::StudentPersonal.new }
 
   before do
-    SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml)
+    SIF::Representation::Model::Group::SIS::StudentPersonal.new(student).from_xml(xml)
   end
 
   it 'parses' do
@@ -99,8 +99,8 @@ describe SIF::Representation::XML::Model::Group::SIS::StudentPersonal do
       :on_time_graduation_year => 2007
     )
 
-    orig_xml = SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(student).to_xml
-    new_xml = SIF::Representation::XML::Model::Group::SIS::StudentPersonal.new(new_student).to_xml
+    orig_xml = SIF::Representation::Model::Group::SIS::StudentPersonal.new(student).to_xml
+    new_xml = SIF::Representation::Model::Group::SIS::StudentPersonal.new(new_student).to_xml
 
     new_xml.should == orig_xml
   end
