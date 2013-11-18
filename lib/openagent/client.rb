@@ -92,31 +92,33 @@ module OpenAgent
           messages_in_queue = true
           while messages_in_queue
             get_message do |message|
-              trigger(:receive_message, message)
-              inner = message.inner_message
+              if inner = message.inner_message
 
-              if inner.response
-                case status_code
-                when ZIS_SUCCESS then
-                  if inner.response.more_packets?
-                    wait_period = wait_short
-                  else
-                    wait_period = wait_long
-                  end
-                when ZIS_NO_MESSAGES then
-                  if not inner.more_packets?
-                    wait_period = wait_long
+                trigger(:receive_message, message)
+
+                if inner.response
+                  case status_code
+                  when ZIS_SUCCESS then
+                    if inner.response.more_packets?
+                      wait_period = wait_short
+                    else
+                      wait_period = wait_long
+                    end
+                  when ZIS_NO_MESSAGES then
+                    if not inner.more_packets?
+                      wait_period = wait_long
+                    end
                   end
                 end
-              end
 
-              # We send an Ack for both an Event and a Response
-              if status_code == ZIS_SUCCESS
-                ack(inner.source_id, inner.msg_id)
-              end
-            else
-              if status_code == ZIS_NO_MESSAGES
-                messages_in_queue = false
+                # We send an Ack for both an Event and a Response
+                if status_code == ZIS_SUCCESS
+                  ack(inner.source_id, inner.msg_id)
+                end
+              else
+                if status_code == ZIS_NO_MESSAGES
+                  messages_in_queue = false
+                end
               end
             end
           end
