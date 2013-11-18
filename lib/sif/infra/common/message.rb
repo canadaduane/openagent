@@ -25,6 +25,11 @@ module SIF
         rescue NoMethodError
           nil
         end
+        def response_objects
+          inner_message.response.object_data.objects
+        rescue NoMethodError
+          nil
+        end
         def type
           if event then :event else :response end
         end

@@ -17,7 +17,7 @@ module OpenAgent
     ZIS_NO_MESSAGES = 9
 
     Message = SIF::Infra::Common::Message
-    MessageRepresenter = ::SIF::Representation::XML::Infra::Common::Message
+    MessageRepresenter = ::SIF::Representation::Infra::Common::Message
 
     def self.connect(opts={})
       Client.new(opts).tap do |client|
@@ -153,12 +153,16 @@ module OpenAgent
       @zone.send_request(req).tap do |response|
         log "Response", formatted_xml(response.body, @pretty_print)
 
-        incoming = Message.new
-        MessageRepresenter.new(incoming).from_xml(response.body)
+        if response.body.empty?
+          raise ResponseError, "Response is empty"
+        else
+          incoming = Message.new
+          MessageRepresenter.new(incoming).from_xml(response.body)
 
-        check_for_errors(incoming)
-        
-        yield incoming if block_given?
+          check_for_errors(incoming)
+
+          yield incoming if block_given?
+        end
       end
     end
 

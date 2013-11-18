@@ -6,7 +6,7 @@ describe OpenAgent::Client do
   let(:xml) {File.read('./spec/fixtures/sif/stu_pers_resp.xml')}
 
   before do
-    representer = SIF::Representation::XML::Infra::Common::Message
+    representer = SIF::Representation::Infra::Common::Message
     @msg = representer.new(response).from_xml(xml)
   end
 
@@ -14,13 +14,18 @@ describe OpenAgent::Client do
     @msg.inner_message.response.packet_number.should == 1
   end
 
+  it "is a response" do
+    @msg.type.should == :response
+  end
+
   it "has more packets" do
     @msg.inner_message.response.more_packets?.should be_true
   end
 
   it "has students" do
-    @msg.inner_message.response.object_data.objects.count.should_not be_nil
+    @msg.response_objects.count.should_not be_nil
   end
+
   it "has students ref_ids" do
     ref_ids = []
     @msg.inner_message.response.object_data.objects.each do |student|

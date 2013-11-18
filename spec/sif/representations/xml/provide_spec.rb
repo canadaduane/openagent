@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Infra::Message::Provide do
+describe SIF::Representation::Infra::Message::Provide do
   let(:xml) { File.read(fixture("sif/sif_provide.xml")) }
   let(:provide) { SIF::Infra::Message::Provide.new }
 
   before do
-    SIF::Representation::XML::Infra::Message::Provide.new(provide).from_xml(xml)
+    SIF::Representation::Infra::Message::Provide.new(provide).from_xml(xml)
   end
 
   it "should parse" do
