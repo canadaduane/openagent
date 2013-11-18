@@ -45,6 +45,10 @@ module SIF
         def msg_id
           content && content.header.msg_id
         end
+
+        def timestamp
+          content && content.header.timestamp
+        end
       end
     end
   end

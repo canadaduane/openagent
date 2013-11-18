@@ -93,7 +93,6 @@ module OpenAgent
           while messages_in_queue
             get_message do |message|
               if inner = message.inner_message
-
                 trigger(:receive_message, message)
 
                 if inner.response
