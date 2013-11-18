@@ -12,12 +12,12 @@ module SIF
             property :school_year, :attribute => true, :as => 'SchoolYear'
             property :entry_date, :as => 'EntryDate'
             property :exit_date, :as => 'ExitDate'
-            property :schedule_info_overrides, :as => 'ScheduleInfoOverride', :wrap => 'ScheduleInfoOverrideList',
+            collection :schedule_info_overrides, :as => 'ScheduleInfoOverride', :wrap => 'ScheduleInfoOverrideList',
                      :class => MODEL_COMMON::ScheduleInfoOverride,
                      :decorator => REPR_COMMON::ScheduleInfoOverride
             property :credits_attempted, :as => 'CreditsAttempted',
                      :class => MODEL_COMMON::CreditsAttempted,
-                     :class => REPR_COMMON::CreditsAttempted
+                     :decorator => REPR_COMMON::CreditsAttempted
           end
         end
       end

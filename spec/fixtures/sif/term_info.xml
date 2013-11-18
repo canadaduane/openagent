@@ -1,0 +1,14 @@
+<TermInfo RefId="7E59D75101A80A70016375DE097A0726" SchoolInfoRefId="A2E35B359D75101A8C3D00AA001A0000" SchoolYear="2004">
+  <StartDate>2003-01-05</StartDate>
+  <EndDate>2004-04-01</EndDate>
+  <Description>Spring Semester 2004</Description>
+  <RelativeDuration>0.1333</RelativeDuration>
+  <TermCode>Sp2004</TermCode>
+  <Track>PreK</Track>
+  <TermSpan>
+    <Code>0828</Code>
+    <OtherCodeList>
+      <OtherCode Codeset="Text">Semester</OtherCode>
+    </OtherCodeList>
+  </TermSpan>
+</TermInfo>

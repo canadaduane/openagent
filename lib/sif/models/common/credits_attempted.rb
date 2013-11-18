@@ -5,7 +5,7 @@ module SIF
         include Virtus.model
 
         attribute :type
-        attribute :value, Float
+        attribute :value
       end
     end
   end

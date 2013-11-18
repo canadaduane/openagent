@@ -6,7 +6,7 @@ module SIF
           include Virtus.model
 
           attribute :code
-          attribute :other_codes
+          attribute :other_codes, Array[MODEL_COMMON::OtherCode]
         end
       end
     end

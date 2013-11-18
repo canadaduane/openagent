@@ -3,7 +3,7 @@ module SIF
     module Model
       module Group
         module DataModel
-          class TermSpan < Representable::Decorator
+          class TermSpan < SIF::Represent
             self.representation_wrap = 'TermSpan'
 
             collection :other_codes, :as => 'OtherCode', :wrap => 'OtherCodeList',

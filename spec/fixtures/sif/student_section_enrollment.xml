@@ -1,0 +1,39 @@
+<StudentSectionEnrollment RefId="983AC16598793002C3D00AA00456789D" StudentPersonalRefId="CAE293165987101A8C3D00AA00456789" SectionInfoRefId="9076AB23E386112B7EA2256100BB3312" SchoolYear="2002">
+  <EntryDate>2001-09-05</EntryDate>
+  <ExitDate>2002-03-01</ExitDate>
+  <ScheduleInfoOverrideList>
+    <ScheduleInfoOverride Override="Yes" TermInfoRefId="099BBC3227490063E97403434C5C2207">
+      <MeetingTimeList>
+        <MeetingTime>
+          <TimetableDay>M</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>W</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>F</TimetableDay>
+          <TimetablePeriod>6</TimetablePeriod>
+        </MeetingTime>
+      </MeetingTimeList>
+    </ScheduleInfoOverride>
+    <ScheduleInfoOverride Override="Yes" TermInfoRefId="A2334007263E97403434C5C220798765">
+      <MeetingTimeList>
+        <MeetingTime>
+          <TimetableDay>M</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>W</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+        <MeetingTime>
+          <TimetableDay>F</TimetableDay>
+          <TimetablePeriod>4</TimetablePeriod>
+        </MeetingTime>
+      </MeetingTimeList>
+    </ScheduleInfoOverride>
+  </ScheduleInfoOverrideList>
+  <CreditsAttempted Type="0588">1</CreditsAttempted>
+</StudentSectionEnrollment>

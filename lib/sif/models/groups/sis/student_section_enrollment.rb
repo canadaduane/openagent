@@ -11,7 +11,7 @@ module SIF
           attribute :school_year, String
           attribute :entry_date, Date
           attribute :exit_date, Date
-          attribute :schedule_info_overrides, Common::ScheduleInfoOverride
+          attribute :schedule_info_overrides, Array[Common::ScheduleInfoOverride]
           attribute :credits_attempted, Common::CreditsAttempted
           
         end

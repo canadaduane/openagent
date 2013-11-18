@@ -9,16 +9,18 @@ module SIF
 
           self.representation_wrap = 'ContactInfo'
 
-          property :name, :as => 'Name'
-          property :position_title => 'PositionTitle'
-          property :role => 'Role'
-          collection :emails => 'Email', :wrap => 'EmailList',
+          property :name, :as => 'Name',
+                   :class => MODEL_COMMON::Name,
+                   :decorator => REPR_COMMON::Name
+          property :position_title, :as => 'PositionTitle'
+          property :role, :as => 'Role'
+          collection :emails, :as => 'Email', :wrap => 'EmailList',
                      :class => MODEL_COMMON::Email,
                      :decorator => REPR_COMMON::Email
-          property :address => 'Address',
+          property :address, :as => 'Address',
                    :class => MODEL_COMMON::Address,
                    :decorator => REPR_COMMON::Address
-          collection :phone_numbers => 'PhoneNumber', :wrap => 'PhoneNumberList',
+          collection :phone_numbers, :as => 'PhoneNumber', :wrap => 'PhoneNumberList',
                      :class => MODEL_COMMON::PhoneNumber,
                      :decorator => REPR_COMMON::PhoneNumber
         end
