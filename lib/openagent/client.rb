@@ -91,37 +91,32 @@ module OpenAgent
           wait_period = wait_long
           messages_in_queue = true
           while messages_in_queue
-            get_message do |http_response, doc, status_code|
-              wrap_msg = Message.new
-              MessageRepresenter.new(wrap_msg).from_xml(http_response.body)
+            get_message do |message|
+              trigger(:receive_message, message)
+              inner = message.inner_message
 
-              if message = wrap_msg.inner_message
-
-                trigger(:receive_message, wrap_msg, http_response)
-
-                if message.response
-                  case status_code
-                  when ZIS_SUCCESS then
-                    if message.response.morepackets?
-                      wait_period = wait_short
-                    else
-                      wait_period = wait_long
-                    end
-                  when ZIS_NO_MESSAGES then
-                    if not message.morepackets?
-                      wait_period = wait_long
-                    end
+              if inner.response
+                case status_code
+                when ZIS_SUCCESS then
+                  if inner.response.more_packets?
+                    wait_period = wait_short
+                  else
+                    wait_period = wait_long
+                  end
+                when ZIS_NO_MESSAGES then
+                  if not inner.more_packets?
+                    wait_period = wait_long
                   end
                 end
+              end
 
-                # We send an Ack for both an Event and a Response
-                if status_code == ZIS_SUCCESS
-                  ack(message.sourceid, message.msgid)
-                end
-              else
-                if status_code == ZIS_NO_MESSAGES
-                  messages_in_queue = false
-                end
+              # We send an Ack for both an Event and a Response
+              if status_code == ZIS_SUCCESS
+                ack(inner.source_id, inner.msg_id)
+              end
+            else
+              if status_code == ZIS_NO_MESSAGES
+                messages_in_queue = false
               end
             end
           end
