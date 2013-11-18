@@ -8,7 +8,7 @@ module SIF
           include Virtus.model
           include SISRepresenter
 
-          attribute :school_info_id, String
+          attribute :school_course_info_ref_id, String
           attribute :school_year, String
           attribute :course_code, String
           attribute :state_course_code, String
@@ -16,7 +16,7 @@ module SIF
           attribute :subject_areas, Array[Common::SubjectArea]
           attribute :course_title, String
           attribute :description, String
-          attribute :instruction_level, String
+          attribute :instructional_level, String
           attribute :course_credits, String
           attribute :core_academic_course, String
           attribute :graduation_requirement, String
