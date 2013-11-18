@@ -49,6 +49,11 @@ module SIF
         def timestamp
           content && content.header.timestamp
         end
+
+        def status_code
+          ack && ack.status.code
+        end
+
       end
     end
   end

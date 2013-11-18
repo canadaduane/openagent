@@ -96,7 +96,7 @@ module OpenAgent
                 trigger(:receive_message, message)
 
                 if inner.response
-                  case status_code
+                  case message.status_code
                   when ZIS_SUCCESS then
                     if inner.response.more_packets?
                       wait_period = wait_short
@@ -111,11 +111,11 @@ module OpenAgent
                 end
 
                 # We send an Ack for both an Event and a Response
-                if status_code == ZIS_SUCCESS
+                if message.status_code == ZIS_SUCCESS
                   ack(inner.source_id, inner.msg_id)
                 end
               else
-                if status_code == ZIS_NO_MESSAGES
+                if message.status_code == ZIS_NO_MESSAGES
                   messages_in_queue = false
                 end
               end
