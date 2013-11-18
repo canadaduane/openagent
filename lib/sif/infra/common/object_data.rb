@@ -30,6 +30,16 @@ module SIF
           term_infos +
           section_infos
         end
+
+        def datatype
+          return :school_course_info unless school_course_infos.empty?
+          return :school_info        unless school_infos.empty?
+          return :staff_personal     unless staff_personals.empty?
+          return :student_personal   unless student_personals.empty?
+          return :student_section_enrollment unless student_section_enrollments.empty?
+          return :term_info          unless term_infos.empty?
+          return :section_info       unless section_infos.empty?
+        end
       end
     end
   end
