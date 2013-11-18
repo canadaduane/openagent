@@ -25,11 +25,13 @@ module SIF
         rescue NoMethodError
           nil
         end
+
         def response_objects
           inner_message.response.object_data.objects
         rescue NoMethodError
           nil
         end
+
         def type
           if event then :event else :response end
         end
@@ -40,9 +42,22 @@ module SIF
           system_control || unprovide || unregister || unsubscribe
         end
 
+        def source_id
+          content && content.header.source_id
+        end
+
         def msg_id
           content && content.header.msg_id
         end
+
+        def timestamp
+          content && content.header.timestamp
+        end
+
+        def status_code
+          ack && ack.status.code
+        end
+
       end
     end
   end
