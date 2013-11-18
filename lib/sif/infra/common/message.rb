@@ -42,6 +42,10 @@ module SIF
           system_control || unprovide || unregister || unsubscribe
         end
 
+        def source_id
+          content && content.header.source_id
+        end
+
         def msg_id
           content && content.header.msg_id
         end
