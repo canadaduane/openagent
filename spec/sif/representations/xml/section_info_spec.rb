@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Model::Group::SIS::SectionInfo do
+describe SIF::Representation::Model::Group::SIS::SectionInfo do
   let(:xml) { File.read(fixture('sif/section_info.xml')) }
   let(:section_info) { SIF::Model::Group::SIS::SectionInfo.new }
 
   before do
-    SIF::Representation::XML::Model::Group::SIS::SectionInfo.new(section_info).from_xml(xml)
+    SIF::Representation::Model::Group::SIS::SectionInfo.new(section_info).from_xml(xml)
   end
 
   it 'parses' do

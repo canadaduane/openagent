@@ -12,7 +12,7 @@ module SIF
           property :district_course_code, :as => 'DistrictCourseCode'
           property :subject_area, :as => 'SubjectArea'
           property :course_title, :as => 'CourseTitle'
-          property :instruction_level, :as => 'InstructionLevel'
+          property :instructional_level, :as => 'InstructionalLevel'
           property :course_credits, :as => 'CourseCredits'
         end
       end

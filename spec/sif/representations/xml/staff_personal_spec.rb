@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 
-describe SIF::Representation::XML::Model::Group::SIS::StaffPersonal do
+describe SIF::Representation::Model::Group::SIS::StaffPersonal do
   let(:xml) { File.read(fixture('sif/staff_personal.xml')) }
   let(:staff) { SIF::Model::Group::SIS::StaffPersonal.new }
 
   before do
-    SIF::Representation::XML::Model::Group::SIS::StaffPersonal.new(staff).from_xml(xml)
+    SIF::Representation::Model::Group::SIS::StaffPersonal.new(staff).from_xml(xml)
   end
 
   it 'parses' do
@@ -97,8 +97,8 @@ describe SIF::Representation::XML::Model::Group::SIS::StaffPersonal do
         :employee_personal_ref_id => '1652D3E34F419D75101A8C3D00AA001A'
     )
 
-    orig_xml = SIF::Representation::XML::Model::Group::SIS::StaffPersonal.new(staff).to_xml
-    new_xml = SIF::Representation::XML::Model::Group::SIS::StaffPersonal.new(new_staff).to_xml
+    orig_xml = SIF::Representation::Model::Group::SIS::StaffPersonal.new(staff).to_xml
+    new_xml = SIF::Representation::Model::Group::SIS::StaffPersonal.new(new_staff).to_xml
 
     new_xml.should == orig_xml
   end
