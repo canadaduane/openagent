@@ -8,8 +8,6 @@ module SIF
           include Virtus.model
           include SISRepresenter
 
-          include SISRepresenter
-
           attribute :school_course_info_ref_id, String
           attribute :school_year, String
           attribute :local_id, String
