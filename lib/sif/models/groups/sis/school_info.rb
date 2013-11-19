@@ -4,6 +4,7 @@ module SIF
       module SIS
         class SchoolInfo
           include Virtus.model
+          include SISRepresenter
 
           attribute :ref_id, String
           attribute :local_id, String
