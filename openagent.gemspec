@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
 
   gem.files = %w[openagent.gemspec README.md LICENSE.md]
   gem.files += Dir.glob("lib/**/*.rb")
+  gem.files += Dir.glob("lib/**/*.xslt")
   gem.files += Dir.glob("spec/**/*")
 
   gem.test_files    = Dir.glob("spec/**/*")
