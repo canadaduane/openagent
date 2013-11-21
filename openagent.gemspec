@@ -10,8 +10,9 @@ Gem::Specification.new do |gem|
   gem.homepage     = "http://github.com/cwhiteley/openagent"
   gem.authors      = ['Christopher Whiteley', 'Duane Johnson', 'Eric Adams']
   gem.email        = ['hello@openzis.org', 'duane@instructure.com', 'eadams@instructure.com']
+  gem.licenses     = ['LGPL-2']
 
-  gem.files = %w[openagent.gemspec README.md]
+  gem.files = %w[openagent.gemspec README.md LICENSE.md]
   gem.files += Dir.glob("lib/**/*.rb")
   gem.files += Dir.glob("spec/**/*")
 
