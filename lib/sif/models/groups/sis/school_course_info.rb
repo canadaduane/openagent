@@ -18,8 +18,8 @@ module SIF
           attribute :description, String
           attribute :instructional_level, String
           attribute :course_credits, String
-          attribute :core_academic_course, String
-          attribute :graduation_requirement, String
+          attribute :core_academic_course, Boolean
+          attribute :graduation_requirement, Boolean
           attribute :department, String
           attribute :sced_code, Common::SCEDCode
 

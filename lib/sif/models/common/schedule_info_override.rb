@@ -5,7 +5,7 @@ module SIF
         include Virtus.model
 
         attribute :term_info_ref_id
-        attribute :override
+        attribute :override, Boolean
         attribute :meeting_times, Array[String]
       end
     end

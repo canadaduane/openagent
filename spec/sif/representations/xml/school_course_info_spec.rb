@@ -21,9 +21,9 @@ describe SIF::Representation::Model::Group::SIS::SchoolCourseInfo do
       area.other_codes[0].value.should == 'Graphic Arts'
     course_info.course_title.should == "Gif, JPeg, or Png: What's the Difference?"
     course_info.description.should == 'Explore the various types of files related to graphic arts.'
-    (course_info.instructional_level.include? '0571').should == true
+    (course_info.instructional_level.include? '0571').should be_true
     course_info.course_credits == '2'
-    course_info.core_academic_course.should == 'No'
-    course_info.graduation_requirement.should == 'No'
+    course_info.core_academic_course.should_not be_true
+    course_info.graduation_requirement.should_not be_true
   end
 end
