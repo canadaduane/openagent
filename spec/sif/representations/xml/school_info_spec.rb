@@ -21,6 +21,7 @@ describe SIF::Representation::Model::Group::SIS::SchoolInfo do
     school_info.school_url.should == 'http://www.lincolnhs.edu'
     school_info.principal_info.contact_name.should == 'Richard Knudson'
     school_info.principal_info.contact_title.should == 'Dr.'
+
     school_contact = school_info.school_contacts[0]
     school_contact.publish_in_directory.should be_true
     contact_info = school_contact.contact_info
@@ -32,6 +33,7 @@ describe SIF::Representation::Model::Group::SIS::SchoolInfo do
     contact_info.emails[0].value.should == 'jmiller@lhs.k12.state.us'
     contact_info.phone_numbers[0].type.should == '0096'
     contact_info.phone_numbers[0].number.should == '(555) 555-1235'
+
     school_info.phone_numbers[0].type.should == '0096'
     school_info.phone_numbers[0].number.should == '(555) 555-1234'
     school_info.session_type.should == '0830'
