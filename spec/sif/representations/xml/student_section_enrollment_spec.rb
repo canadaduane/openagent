@@ -45,4 +45,9 @@ describe SIF::Representation::Model::Group::SIS::StudentSectionEnrollment do
     student_se.credits_attempted.type.should == '0588'
     student_se.credits_attempted.value.should == '1'
   end
+
+  it 'has active status' do
+    student_se.status(Date.new(2001, 10, 1)).should == 'active'
+    student_se.status(Date.new(2010, 10, 1)).should == 'deleted'
+  end
 end
