@@ -15,6 +15,10 @@ module SIF
           attribute :addresses, Array[MODEL_COMMON::Address]
           attribute :phone_numbers, Array[MODEL_COMMON::PhoneNumber]
           attribute :emails, Array[MODEL_COMMON::Email]
+
+          def first_email
+            emails.map{ |email| email.value.split(/[,;\s]\s?/) }.flatten.first
+          end
         end
       end
     end

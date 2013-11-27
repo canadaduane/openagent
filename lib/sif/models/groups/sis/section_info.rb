@@ -19,6 +19,11 @@ module SIF
           attribute :summer_school, String
           attribute :school_course_info_override, Common::SchoolCourseInfoOverride
 
+          def schedule_info_for_term(term_info_ref_id)
+            schedule_infos.find do |si|
+              si.term_info_ref_id == term_info_ref_id
+            end || Common::ScheduleInfo.new
+          end
         end
       end
     end
