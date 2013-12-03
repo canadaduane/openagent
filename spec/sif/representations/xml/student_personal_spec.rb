@@ -83,7 +83,11 @@ describe SIF::Representation::Model::Group::SIS::StudentPersonal do
           :city => 'Chicago',
           :state_province => 'IL',
           :country => 'US',
-          :postal_code => '60660'
+          :postal_code => '60660',
+          :grid_location => SIF::Model::Common::GridLocation.new(
+              :latitude => 39.00522,
+              :longitude => -95.645111
+          )
         )
       ],
       :phone_numbers => [

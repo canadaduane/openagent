@@ -16,7 +16,9 @@ module SIF
           property :state_province, :as => 'StateProvince'
           property :country, :as => 'Country'
           property :postal_code, :as => 'PostalCode'
-          property :grid_location, :as => 'GridLocation'
+          property :grid_location, :as => 'GridLocation',
+                   :class => MODEL_COMMON::GridLocation,
+                   :decorator => REPR_COMMON::GridLocation
         end
       end
     end
