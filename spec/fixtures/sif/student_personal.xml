@@ -28,6 +28,10 @@
       <StateProvince>IL</StateProvince>
       <Country>US</Country>
       <PostalCode>60660</PostalCode>
+      <GridLocation>
+        <Latitude>39.00522</Latitude>
+        <Longitude>-95.645111</Longitude>
+      </GridLocation>
     </Address>
   </AddressList>
   <PhoneNumberList>
