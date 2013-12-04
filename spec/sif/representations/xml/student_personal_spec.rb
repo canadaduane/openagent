@@ -87,8 +87,8 @@ describe SIF::Representation::Model::Group::SIS::StudentPersonal do
           :grid_location => SIF::Model::Common::GridLocation.new(
               :latitude => 39.00522,
               :longitude => -95.645111
-          )
-        )
+          ),
+        ),
       ],
       :phone_numbers => [
         SIF::Model::Common::PhoneNumber.new(
@@ -100,11 +100,25 @@ describe SIF::Representation::Model::Group::SIS::StudentPersonal do
         :type => 'Primary',
         :value => 'Joe.Student@anyschool.com'
       ],
-      :on_time_graduation_year => 2007
+      :on_time_graduation_year => 2007,
+      :extended_elements => [
+          SIF::Model::Common::ExtendedElement.new(
+              :name => 'STUDENT_EMAIL',
+              :value => 'email@anyschool.net'
+          ),
+          SIF::Model::Common::ExtendedElement.new(
+              :name => 'PASSWORD',
+              :value => 'some_P@ssw0rd'
+          ),
+        SIF::Model::Common::ExtendedElement.new(
+            :name => 'USERNAME',
+            :value => 'some_username'
+        ),
+      ],
     )
-
     orig_xml = SIF::Representation::Model::Group::SIS::StudentPersonal.new(student).to_xml
     new_xml = SIF::Representation::Model::Group::SIS::StudentPersonal.new(new_student).to_xml
+    require 'debugger' ; debugger
 
     new_xml.should == orig_xml
   end

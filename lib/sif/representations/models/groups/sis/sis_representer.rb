@@ -8,7 +8,9 @@ module SIF
 
             property :ref_id, :attribute => true, :as => 'RefId'
             property :metadata, :as => 'SIF_Metadata'
-            property :extended_elements, :as => 'SIF_ExtendedElements'
+            collection :extended_elements, :as => 'SIF_ExtendedElement', :wrap => 'SIF_ExtendedElements',
+                     :class => MODEL_COMMON::ExtendedElement,
+                     :decorator => REPR_COMMON::ExtendedElement
           end
         end
       end

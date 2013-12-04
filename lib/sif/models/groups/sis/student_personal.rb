@@ -30,6 +30,13 @@ module SIF
 
           attribute :alert_messages,         Array[Common::AlertMessage]
           attribute :medical_alert_messages, Array[Common::MedicalAlertMessage]
+
+          def student_email
+            find_element("STUDENT_EMAIL")
+          end
+          def email
+            student_email || first_email
+          end
         end
       end
     end

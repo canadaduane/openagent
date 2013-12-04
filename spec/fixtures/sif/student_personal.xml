@@ -43,4 +43,9 @@
     <Email Type="Primary">Joe.Student@anyschool.com</Email>
   </EmailList>
   <OnTimeGraduationYear>2007</OnTimeGraduationYear>
+  <SIF_ExtendedElements>
+    <SIF_ExtendedElement Name="STUDENT_EMAIL">email@anyschool.net</SIF_ExtendedElement>
+    <SIF_ExtendedElement Name="PASSWORD">some_P@ssw0rd</SIF_ExtendedElement>
+    <SIF_ExtendedElement Name="USERNAME">some_username</SIF_ExtendedElement>
+  </SIF_ExtendedElements>
 </StudentPersonal>
