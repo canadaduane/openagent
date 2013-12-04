@@ -118,7 +118,6 @@ describe SIF::Representation::Model::Group::SIS::StudentPersonal do
     )
     orig_xml = SIF::Representation::Model::Group::SIS::StudentPersonal.new(student).to_xml
     new_xml = SIF::Representation::Model::Group::SIS::StudentPersonal.new(new_student).to_xml
-    require 'debugger' ; debugger
 
     new_xml.should == orig_xml
   end
