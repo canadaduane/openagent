@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    openagent (0.7.6)
+    openagent (0.7.8)
       representable (~> 1.7.3)
       uuid
       virtus (~> 1.0.0)
@@ -29,7 +29,7 @@ GEM
     debugger-ruby_core_source (1.2.4)
     descendants_tracker (0.0.3)
     diff-lcs (1.2.5)
-    equalizer (0.0.7)
+    equalizer (0.0.8)
     ice_nine (0.10.0)
     macaddr (1.6.1)
       systemu (~> 2.5.0)

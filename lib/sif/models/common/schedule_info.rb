@@ -12,6 +12,10 @@ module SIF
         def first_meeting_time
           meeting_times.first || Common::MeetingTime.new
         end
+
+        def first_teacher
+          teachers.first || String.new
+        end
       end
     end
   end

@@ -24,6 +24,18 @@ module SIF
               si.term_info_ref_id == term_info_ref_id
             end || Common::ScheduleInfo.new
           end
+
+          def first_schedule_info
+            schedule_infos.first || Common::ScheduleInfo.new
+          end
+
+          def term_info_ref_id
+            first_schedule_info.term_info_ref_id
+          end
+
+          def teacher
+            first_schedule_info.first_teacher
+          end
         end
       end
     end

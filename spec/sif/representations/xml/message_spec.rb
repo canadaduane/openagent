@@ -14,6 +14,7 @@ describe SIF::Representation::Infra::Common::Message do
   end
 
   it "converts to json" do
+    rep
     rep.to_json
   end
 
