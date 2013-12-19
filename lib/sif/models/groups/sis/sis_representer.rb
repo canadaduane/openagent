@@ -17,6 +17,7 @@ module SIF
           def username
             find_element("USERNAME")
           end
+          
           def password
             find_element("PASSWORD")
           end

@@ -29,7 +29,7 @@ module SIF
           end
 
           def first_email
-            emails.map{ |email| email.value.split(/[,;\s]\s?/) }.flatten.first
+            emails && emails.map{ |email| email.value.split(/[,;\s]\s?/) }.flatten.first
           end
 
           def email
