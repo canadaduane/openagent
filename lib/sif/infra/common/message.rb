@@ -26,6 +26,12 @@ module SIF
           nil
         end
 
+        def final_packet?
+          inner_message &&
+          inner_message.response &&
+          !inner_message.response.more_packets?
+        end
+
         def response_objects
           inner_message.response.object_data.objects
         rescue NoMethodError
