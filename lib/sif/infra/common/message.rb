@@ -38,6 +38,12 @@ module SIF
           nil
         end
 
+        def event_objects
+          inner_message.event.object_data.event_object
+        rescue NoMethodError
+          nil
+        end
+
         def type
           if event then :event else :response end
         end
