@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    openagent (0.8.2)
+    openagent (0.8.4)
       representable (~> 1.7.3)
       uuid
       virtus (~> 1.0.0)

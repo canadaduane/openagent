@@ -32,4 +32,12 @@ describe OpenAgent::Client do
       ref_ids << student.ref_id
     end
   end
+
+  it "has final_packet? shortcut" do
+    @msg.final_packet?.should_not be_true
+  end
+
+  it "has request_msg_id shortcut" do
+    @msg.request_msg_id.should == "136F9F8028850131013848E0EB1826A1"
+  end
 end
