@@ -159,7 +159,7 @@ module OpenAgent
 
           check_for_errors(incoming)
 
-          yield incoming, outgoing if block_given?
+          yield incoming, outgoing, response.body if block_given?
         end
       end
     end

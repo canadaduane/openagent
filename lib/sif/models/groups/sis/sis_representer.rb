@@ -10,6 +10,7 @@ module SIF
           attribute :ref_id, String
 
           def find_element(name)
+            return if extended_elements.nil?
             el = extended_elements.find{ |e| e.name == name }
             el ? el.value : nil
           end
