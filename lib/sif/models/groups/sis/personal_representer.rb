@@ -35,6 +35,9 @@ module SIF
           def email
             first_email
           end
+          def email_prefix
+            first_email.split('@')[0] if first_email
+          end
         end
       end
     end
