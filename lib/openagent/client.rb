@@ -93,9 +93,9 @@ module OpenAgent
           wait_period = wait_long
           messages_in_queue = true
           while messages_in_queue
-            get_message do |message|
+            get_message do |message, outgoing, xml|
               if inner = message.inner_message
-                trigger(:receive_message, message)
+                trigger(:receive_message, message, outgoing, xml)
 
                 if inner.response
                   case message.status_code
