@@ -26,10 +26,16 @@ module SIF
           nil
         end
 
+        def response?
+          inner_message && inner_message.response
+        end
+
         def final_packet?
-          inner_message &&
-          inner_message.response &&
-          !inner_message.response.more_packets?
+          response? && !inner_message.response.more_packets?
+        end
+
+        def request_msg_id
+          response? && inner_message.response.request_msg_id
         end
 
         def response_objects

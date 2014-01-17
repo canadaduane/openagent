@@ -53,7 +53,9 @@ module OpenAgent
       @log.info "#{name}\n#{body}\n"
     end
 
-    # Proxy to OpenAgent::Messaging
+    # Proxy to OpenAgent::MessageBuilder, e.g. ack, request, event, provision,
+    # register, unregister, ping, sleep, wakeup, get_message, get_zone_status,
+    # get_agent_acl
     def method_missing(method, *args, &block)
       if @builder.respond_to?(method)
         message = @builder.send(method, *args)
@@ -157,7 +159,7 @@ module OpenAgent
 
           check_for_errors(incoming)
 
-          yield incoming if block_given?
+          yield incoming, outgoing, response.body if block_given?
         end
       end
     end
