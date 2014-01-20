@@ -35,7 +35,7 @@ module SIF
           property :grading_assignment_score, :as => 'GradingAssignmentScore',
                      :class => SIF::Model::Group::Grades::GradingAssignmentScore,
                      :decorator => Model::Group::Grades::GradingAssignmentScore
-          property :grading_assignment, :as => 'GradingCategory',
+          property :grading_category, :as => 'GradingCategory',
                      :class => SIF::Model::Group::Grades::GradingCategory,
                      :decorator => Model::Group::Grades::GradingCategory
         end

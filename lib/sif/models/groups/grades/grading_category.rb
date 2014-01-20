@@ -5,7 +5,7 @@ module SIF
         class GradingCategory
           include Virtus.model
 
-          attribute :ref_id,   String           String
+          attribute :ref_id,                    String
           attribute :section_info_ref_id,       String
           attribute :school_info_ref_id,        String
           attribute :description,               String

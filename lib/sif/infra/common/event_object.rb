@@ -23,15 +23,21 @@ module SIF
           SIF::Model::Group::SIS::SectionInfo
         attribute :grading_assignment,
           SIF::Model::Group::Grades::GradingAssignment
-        
+        attribute :grading_assignment_score,
+          SIF::Model::Group::Grades::GradingAssignmentScore
+        attribute :grading_category,
+          SIF::Model::Group::Grades::GradingCategory
         def object
-          school_course_infos ||
-          school_infos ||
-          staff_personals ||
-          student_personals ||
-          student_section_enrollments ||
-          term_infos ||
-          section_infos
+          school_course_info ||
+          school_info ||
+          staff_personal ||
+          student_personal ||
+          student_section_enrollment ||
+          term_info ||
+          section_info || 
+          grading_assignment || 
+          grading_assignment_score || 
+          grading_category
         end
 
         def object=(obj)

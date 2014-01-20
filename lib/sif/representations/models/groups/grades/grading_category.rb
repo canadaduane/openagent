@@ -14,8 +14,8 @@ module SIF
             property :description, :attribute => true, :as => 'Description'
             property :metadata, :as => 'Metadata'
             collection :extended_elements, :as => 'SIF_ExtendedElement', :wrap => 'SIF_ExtendedElements',
-                     :class => MODEL_COMMON::ExtendedElements,
-                     :decorator => REPR_COMMON::ExtendedElements
+                     :class => MODEL_COMMON::ExtendedElement,
+                     :decorator => REPR_COMMON::ExtendedElement
           end
         end
       end
