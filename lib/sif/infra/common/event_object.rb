@@ -1,3 +1,4 @@
+require 'active_support/inflector'
 module SIF
   module Infra
     module Common
@@ -20,6 +21,8 @@ module SIF
           SIF::Model::Group::SIS::TermInfo
         attribute :section_info,
           SIF::Model::Group::SIS::SectionInfo
+        attribute :grading_assignment,
+          SIF::Model::Group::Grades::GradingAssignment
         
         def object
           school_course_infos ||
@@ -29,6 +32,11 @@ module SIF
           student_section_enrollments ||
           term_infos ||
           section_infos
+        end
+
+        def object=(obj)
+          attr_name = obj.class.to_s.split('::').last.underscore
+          self.send("#{attr_name}=", obj)
         end
 
         def datatype

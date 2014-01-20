@@ -120,6 +120,12 @@ module SIF
         autoload :StudentSectionEnrollment, 'sif/models/groups/sis/student_section_enrollment'
         autoload :TermInfo, 'sif/models/groups/sis/term_info'
       end
+
+      module Grades
+        autoload :GradingAssignment, 'sif/models/groups/grades/grading_assignment'
+        autoload :GradingAssignmentScore, 'sif/models/groups/grades/grading_assignment_score'
+        autoload :GradingCategory, 'sif/models/groups/grades/grading_category'
+      end
     end
 
     module Object
@@ -237,6 +243,11 @@ module SIF
           autoload :StudentPersonal, 'sif/representations/models/groups/sis/student_personal'
           autoload :StudentSectionEnrollment, 'sif/representations/models/groups/sis/student_section_enrollment'
           autoload :TermInfo, 'sif/representations/models/groups/sis/term_info'
+        end
+        module Grades
+          autoload :GradingAssignment, 'sif/representations/models/groups/grades/grading_assignment'
+          autoload :GradingAssignmentScore, 'sif/representations/models/groups/grades/grading_assignment_score'
+          autoload :GradingCategory, 'sif/representations/models/groups/grades/grading_category'
         end
       end
 

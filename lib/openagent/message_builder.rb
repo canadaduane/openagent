@@ -43,21 +43,17 @@ module OpenAgent
       )
     end
 
-    def event(object_name, action='Change', object=nil)
+    def event(object_name, action='Change', object_model=nil)
       SIF::Infra::Common::Message.new(
         :version => @agent.msg_version,
         :xmlns => @agent.msg_xmlns,
-        :event => SIF::Infra::Common::Event.new(
+        :event => SIF::Infra::Message::Event.new(
           :header => create_header,
           :object_data => SIF::Infra::Common::ObjectData.new(
             :event_object => SIF::Infra::Common::EventObject.new(
               :object_name => object_name,
               :action => action,
-              :objects => [
-                SIF::Infra::Common::Object.new(
-                  :object_name => object_name
-                )
-              ]
+              :object => object_model
             )
           )
         )

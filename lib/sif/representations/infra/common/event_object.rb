@@ -29,6 +29,15 @@ module SIF
           property :section_info, :as => 'SectionInfo',
                      :class => SIF::Model::Group::SIS::SectionInfo,
                      :decorator => Model::Group::SIS::SectionInfo
+          property :grading_assignment, :as => 'GradingAssignment',
+                     :class => SIF::Model::Group::Grades::GradingAssignment,
+                     :decorator => Model::Group::Grades::GradingAssignment
+          property :grading_assignment_score, :as => 'GradingAssignmentScore',
+                     :class => SIF::Model::Group::Grades::GradingAssignmentScore,
+                     :decorator => Model::Group::Grades::GradingAssignmentScore
+          property :grading_assignment, :as => 'GradingCategory',
+                     :class => SIF::Model::Group::Grades::GradingCategory,
+                     :decorator => Model::Group::Grades::GradingCategory
         end
       end
     end
