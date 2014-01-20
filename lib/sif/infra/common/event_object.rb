@@ -6,39 +6,33 @@ module SIF
 
         attribute :object_name, String
         attribute :action,      String
-        attribute :school_course_infos,
+        attribute :school_course_info,
           SIF::Model::Group::SIS::SchoolCourseInfo
-        attribute :school_infos,
+        attribute :school_info,
           SIF::Model::Group::SIS::SchoolInfo
-        attribute :staff_personals,
+        attribute :staff_personal,
           SIF::Model::Group::SIS::StaffPersonal
-        attribute :student_personals,
+        attribute :student_personal,
           SIF::Model::Group::SIS::StudentPersonal
-        attribute :student_section_enrollments,
+        attribute :student_section_enrollment,
           SIF::Model::Group::SIS::StudentSectionEnrollment
-        attribute :term_infos,
+        attribute :term_info,
           SIF::Model::Group::SIS::TermInfo
-        attribute :section_infos,
+        attribute :section_info,
           SIF::Model::Group::SIS::SectionInfo
         
-        def objects
-          school_course_infos +
-          school_infos +
-          staff_personals +
-          student_personals +
-          student_section_enrollments +
-          term_infos +
+        def object
+          school_course_infos ||
+          school_infos ||
+          staff_personals ||
+          student_personals ||
+          student_section_enrollments ||
+          term_infos ||
           section_infos
         end
 
         def datatype
-          return :school_course_info unless school_course_infos.empty?
-          return :school_info        unless school_infos.empty?
-          return :staff_personal     unless staff_personals.empty?
-          return :student_personal   unless student_personals.empty?
-          return :student_section_enrollment unless student_section_enrollments.empty?
-          return :term_info          unless term_infos.empty?
-          return :section_info       unless section_infos.empty?
+          object_name.underscore.to_sym
         end
       end
     end
