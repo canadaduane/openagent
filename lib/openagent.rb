@@ -5,6 +5,8 @@ require 'openagent/client'
 
 require 'active_support/inflector'
 
-def repr(obj)
-  obj.class.to_s.sub('SIF::', 'SIF::Representation::').constantize.new(obj)
+module SIF
+  def self.repr(obj)
+    obj.class.to_s.sub('SIF::', 'SIF::Representation::').constantize.new(obj)
+  end
 end
