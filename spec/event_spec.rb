@@ -6,6 +6,7 @@ describe OpenAgent::Client do
   let(:message) { SIF::Infra::Common::Message.new }
   let(:grading_assignment_xml) {File.read('./spec/fixtures/sif/grading_assignment.xml')}
   let(:grading_assignment_score_xml) {File.read('./spec/fixtures/sif/grading_assignment_score.xml')}
+  let(:grading_category_xml) {File.read('./spec/fixtures/sif/grading_category.xml')}
   let(:agent) { OpenAgent::Agent.new(YAML::load(File.read(fixture("agent.yaml")))) }
   let(:zone) { OpenAgent::Zone.new(YAML::load(File.read(fixture("zone.yaml")))) }
 
@@ -17,10 +18,11 @@ describe OpenAgent::Client do
     builder.stub(:timestamp) { "TIME" }
     builder.stub(:sourceid) {"SOURCEID"}
     grade_assignment_object_model = SIF::Model::Group::Grades::GradingAssignment.new
-    @grade_assignment_score_object_model = SIF::Model::Group::Grades::GradingAssignmentScore.new
+    grade_assignment_score_object_model = SIF::Model::Group::Grades::GradingAssignmentScore.new
+    grade_category_object_model = SIF::Model::Group::Grades::GradingCategory.new
     @grade_assignment_object_rep = SIF::Representation::Model::Group::Grades::GradingAssignment.new(grade_assignment_object_model).from_xml(grading_assignment_xml)
-    @grade_assignment_score_object_rep = SIF::Representation::Model::Group::Grades::GradingAssignmentScore.new(@grade_assignment_score_object_model).from_xml(grading_assignment_score_xml)
-    @event_message = SIF::Representation::Infra::Common::Message.new(@event_object_rep)
+    @grade_assignment_score_object_rep = SIF::Representation::Model::Group::Grades::GradingAssignmentScore.new(grade_assignment_score_object_model).from_xml(grading_assignment_score_xml)
+    @grade_category_object_rep = SIF::Representation::Model::Group::Grades::GradingCategory.new(grade_category_object_model).from_xml(grading_category_xml)
 
   end
 
@@ -34,9 +36,17 @@ describe OpenAgent::Client do
 
   it "creates GradingAssignmentScore event object" do
 
-    event = builder.event('GradingAssignmentScore','Add',@grade_assignment_score_object_model)
+    event = builder.event('GradingAssignmentScore','Add',@grade_assignment_score_object_rep)
     event_rep = SIF::Representation::Infra::Common::Message.new(event).to_xml
     event_rep.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Event>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_ObjectData>\n      <SIF_EventObject ObjectName=\"GradingAssignmentScore\" Action=\"Add\">\n        <GradingAssignmentScore StudentPersonalRefId=\"A75A00101A8C301D02E3A05B359D0A00\" SectionInfoRefId=\"D0A0A27AD0A8510AD9D75101A8C3DA39\" GradingAssignmentRefId=\"359D75101AD0A9D7A8C3DAD0A85105D2\" SchoolInfoRefId=\"11737EA4301CADCA75C87214A7C46BDB\">\n          <ScorePoints>45</ScorePoints>\n          <ScorePercent>90</ScorePercent>\n          <ScoreDescription>Excellent</ScoreDescription>\n          <SIF_ExtendedElements/>\n        </GradingAssignmentScore>\n      </SIF_EventObject>\n    </SIF_ObjectData>\n  </SIF_Event>\n</SIF_Message>"
+
+  end
+
+  it "creates GradingCategory event object" do
+    
+    event = builder.event('GradingCategory','Add',@grade_category_object_rep)
+    event_rep = SIF::Representation::Infra::Common::Message.new(event).to_xml
+    event_rep.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Event>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_ObjectData>\n      <SIF_EventObject ObjectName=\"GradingCategory\" Action=\"Add\">\n        <GradingCategory RefId=\"98157AA013BA8C3D00AA012B359D7512\" SectionInfoRefId=\"13BA8C3D00AA098157AA012B359D7512\" TermInfoRefId=\"D00AA012B359D798157AA013BA8C3512\" SchoolInfoRefId=\"11737EA4301CADCA75C87214A7C46BDB\">\n          <Description>Tests</Description>\n          <SIF_ExtendedElements/>\n        </GradingCategory>\n      </SIF_EventObject>\n    </SIF_ObjectData>\n  </SIF_Event>\n</SIF_Message>"
 
   end
 
