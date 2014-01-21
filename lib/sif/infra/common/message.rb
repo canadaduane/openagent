@@ -27,7 +27,11 @@ module SIF
         end
 
         def response?
-          inner_message && inner_message.response
+          inner_message && !inner_message.response.nil?
+        end
+
+        def event?
+          inner_message && !inner_message.event.nil?
         end
 
         def final_packet?
@@ -44,7 +48,7 @@ module SIF
           nil
         end
 
-        def event_objects
+        def event_object
           inner_message.event.object_data.event_object
         rescue NoMethodError
           nil
@@ -52,6 +56,14 @@ module SIF
 
         def type
           if event then :event else :response end
+        end
+
+        def datatype
+          if response? && !response_objects.empty?
+            response_objects.first.datatype
+          elsif event? && event_object
+            event_object.datatype
+          end
         end
 
         def content
