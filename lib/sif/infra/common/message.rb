@@ -60,7 +60,7 @@ module SIF
 
         def datatype
           if response? && !response_objects.empty?
-            response_objects.first.datatype
+            inner_message.response.object_data.datatype
           elsif event? && event_object
             event_object.datatype
           end
