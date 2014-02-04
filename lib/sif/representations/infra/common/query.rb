@@ -14,7 +14,8 @@ module SIF
                    :decorator => QueryObject
           property :condition_group, :as => 'SIF_ConditionGroup',
                    :class => SIF::Infra::Common::ConditionGroup,
-                   :decorator => ConditionGroup
+                   :decorator => ConditionGroup,
+                   :if => lambda { !condition_group.empty? }
 
           property :example, :as => 'SIF_Example'
         end

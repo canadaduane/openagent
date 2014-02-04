@@ -24,8 +24,41 @@ module OpenAgent
         )
       )
     end
+    def condition(cond={})
+        SIF::Infra::Common::Condition.new(
+            :element => cond['element'],
+            :value => cond['value'],
+            :operator => cond['operator']
+        )
+    end
 
-    def request(object_name, condition_group=nil)
+    def conditions(condition_arr={})
+      return false if condition_arr.count == 0
+      condition_arr.map do |c|
+#        require 'pry' ; binding.pry
+        SIF::Infra::Common::Conditions.new(
+            :type => c['cond_type'],
+            :condition => condition(c)
+        )
+      end
+    end
+    def conditions_group(condition_arr={})
+      return false if condition_arr.nil? || condition_arr['conditions'].count == 0
+      if condition_arr['conditions'].count == 1
+        SIF::Infra::Common::ConditionGroup.new(
+          :type => 'None',
+          :conditions => conditions(condition_arr['conditions'])
+          )
+      else
+        SIF::Infra::Common::ConditionGroup.new(
+          :type => condition_arr['group_type'],
+          :conditions => conditions(condition_arr['conditions'])
+          )
+      end
+    end
+    #Condition_hash should = {:type=>"None", :conditions=>[{:type=>"None", :element=>"@SchoolYear", :value=>"2014", :operator=>"EQ"}]}
+
+    def request(object_name, condition_arr={})
       SIF::Infra::Common::Message.new(
         :version => @agent.msg_version,
         :xmlns => @agent.msg_xmlns,
@@ -37,7 +70,7 @@ module OpenAgent
             :query_object => SIF::Infra::Common::QueryObject.new(
               :object_name => object_name
             ),
-            :condition_group => condition_group
+            :condition_group => conditions_group(condition_arr)
           )
         )
       )

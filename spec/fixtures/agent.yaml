@@ -29,3 +29,11 @@ request:
 - StaffPersonal
 - StudentSectionInfo
 respond:
+conditions:
+  conditions:
+    -
+      cond_type: None
+      element: "@SchoolYear"
+      operator: EQ
+      value: 2014
+  group_type: None

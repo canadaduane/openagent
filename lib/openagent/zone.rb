@@ -12,7 +12,7 @@ module OpenAgent
     include Virtus.model
 
     attribute :uri
-    attribute :timeout,      Float, :default => 60
+    attribute :timeout,      Float, :default => 120
     attribute :open_timeout, Float, :default => 30
     attribute :ssl, SSLConfig
   

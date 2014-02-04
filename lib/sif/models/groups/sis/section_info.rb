@@ -34,7 +34,7 @@ module SIF
           end
 
           def teacher
-            first_schedule_info.first_teacher
+            first_schedule_info.first_teacher if first_schedule_info.first_teacher
           end
         end
       end

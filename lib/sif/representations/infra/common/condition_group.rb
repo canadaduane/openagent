@@ -9,8 +9,9 @@ module SIF
           property :type, :as => 'Type', :attribute => true
 
           collection :conditions, :as => 'SIF_Conditions',
-                     :class => SIF::Infra::Common::Condition,
-                     :decorator => Condition
+                     :class => SIF::Infra::Common::Conditions,
+                     :decorator => Conditions
+
         end
       end
     end

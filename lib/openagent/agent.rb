@@ -19,6 +19,7 @@ module OpenAgent
     attribute :publish_delete,  Array[String]
     attribute :request,         Array[String]
     attribute :respond,         Array[String]
+    attribute :conditions,      Hash
 
   end
 end

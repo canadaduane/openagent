@@ -2,6 +2,7 @@ require_relative 'spec_helper'
 require "openagent/message_builder"
 require "openagent/agent"
 require "openagent/zone"
+require "openagent"
 
 describe OpenAgent::MessageBuilder do
 
@@ -24,7 +25,7 @@ describe OpenAgent::MessageBuilder do
   end
 
   def represent(msg)
-    SIF::Representation::Infra::Common::Message.new(msg)
+    SIF.repr(msg)
   end
 
   it "registers" do
@@ -38,8 +39,15 @@ describe OpenAgent::MessageBuilder do
   end
 
 
-  it "requests" do
-    header_checks_out{ builder.request("StudentPersonal", nil) }
+  it "requests without conditions" do
+    msg = header_checks_out{ builder.request("StudentPersonal", nil) }
+    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Request>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Version>2.0r1</SIF_Version>\n    <SIF_MaxBufferSize>64000</SIF_MaxBufferSize>\n    <SIF_Query>\n      <SIF_QueryObject ObjectName=\"StudentPersonal\"/>\n    </SIF_Query>\n  </SIF_Request>\n</SIF_Message>"
+  end
+
+  it "requests with conditions" do
+    conditions_arr = agent.conditions
+    msg = header_checks_out{ builder.request("StudentPersonal", conditions_arr) }
+    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Request>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Version>2.0r1</SIF_Version>\n    <SIF_MaxBufferSize>64000</SIF_MaxBufferSize>\n    <SIF_Query>\n      <SIF_QueryObject ObjectName=\"StudentPersonal\"/>\n      <SIF_ConditionGroup Type=\"None\">\n        <SIF_Conditions Type=\"None\">\n          <SIF_Condition>\n            <SIF_Element>@SchoolYear</SIF_Element>\n            <SIF_Operator>EQ</SIF_Operator>\n            <SIF_Value>2014</SIF_Value>\n          </SIF_Condition>\n        </SIF_Conditions>\n      </SIF_ConditionGroup>\n    </SIF_Query>\n  </SIF_Request>\n</SIF_Message>"
   end
 
   it "pings" do
@@ -72,10 +80,5 @@ describe OpenAgent::MessageBuilder do
   it "provisions" do
     msg = header_checks_out{builder.provision}
     represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Provision>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_ProvideObjects/>\n    <SIF_SubscribeObjects>\n      <SIF_Object ObjectName=\"LEAInfo\"/>\n      <SIF_Object ObjectName=\"SchoolInfo\"/>\n      <SIF_Object ObjectName=\"TermInfo\"/>\n      <SIF_Object ObjectName=\"SchoolCourseInfo\"/>\n      <SIF_Object ObjectName=\"SectionInfo\"/>\n      <SIF_Object ObjectName=\"StudentPersonal\"/>\n      <SIF_Object ObjectName=\"StaffPersonal\"/>\n      <SIF_Object ObjectName=\"StudentSectionInfo\"/>\n    </SIF_SubscribeObjects>\n    <SIF_PublishAddObjects/>\n    <SIF_PublishChangeObjects/>\n    <SIF_PublishDeleteObjects/>\n    <SIF_RequestObjects>\n      <SIF_Object ObjectName=\"LEAInfo\"/>\n      <SIF_Object ObjectName=\"SchoolInfo\"/>\n      <SIF_Object ObjectName=\"TermInfo\"/>\n      <SIF_Object ObjectName=\"SchoolCourseInfo\"/>\n      <SIF_Object ObjectName=\"SectionInfo\"/>\n      <SIF_Object ObjectName=\"StudentPersonal\"/>\n      <SIF_Object ObjectName=\"StaffPersonal\"/>\n      <SIF_Object ObjectName=\"StudentSectionInfo\"/>\n    </SIF_RequestObjects>\n    <SIF_RespondObjects/>\n  </SIF_Provision>\n</SIF_Message>"
-  end
-
-  it "requests" do
-    msg = header_checks_out{builder.request("StudentPersonal")}
-    represent(msg).to_xml.should == "<SIF_Message xmlns=\"http://www.sifinfo.org/infrastructure/2.x\" Version=\"2.0r1\">\n  <SIF_Request>\n    <SIF_Header>\n      <SIF_MsgId>GUUID</SIF_MsgId>\n      <SIF_Timestamp>TIME</SIF_Timestamp>\n      <SIF_SourceId>canvas</SIF_SourceId>\n    </SIF_Header>\n    <SIF_Version>2.0r1</SIF_Version>\n    <SIF_MaxBufferSize>64000</SIF_MaxBufferSize>\n    <SIF_Query>\n      <SIF_QueryObject ObjectName=\"StudentPersonal\"/>\n    </SIF_Query>\n  </SIF_Request>\n</SIF_Message>"
   end
 end

@@ -13,6 +13,7 @@ module SIF
     module Common
       autoload :Application, 'sif/infra/common/application'
       autoload :Condition, 'sif/infra/common/condition'
+      autoload :Conditions, 'sif/infra/common/conditions'
       autoload :ConditionGroup, 'sif/infra/common/condition_group'
       autoload :Data, 'sif/infra/common/data'
       autoload :Error, 'sif/infra/common/error'
@@ -137,6 +138,7 @@ module SIF
       module Common
         autoload :Application, 'sif/representations/infra/common/application'
         autoload :Condition, 'sif/representations/infra/common/condition'
+        autoload :Conditions, 'sif/representations/infra/common/conditions'
         autoload :ConditionGroup, 'sif/representations/infra/common/condition_group'
         autoload :Data, 'sif/representations/infra/common/data'
         autoload :Error, 'sif/representations/infra/common/error'
