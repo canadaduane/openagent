@@ -15,13 +15,15 @@ module SIF
           attribute :credits_attempted, Common::CreditsAttempted
           
           def status
-            if entry_date.past? && exit_date.future?
-              'active'
-            else
-              'deleted'
+            status = 'active'
+            if entry_date && entry_date.past?
+              status = 'active'
             end
+            if exit_date && exit_date.past?
+              status = 'concluded'
+            end
+            return status
           end
-
         end
       end
     end

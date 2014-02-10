@@ -38,6 +38,10 @@ module SIF
           def email_prefix
             first_email.split('@')[0] if first_email
           end
+
+          def other_id
+            other_ids && other_ids.map{ |other_id| other_id.value }.flatten.first
+          end
         end
       end
     end
