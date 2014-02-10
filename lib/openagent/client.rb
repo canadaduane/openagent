@@ -126,6 +126,9 @@ module OpenAgent
           sleep wait_period
         rescue ResponseError => e
           @log.error e
+        rescue Net::OpenTimeout => e
+          @log.error e
+          sleep(5)
         end
       end
     end
