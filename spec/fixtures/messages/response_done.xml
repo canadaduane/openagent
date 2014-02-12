@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<SIF_Message xmlns="http://www.sifinfo.org/infrastructure/2.x" Version="2.0r1">
+   <SIF_Ack>
+      <SIF_Header>
+         <SIF_MsgId>D72C57D4EE0D4E0AB68BD2393B12E51D</SIF_MsgId>
+         <SIF_Timestamp>2013-10-09T10:42:16-06:00</SIF_Timestamp>
+         <SIF_SourceId>canvas</SIF_SourceId>
+      </SIF_Header>
+      <SIF_OriginalSourceId>canvas</SIF_OriginalSourceId>
+      <SIF_OriginalMsgId>088E6810133001313D9314109FD501C1</SIF_OriginalMsgId>
+      <SIF_Status>
+         <SIF_Code>9</SIF_Code>
+      </SIF_Status>
+   </SIF_Ack>
+</SIF_Message>

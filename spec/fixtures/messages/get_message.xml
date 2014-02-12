@@ -1,0 +1,12 @@
+<SIF_Message xmlns="http://www.sifinfo.org/infrastructure/2.x" Version="2.0r1">
+  <SIF_SystemControl>
+    <SIF_Header>
+      <SIF_MsgId>MSG_ID</SIF_MsgId>
+      <SIF_Timestamp>TIMESTAMP</SIF_Timestamp>
+      <SIF_SourceId>canvas</SIF_SourceId>
+    </SIF_Header>
+    <SIF_SystemControlData>
+      <SIF_GetMessage/>
+    </SIF_SystemControlData>
+  </SIF_SystemControl>
+</SIF_Message>

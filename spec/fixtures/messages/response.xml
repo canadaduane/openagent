@@ -28,7 +28,7 @@
                   </SIF_Header>
                   <SIF_RequestMsgId>6B05EF70132C01319D9348E0EB1826A1</SIF_RequestMsgId>
                   <SIF_PacketNumber>209</SIF_PacketNumber>
-                  <SIF_MorePackets>Yes</SIF_MorePackets>
+                  <SIF_MorePackets>No</SIF_MorePackets>
                   <SIF_ObjectData>
                      <StudentPersonal RefId="140A051A0D2B360A1E1F0E251FBA175A">
                         <LocalId>24939</LocalId>

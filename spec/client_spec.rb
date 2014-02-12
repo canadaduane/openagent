@@ -1,6 +1,13 @@
 require_relative "spec_helper"
 require "openagent/client"
 
+def stub_rr(request, response)
+  stub_request(:post, "http://localhost:8765/").
+    with(:body => request,
+         :headers => {'Accept'=>'*/*', 'Content-Type'=>'application/xml', 'User-Agent'=>'Ruby'}).
+    to_return(:status => 200, :body => response, :headers => {})
+end
+
 describe OpenAgent::Client do
 
   context "agent options" do
@@ -8,7 +15,16 @@ describe OpenAgent::Client do
     let(:zone)   { OpenAgent::Zone.new(YAML::load(File.read(fixture('zone.yaml')))) }
   end
 
-  subject(:client) { OpenAgent::Client.new( :name => "canvas", :url => "http://localhost:8765" ) }
+  subject(:client) {
+    OpenAgent::Client.new(
+      :name => "canvas",
+      :url => "http://localhost:8765",
+      :logger => Logger.new(EmptyLogger.new)
+    ).tap do |client|
+      client.builder.guuid = "MSG_ID"
+      client.builder.timestamp = "TIMESTAMP"
+    end
+  }
 
   it "initializes" do
     client.name.should == "canvas"
@@ -26,6 +42,26 @@ describe OpenAgent::Client do
   it "initializes the zone" do
     client.zone.tap do |z|
       z.url.host.should == "localhost"
+    end
+  end
+
+  context "run loop" do
+    it "no message exits loop" do
+      client.stub(:get_message) { nil }
+      client.run_once
+    end
+
+    it "ZIS_NO_MESSAGES exits loop" do
+      stub_rr(File.read(fixture("messages/get_message.xml")),
+              File.read(fixture("messages/response.xml")))
+      stub_rr(File.read(fixture("messages/get_message.xml")),
+              File.read(fixture("messages/response_done.xml")))
+      client.run_once
+    end
+
+    it "empty body raises ResponseError" do
+      stub_rr(File.read(fixture("messages/get_message.xml")), "")
+      lambda { client.run_once }.should raise_error(OpenAgent::ResponseError)
     end
   end
 
