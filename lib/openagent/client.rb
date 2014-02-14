@@ -103,8 +103,8 @@ module OpenAgent
       end while message && message.status_code == ZIS_SUCCESS
     end
 
-    def run(wait_period=30)
-      loop do
+    def run_loop(wait_period=30)
+      Proc.new do
         begin
           run_once
           sleep wait_period
@@ -114,6 +114,14 @@ module OpenAgent
           @log.error e
           sleep(5)
         end
+      end
+    end
+
+    def run(wait_period=30, cycles=nil)
+      if cycles
+        cycles.times(&run_loop(wait_period))
+      else
+        loop(&run_loop(wait_period))
       end
     end
 

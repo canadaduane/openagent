@@ -63,6 +63,14 @@ describe OpenAgent::Client do
       stub_rr(File.read(fixture("messages/get_message.xml")), "")
       lambda { client.run_once }.should raise_error(OpenAgent::ResponseError)
     end
+
+    it "exits after N loops" do
+      stub_rr(File.read(fixture("messages/get_message.xml")),
+              File.read(fixture("messages/response.xml")))
+      stub_rr(File.read(fixture("messages/get_message.xml")),
+              File.read(fixture("messages/response_done.xml")))
+      client.run(0.001, 1)
+    end
   end
 
   context "given a response message" do
