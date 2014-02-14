@@ -14,15 +14,8 @@ module SIF
           attribute :schedule_info_overrides, Array[Common::ScheduleInfoOverride]
           attribute :credits_attempted, Common::CreditsAttempted
           
-          def status
-            status = 'active'
-            if entry_date && entry_date.past?
-              status = 'active'
-            end
-            if exit_date && exit_date.past?
-              status = 'concluded'
-            end
-            return status
+          def status(as_of = Date.today)
+            return (exit_date && as_of > exit_date) ? 'deleted' : 'active'
           end
         end
       end
