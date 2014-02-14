@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    openagent (0.9.2)
+    openagent (0.9.4)
       activesupport
       representable (~> 1.7.3)
       uuid
